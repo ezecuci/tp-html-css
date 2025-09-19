@@ -49,13 +49,14 @@ body{
     border-radius: 6px;
     padding: .2rem 1rem;
     cursor: pointer;
-    background: #4a85bd;
+    /* background: #4a85bd; */
     border: .1rem solid transparent;
-    transition-duration: .2s; 
+    /* transition-duration: .1s;  */
     transition-timing-function: ease-in-out;
  }
  .header__nav-element-link:hover{
-    background: #0000003d;
+    /* background: #0000001a; */
+    border: .1rem solid #fdf1ee;
  }
 
 
