@@ -87,7 +87,7 @@ main{
 .top__image img{
     width: 100%;
     object-fit: cover;
-    object-position: 0 -515px;
+    object-position: 0 -490px;
 }
 .top__image-content-card{
     position: absolute;
@@ -108,3 +108,43 @@ main{
     font-size: .9rem ;
     font-weight: 100px;
 }
+.main__container-enrollment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.main__container-enrollment h2{
+    text-align:center;
+    padding: 4rem 0 ;
+    width: 40rem;
+    color: #fff;
+    font-weight: 300;
+}
+.main__enrollment-steps{
+    display: flex;
+    flex-direction: row;
+    gap: 5.5rem;
+    list-style-type: none;
+}
+.enrollment-step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to top, transparent, #5B89A6, transparent);
+    padding: 1rem;
+    border-radius: 40px
+}
+.main__enrollment-steps img{
+    border-radius: 100%;
+    width: 210px;
+}
+.main__enrollment-steps p{
+    width: 190px ;
+    text-align: center;
+    color:#ffffff;
+    font-weight: 400;
+    padding: .5rem;
+}
+
