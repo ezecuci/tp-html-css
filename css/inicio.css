@@ -61,17 +61,26 @@ body{
     align-content: center;
     text-align: center;
 } 
- .header__nav-element-link:hover{
+.header__nav-element-link:hover{
     background: #ffffff3b;
- }
-  .header__cart-white{
+}
+.header__cart-white{
     position: fixed;
     z-index: 4;
     top: .55rem;
     right: .6rem;
     width: 3rem;
-  } 
-  .header__cart-white:hover{
+} 
+.header__cart-white:hover{
      cursor: pointer;
      opacity: 60%;
-  } 
+} 
+.top__image{
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+}
+.top__image img{
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 -120px;
