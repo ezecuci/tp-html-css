@@ -9,6 +9,8 @@ body{
     height: 2000px;
 }
 .header{
+    box-sizing: border-box;
+    margin: 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -78,6 +80,9 @@ body{
 main{
     position: relative;
     z-index: -10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .top__image{
     width: 100%;
@@ -147,4 +152,48 @@ main{
     font-weight: 400;
     padding: .5rem;
 }
-
+.cursos__container{
+    margin-top: 6rem;
+    align-content: center;
+    height: 60rem;
+    width: 70rem;
+    background-image: url(../images/fondo\ cursos1.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 70px;
+    
+}
+.cursos__cards{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 4rem  ;
+    justify-content: center;
+}
+.card{
+    flex:0 0 33.33%;
+    display: flex;
+    height: 22rem;
+    max-width: 17rem;
+    background: linear-gradient(to top, transparent, #F20505, transparent);
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 40px;
+}
+.card div{
+    margin-top: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.card div img{
+    height: 18rem;
+    object-fit: cover;
+    object-position: center;
+}
