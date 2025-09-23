@@ -158,6 +158,7 @@ main{
     padding: .5rem;
 }
 .cursos__container{
+    z-index: -2;
     margin-top: 6rem;
     align-content: center;
     height: 60rem;
@@ -166,8 +167,7 @@ main{
     background-size: cover;
     background-position: center;
     border-radius: 70px;
-    
-}
+    position: relative;
 .cursos__cards{
     width: 100%;
     display: flex;
@@ -182,7 +182,7 @@ main{
     display: flex;
     height: 22rem;
     max-width: 17rem;
-    background: linear-gradient(to top, transparent, #F20505, transparent);
+    background: linear-gradient(to top, transparent, #000000, transparent);
     justify-content: center;
     padding: 1rem;
     border-radius: 40px;
