@@ -14,6 +14,7 @@ body{
     height: 2000px;
 }
 .header{
+    z-index: 1;
     box-sizing: border-box;
     margin: 0;
     position: fixed;
@@ -73,7 +74,6 @@ body{
 }
 .header__cart-white{
     position: fixed;
-    z-index: 4;
     top: .9rem;
     right: .8rem;
     width: 2.4rem;
@@ -84,7 +84,7 @@ body{
 } 
 main{
     position: relative;
-    z-index: -10;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,47 +158,83 @@ main{
     padding: .5rem;
 }
 .cursos__container{
-    z-index: -2;
+    z-index: 0;
     margin-top: 6rem;
     align-content: center;
-    height: 60rem;
+    height: 70rem;
     width: 70rem;
     background-image: url(../images/fondo\ cursos1.jpg);
     background-size: cover;
     background-position: center;
     border-radius: 70px;
-    position: relative;
+}
 .cursos__cards{
-    width: 100%;
     display: flex;
     flex-direction: row;
     list-style: none;
     flex-wrap: wrap;
-    gap: 4rem  ;
+    gap: 5rem  ;
     justify-content: center;
 }
 .card{
-    flex:0 0 33.33%;
+    flex: 0 0 33.33%;
     display: flex;
-    height: 22rem;
+    flex-direction: column;
+    height: 27rem;
     max-width: 17rem;
-    background: linear-gradient(to top, transparent, #000000, transparent);
-    justify-content: center;
-    padding: 1rem;
+    background: linear-gradient(to top, transparent, #F20505, transparent);
+    justify-content: space-between;
+    align-items:center;
+    padding: 1.5rem;
     border-radius: 40px;
+    text-align: center;
 }
-.card div{
-    margin-top: .8rem;
+.card__img{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 13rem;
     height: 13rem;
     width: 13rem;
+    min-width: 13rem;
     border-radius: 100%;
     overflow: hidden;
 }
-.card div img{
+.card__img a img{
     height: 18rem;
-    object-fit: cover;
-    object-position: center;
+    transition:  0.3s ease-in-out;
+}
+.card__img a img:hover  {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.card a{
+    color: #fff;
+    font-size: small;
+    text-decoration: none; 
+}
+.card a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.curso__detail{
+    max-height: 9rem;
+    text-align: center;
+}
+.card a button{
+    color: #ffffff;
+    font-size: small;
+    width: 8rem;
+    background: rgba(0, 0, 0, 0.582);
+    border: none;
+    height: 2rem;
+    border-radius: 10px;
+    transition: .2s ease-out;
+}
+.card a button:hover{
+    cursor: pointer;
+    font-size: medium;
+    background: rgba(0, 0, 0, 0.918);
+    height: 2.6rem;
+    width: 9rem;
 }
