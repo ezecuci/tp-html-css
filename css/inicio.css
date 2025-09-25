@@ -9,11 +9,13 @@
     margin: 0px;
     padding: 0px;
 }
-body{
+
+body {
     background: #032340;
-    height: 2000px;
+    height: 2600px;
 }
-.header{
+
+.header {
     z-index: 1;
     box-sizing: border-box;
     margin: 0;
@@ -29,77 +31,90 @@ body{
     align-items: center;
     padding: 0 0 0 6rem;
 }
-.header__left-home-link{
+
+.header__left-home-link {
     text-decoration: none;
     color: #fff;
     font-size: 1.3rem;
-    font-weight:bold;
+    font-weight: bold;
     border-radius: 4px;
     padding: .2rem 2rem;
     cursor: pointer;
     background: #032340;
     border: .1rem solid transparent;
-    transition-duration: .2s; 
-    transition-timing-function:ease-out;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
 }
-.header__left-home-link:hover{
+
+.header__left-home-link:hover {
     background: #0000003b;
     border: 1xp solid rgb(255, 255, 255);
 }
-.header__nav{
+
+.header__nav {
     height: 100%;
 }
-.header__nav-elements{
+
+.header__nav-elements {
     display: flex;
     flex-direction: row;
     list-style-type: none;
     padding-right: 6rem;
     height: 100%;
 }
-.header__nav-element{
+
+.header__nav-element {
     display: flex;
 }
-.header__nav-element-link{
+
+.header__nav-element-link {
     text-decoration: none;
     color: #fff;
     font-size: 1.3rem;
-    font-weight:400;
+    font-weight: 400;
     width: 12rem;
     cursor: pointer;
     align-content: center;
     text-align: center;
-} 
-.header__nav-element-link:hover{
+}
+
+.header__nav-element-link:hover {
     background: #ffffff3b;
 }
-.header__cart-white{
+
+.header__cart-white {
     position: fixed;
     top: .9rem;
     right: .8rem;
     width: 2.4rem;
-} 
-.header__cart-white:hover{
-     cursor: pointer;
-     opacity: 60%;
-} 
-main{
+}
+
+.header__cart-white:hover {
+    cursor: pointer;
+    opacity: 60%;
+}
+
+main {
     position: relative;
     z-index: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.top__image{
+
+.top__image {
     width: 100%;
     height: 27rem;
     overflow: hidden;
 }
-.top__image img{
+
+.top__image img {
     width: 100%;
     object-fit: cover;
     object-position: 0 -490px;
 }
-.top__image-content-card{
+
+.top__image-content-card {
     position: absolute;
     z-index: 0;
     top: 15rem;
@@ -109,36 +124,42 @@ main{
     background: #ffffff;
     padding: 1.5rem;
 }
-.top__image-content-card h3{
+
+.top__image-content-card h3 {
     padding-bottom: .5rem;
     font-size: 1.4rem;
 }
-.top__image-content-card p{
+
+.top__image-content-card p {
     text-align: justify;
-    font-size: .9rem ;
+    font-size: .9rem;
     font-weight: 100px;
 }
-.main__container-enrollment{
+
+.main__container-enrollment {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.main__container-enrollment h2{
-    text-align:center;
-    padding: 4rem 0 ;
+
+.main__container-enrollment h2 {
+    text-align: center;
+    padding: 4rem 0;
     width: 40rem;
     color: #fff;
     font-weight: 300;
 }
-.main__enrollment-steps{
+
+.main__enrollment-steps {
     display: flex;
     flex-direction: row;
     gap: 5.5rem;
     list-style-type: none;
 }
-.enrollment-step{
+
+.enrollment-step {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,50 +167,61 @@ main{
     padding: 1rem;
     border-radius: 40px
 }
-.main__enrollment-steps img{
+
+.main__enrollment-steps img {
     border-radius: 100%;
     width: 210px;
 }
-.main__enrollment-steps p{
-    width: 190px ;
+
+.main__enrollment-steps p {
+    width: 190px;
     text-align: center;
-    color:#ffffff;
+    color: #ffffff;
     font-weight: 400;
     padding: .5rem;
 }
-.cursos__container{
+
+.cursos__container {
     z-index: 0;
-    margin-top: 6rem;
+    margin: 7rem 0;
     align-content: center;
-    height: 70rem;
     width: 70rem;
     background-image: url(../images/fondo\ cursos1.jpg);
     background-size: cover;
     background-position: center;
     border-radius: 70px;
 }
-.cursos__cards{
+
+.cursos__cards {
     display: flex;
     flex-direction: row;
     list-style: none;
     flex-wrap: wrap;
-    gap: 5rem  ;
+    gap: 5rem;
     justify-content: center;
+    padding: 5rem 0 5rem 0;
 }
-.card{
+
+.card {
     flex: 0 0 33.33%;
     display: flex;
     flex-direction: column;
     height: 27rem;
     max-width: 17rem;
-    background: linear-gradient(to top, transparent, #F20505, transparent);
+    background: linear-gradient(to top, transparent, #8C0303, transparent);
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     padding: 1.5rem;
     border-radius: 40px;
     text-align: center;
 }
-.card__img{
+
+/*  #590202
+    #8C0303
+    #F20505
+    #5B89A6
+    #032340   Paleta utilizada        */
+.card__img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,28 +232,34 @@ main{
     border-radius: 100%;
     overflow: hidden;
 }
-.card__img a img{
+
+.card__img a img {
     height: 18rem;
-    transition:  0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
-.card__img a img:hover  {
+
+.card__img a img:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
-.card a{
+
+.card a {
     color: #fff;
     font-size: small;
-    text-decoration: none; 
+    text-decoration: none;
 }
+
 .card a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
-.curso__detail{
+
+.curso__detail {
     max-height: 9rem;
     text-align: center;
 }
-.card a button{
+
+.card a button {
     color: #ffffff;
     font-size: small;
     width: 8rem;
@@ -231,10 +269,146 @@ main{
     border-radius: 10px;
     transition: .2s ease-out;
 }
-.card a button:hover{
+
+.card a button:hover {
     cursor: pointer;
     font-size: medium;
     background: rgba(0, 0, 0, 0.918);
     height: 2.6rem;
     width: 9rem;
+    border-radius: 13px;
+}
+
+.cursos__title {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    color: rgb(255, 255, 255);
+    font-size: 2.2rem;
+}
+
+.cursos__title h2 {
+    font-weight: lighter
+}
+
+/*  #590202
+    #8C0303
+    #F20505
+    #5B89A6
+    #032340   Paleta utilizada        */
+.logos__slide img {
+    height: 55px;
+    padding: .4rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.288);
+}
+
+.logos {
+    padding: .5rem 0;
+    overflow: hidden;
+    margin-bottom: 4rem;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.logos__slide {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logos__title {
+    text-align: center;
+    padding: .5rem;
+    font-size: 1.15rem;
+    font-weight: 200;
+    color: #ffffff;
+    border-radius: 7px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+    justify-content: center;
+    background: #5B89A6;
+}
+
+.footer__title {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: .2rem 2rem;
+    cursor: pointer;
+    background: #000000;
+    border: .1rem solid transparent;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 0 3rem;
+}
+
+.footer__paragraph,
+.footer__container {
+    text-align: center;
+}
+
+.footer__flex {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.footer__flex h2 {
+    color: #fff;
+}
+
+.footer__elements {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+}
+
+.footer__element {
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.footer__link {
+    text-decoration: none;
+}
+
+.footer__link,
+.footer__element,
+.footer__paragraph {
+    color: #ffffff;
+}
+
+.footer__elements-social {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.footer__paragraph {
+    padding: 0 1rem;
+}
+
+.footer__link:hover {
+    color: rgba(255, 255, 255, 0.664);
 }
