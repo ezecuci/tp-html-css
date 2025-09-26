@@ -15,8 +15,18 @@
   </head>
   <body>
     <header class="header">
-      <div class="header__left">
+      <div class="header__left" ord>
         <a class="header__left-home-link" href="./index.html">cheCode</a>
+      </div>
+      <div class="header__search">
+        <input type="text" list="busqueda" name="buscador" placeholder="Buscar" aria-placeholder="">
+        <datalist id="busqueda">
+          <option value="HTML">
+          <option value="CSS">
+          <option value="JavaScript">
+          <option value="React">
+          <option value="Python">
+        </datalist>
       </div>
       <nav class="header__nav">
         <ul class="header__nav-elements">
@@ -45,8 +55,8 @@
           <img
             class="header__cart-white"
             src="./images/carrito blanco.png"
-            alt="carrito blanco"
-          />
+            alt="carrito blanco"/>
+          <p>+3</p>
         </a>
       </div>
     </header>
@@ -212,7 +222,7 @@
       </section>
       <section class="logos">
         <p class="logos__title">
-          Estos son nuestros medios de pago, diseñados para tu comodidad y seguridad.
+          Medios de pago disponibles
         </p>
         <div class="logos__slide">
           <img src="./images/payment-icons/AMERICAN PNG1.png" alt="">
@@ -284,7 +294,7 @@
         </div>
       </div>
       <p class="footer__paragraph">
-        © Programacion Web I - Tec en Desarrollo Web - UNLaM - 2025 
+        © Programación Web I - Tecnicatura en Desarrollo Web - UNLaM - 2025 
       </p>
     </footer>
   </body>
