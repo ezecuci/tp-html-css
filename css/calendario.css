@@ -1,0 +1,59 @@
+.calendario {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    align-content: start;
+
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+    padding: 20px;
+}
+
+.cartel2025{
+    background-color: #5B89A6;
+    background-image: url(../images/fondo\ cursos1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    
+    margin-top: 30px;
+
+}
+
+.cartel2025 h1{
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+.cartel2025 p {
+    font-size: 1.2em;
+    line-height: 1.5em;
+
+}
+
+.espacioCurso {
+
+
+
+    background: #5B89A6;
+
+    padding: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.espacioCurso p {
+
+    font-weight: normal;
+    text-align: left;
+}
+
+.espacioCurso img {
+    max-width: 200px;
+    max-height: 200px;
+}
