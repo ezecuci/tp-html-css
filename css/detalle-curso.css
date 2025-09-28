@@ -1,0 +1,276 @@
+body {
+    background: #032340;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .info-curso {
+    margin-top: 6rem; 
+    background: rgba(0,0,0,0.2);
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .info-curso_img {
+    flex: 0 0 12.5rem; 
+  }
+  
+  .info-curso_img img {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  .info-curso_datos {
+    flex: 1;
+  }
+  
+  .info-curso_datos h1 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .info-curso_especificaciones {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+  .info-curso_especificaciones li {
+    margin: 0.5rem 0;
+  }
+  
+  .btn-primario {
+    width: 20%;
+    display: block;
+    background-color: red;
+    color: #cccccc;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 500;
+    border-radius: 0.4rem;
+  }
+  .btn-primario:hover {
+    background: #700000;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .info-curso_contenido {
+    margin: 2rem 0;
+  }
+  
+  .info-curso_contenido h2 {
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  
+  .modulo {
+    background: rgba(0,0,0,0.2);
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    border-radius: 0.6rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+  
+  .modulo h3 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .clases {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .clase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.0625rem solid rgba(255,255,255,0.2);
+    padding: 0.5rem 0;
+  }
+
+  
+  .titulo {
+    flex: 1;
+    margin: 0;
+  }
+  
+  .estado_pendiente {
+    color: #F20505;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  .estado_completado {
+    color: #38d36a;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  .duracion {
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .docente {
+    margin: 2rem;
+    color: #ffffff;
+  }
+  
+  .docente h2 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+  
+  .docente_card {
+    background: rgba(0,0,0,0.2);
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .docente_foto {
+    flex: 0 0 5rem;
+  }
+  
+  .docente_foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+  }
+  
+  .docente_info {
+    flex: 1;
+  }
+  
+  .docente_nombre {
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+  }
+  
+  .docente_estrellas {
+    margin: 0 0 0.5rem 0;
+    color: #ffd54a;
+  }
+  
+  .docente_estrellas .off {
+    color: #999999;
+    opacity: 0.4;
+  }
+  
+  .docente_bio {
+    margin: 0.25rem 0;
+  }
+
+.otros-cursos { 
+    margin: 2rem; 
+}
+.otros-cursos h2 { 
+    margin-bottom: 1rem; 
+    font-weight: 600; 
+}
+
+.lista-cursos {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-curso {
+  background: rgba(255,255,255,0.05);
+  border: 0.0625rem solid rgba(255,255,255,0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 22%;
+}
+
+.foto-precio { 
+    position: relative; 
+}
+
+.foto-precio img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.precio {
+  position: absolute;
+  right: 0;
+  bottom: 3rem;
+  background: #000000;
+  color: #ffffff;
+  padding: 0.15rem 0.4rem;
+  font-size: 1rem;
+}
+
+.pie-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.horas {
+  margin: 0;
+  font-size: 1.5rem;    
+  font-weight: 600;
+}
+
+
+.lado-derecho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.titulo-curso {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.ver-detalle {
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.ver-detalle:hover{
+    color: red
+  }
+
+.btn-comprar {
+  background: #bdbdbd;
+  color: #333333;
+  cursor: default;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.btn-comprar:hover {
+    background-color: #38d36a;
+    color: black;
+    font-weight: 500;
+  }
+
+
+
+  
