@@ -56,6 +56,7 @@ body {
   .btn-primario:hover {
     background: #700000;
     font-weight: 600;
+    color: white;
   }
   
   .info-curso_contenido {
@@ -114,6 +115,61 @@ body {
   .duracion {
     opacity: 0.9;
     margin: 0;
+  }
+
+  .docente {
+    margin: 2rem;
+    color: #ffffff;
+  }
+  
+  .docente h2 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+  
+  .docente_card {
+    background: rgba(0,0,0,0.2);
+    border: 0.0625rem solid rgba(255,255,255,0.3);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .docente_foto {
+    flex: 0 0 5rem;
+  }
+  
+  .docente_foto img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+  }
+  
+  .docente_info {
+    flex: 1;
+  }
+  
+  .docente_nombre {
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+  }
+  
+  .docente_estrellas {
+    margin: 0 0 0.5rem 0;
+    color: #ffd54a;
+  }
+  
+  .docente_estrellas .off {
+    color: #999999;
+    opacity: 0.4;
+  }
+  
+  .docente_bio {
+    margin: 0.25rem 0;
   }
   
   
