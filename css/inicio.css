@@ -3,6 +3,7 @@
     #F20505
     #5B89A6
     #032340   Paleta utilizada        */
+
 * {
     box-sizing: border-box;
     font-family: Poppins;
@@ -12,7 +13,9 @@
 
 body {
     background: #032340;
-    height: 2600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -34,7 +37,11 @@ body {
     flex-wrap: nowrap;
 }
 
+.header__left{
+  flex: 0 1 19%;
+}
 .header__left-home-link {
+    width: 100%;
     text-decoration: none;
     color: #fff;
     font-size: 1.3rem;
@@ -53,11 +60,13 @@ body {
     border: 1xp solid rgb(255, 255, 255);
 }
 .header__search{
-    height: 100%;
+    flex: 0 1 19%;
     display: flex;
     align-items: center;
+    margin-left: 1rem;
 }
 .header__search input{
+    
     background: url(../images/zzzzzzzzzzzzz.png) white;
     background-repeat: no-repeat;
     background-position: 3px center ;
@@ -80,7 +89,9 @@ body {
    font-size: 1rem;
 }
 .header__nav {
+    flex: 0 1 50%;
     height: 100%;
+    display: flex;
 }
 
 .header__nav-elements {
@@ -89,12 +100,13 @@ body {
     list-style-type: none;
     flex-wrap: nowrap;
     height: 100%;
+    flex: 1 1 20%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 8rem */
+   
 }
 
 .header__nav-element {
     display: flex;
-    flex: 1 1 8rem; /* flex-grow: 1, flex-shrink: 1, flex-basis: 8rem */
-    max-width: 12rem;
+
 }
 
 .header__nav-element-link {
@@ -102,7 +114,7 @@ body {
     color: #fff;
     font-size: 1.3rem;
     font-weight: 400;
-    width: 12rem;
+    
     min-width: 8rem;
     cursor: pointer;
     align-content: center;
@@ -112,7 +124,10 @@ body {
 .header__nav-element-link:hover {
     background: #ffffff3b;
 }
-
+.header__cart{
+  flex: 0 1 3%;
+  margin-left: 1rem;
+}
 .header__cart a{
     color: #fff;
     font-size: 1rem;
@@ -121,6 +136,7 @@ body {
     flex-direction: row;
     text-decoration: none;
     align-items: center;
+    justify-content: flex-end;
 }
 .header__cart-white {
     width: 2.4rem;
@@ -230,7 +246,7 @@ main {
     background-size: cover;
     background-position: center;
     border-radius: 70px;
-     box-shadow: -4px 4px 10px 3px #000000a9;
+    box-shadow: -4px 4px 10px 3px #000000a9;
 }
 
 .cursos__cards {
@@ -454,12 +470,398 @@ footer {
 }
 .footer__link img:hover {
     opacity: .7;
+
+}
+    @media screen and (max-width: 900px) {
+
+  /* html{
+    font-size: 12px;
+  } */
+  .header {
+    flex-direction: row;
+    height: auto;
+    padding: .5rem .5rem 0 .5rem;
+    flex-wrap: wrap;
+  }
+  .header div, .header nav{
+    flex: 1 1 20%;
+    justify-items:stretch;
+  }
+
+  .header div:nth-child(2) {
+    margin-left: 2rem;
+    flex: 1 1 30%;
+  }
+  .header__left{
+    order:1;
+  }
+  .header__left-home-link {
+    font-size: 1rem;
+    padding: .2rem 1rem;
+  }
+
+  .header__search{
+    order:2;
+  }
+  .header__search input {
+    width: 100%;
+    padding-left: 1.7rem;
+    background-size: 20px;
+    height: 1.6rem;
+    font-size: .8rem;
+  }
+  .header__nav{
+    margin-top: .2rem;
+    order: 4;
+  }
+  .header__nav-elements {
+    flex-direction: row;
+    gap: .2rem;
+    justify-content: space-around;
+  }
+
+  .header__nav-element-link {
+    font-size: 1rem;
+    width: 100%;
+  
+    height: 2.2rem;
+  }
+  .header__cart{
+    display: flex;
+    justify-content: flex-end;
+    order: 3;
+  }
+  .header__cart p {
+    font-size: .8rem;
+  }
+  
+   .header__cart-white {
+    width: 2rem;
+  }
+  
+  .top__image {
+    height: 23rem;
+  }
+  .top__image img {
+    object-position: center;
+    object-fit: cover;
+    object-position: -30px 5px ;
+    transform: scale(1.7);
+  }
+
+ .top__image-content-card {
+    position: absolute;
+    z-index: 0;
+    top: 14rem;
+    left: 1rem;
+    color: rgb(0, 0, 0);
+    width: 20rem;
+    background: #ffffff;
+    padding: .8rem;
 }
 
+.top__image-content-card h3 {
+    padding-bottom: .5rem;
+    font-size: .9rem;
+}
+
+.top__image-content-card p {
+    text-align: justify;
+    font-size: .7rem;
+    font-weight: 100px;
+}
+.main__container-enrollment h2 {
+    width: auto;
+    font-size: 1.1rem;
+    padding: 2rem 1rem;
+  }
+
+   .main__enrollment-steps {
+    display: flex;
+    flex-direction: row;
+    padding: 1.1rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 3%;
+    row-gap: 2rem;
+  }
+   .enrollment-step{
+    width: 10.2rem;
+    padding: 1.1rem 0;
+   }
+  .enrollment-step img {
+    width: 8rem;
+  }
+  .main__enrollment-steps p {
+    font-size: .8rem;
+    width: 8rem;
+  }
+
+ 
+  .cursos__container {
+    width: 95%;
+    margin: 3rem auto;
+    border-radius: 20px;
+  }
+
+  .cursos__title {
+    font-size: 1.2rem;
+    padding: 1rem 0 1.3rem 0;
+    font-weight:;
+  }
+
+  .cursos__cards {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    align-content: center;
+  }
+
+  .card {
+    max-width: 80%;
+    min-height:27rem;
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 17rem;
+  }
+
+  .card__img {
+    height: 9rem;
+  }
+
+  .card__img a img {
+    height: 10rem;
+    object-fit: cover;
+    transform: scale(1.7);
+  }
+  .card__img a img:hover {
+    transform: scale(2);
+  }
+
+  .card a button {
+    width: 6.5rem;
+    height: 2rem;
+    font-size: .8rem;
+  }
+
+  .logos__slide img {
+    height: 45px;
+    background: #0000003b;
+  }
+  .logos__slide {
+    display: flex;
+    flex-direction: row;
+  }
+  .logos {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+
+  html{
+    font-size: 16px;
+  }
+  body {
+    height: auto; 
+  }
+
+  .header {
+    flex-direction: row;
+    height: auto;
+    padding: .5rem .5rem 0 .5rem;
+    flex-wrap: wrap;
+  }
+  .header div, .header nav{
+    flex: 1 1 20%;
+    justify-items:stretch;
+  }
+
+  .header div:nth-child(2) {
+    margin-left: 2rem;
+    flex: 1 1 30%;
+  }
+  .header__left{
+    order:1;
+  }
+  .header__left-home-link {
+    font-size: 1rem;
+    padding: .2rem 1rem;
+  }
+
+  .header__search{
+    order:2;
+  }
+  .header__search input {
+    width: 100%;
+    padding-left: 1.7rem;
+    background-size: 20px;
+    height: 1.6rem;
+    font-size: .8rem;
+  }
+  .header__nav{
+    margin-top: .2rem;
+    order: 4;
+  }
+  .header__nav-elements {
+    flex-direction: row;
+    gap: .2rem;
+  }
+
+  .header__nav-element-link {
+    font-size: 1rem;
+    width: 100%;
+    min-width: auto;
+    height: 2.2rem;
+  }
+  .header__cart{
+    display: flex;
+    justify-content: flex-end;
+    order: 3;
+  }
+  .header__cart p {
+    font-size: .8rem;
+  }
+  
+   .header__cart-white {
+    width: 2rem;
+  }
+  
+  .top__image {
+    height: 23rem;
+  }
+  .top__image img {
+    object-position: center;
+    object-fit: cover;
+    object-position: -30px 5px ;
+    transform: scale(1.7);
+  }
+
+ .top__image-content-card {
+    position: absolute;
+    z-index: 0;
+    top: 14rem;
+    left: 1rem;
+    color: rgb(0, 0, 0);
+    width: 20rem;
+    background: #ffffff;
+    padding: .8rem;
+}
+
+.top__image-content-card h3 {
+    padding-bottom: .5rem;
+    font-size: .9rem;
+}
+
+.top__image-content-card p {
+    text-align: justify;
+    font-size: .7rem;
+    font-weight: 100px;
+}
+.main__container-enrollment h2 {
+    width: auto;
+    font-size: 1.1rem;
+    padding: 2rem 1rem;
+  }
+
+
+   .main__enrollment-steps {
+    display: flex;
+    flex-direction: row;
+    padding: 1.1rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 3%;
+    row-gap: 2rem;
+  }
+   .enrollment-step{
+    width: 10.2rem;
+    padding: 1.1rem 0;
+   }
+  .enrollment-step img {
+    width: 8rem;
+  }
+  .main__enrollment-steps p {
+    font-size: .8rem;
+    width: 8rem;
+  }
+
+ 
+  .cursos__container {
+    width: 95%;
+    margin: 3rem auto;
+    border-radius: 20px;
+  }
+
+  .cursos__title {
+    font-size: 1.2rem;
+    padding: 1rem 0 1.3rem 0;
+    font-weight:;
+  }
+
+  .cursos__cards {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    align-content: center;
+  }
+
+  .card {
+    max-width: 80%;
+    min-height:27rem;
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 17rem;
+  }
+
+  .card__img {
+    height: 9rem;
+  }
+
+  .card__img a img {
+    height: 10rem;
+    object-fit: cover;
+    transform: scale(1.7);
+  }
+  .card__img a img:hover {
+    transform: scale(2);
+  }
+
+  .card a button {
+    width: 6.5rem;
+    height: 2rem;
+    font-size: .8rem;
+  }
+
+  .logos__slide img {
+    height: 45px;
+    background: #0000003b;
+  }
+  .logos__slide {
+    display: flex;
+    flex-direction: row;
+  }
+  .logos {
+    margin-bottom: 3rem;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer__flex h2 {
+    font-size: 1rem;
+  }
+
+  .footer__paragraph {
+    font-size: .7rem;
+  }
+}
 @media screen and (max-width: 400px) {
 
   body {
-    height: auto; /* que crezca según el contenido */
+    height: auto;
   }
 
   .header {
@@ -530,7 +932,7 @@ footer {
   .top__image img {
     object-position: center;
     object-fit: cover;
-    object-position: -20px -30px ;
+    object-position: -20px 0px ;
     transform: scale(1.25);
   }
 
@@ -638,4 +1040,10 @@ footer {
   .footer__paragraph {
     font-size: .7rem;
   }
+}
+@media screen and (max-width: 319px) {
+  html{
+    font-size: 12px;
+  }
+
 }
