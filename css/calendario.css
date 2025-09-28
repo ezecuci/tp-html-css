@@ -12,7 +12,7 @@
     padding: 20px;
 }
 
-.cartel2025{
+.cartel2026 {
     background-color: #5B89A6;
     background-image: url(../images/fondo\ cursos1.jpg);
     background-size: cover;
@@ -21,15 +21,16 @@
     color: white;
     padding: 40px 20px;
     text-align: center;
-    
+
     margin-top: 30px;
 
 }
 
-.cartel2025 h1{
+.cartel2025 h1 {
     font-size: 3em;
     margin-bottom: 20px;
 }
+
 .cartel2025 p {
     font-size: 1.2em;
     line-height: 1.5em;
@@ -56,4 +57,12 @@
 .espacioCurso img {
     max-width: 200px;
     max-height: 200px;
+}
+
+.pruebaHoover {
+    text-decoration: none;
+    color: inherit;
+}
+.pruebaHoover:hover{
+    text-decoration: underline;
 }
