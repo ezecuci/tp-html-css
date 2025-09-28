@@ -171,5 +171,106 @@ body {
   .docente_bio {
     margin: 0.25rem 0;
   }
-  
+
+.otros-cursos { 
+    margin: 2rem; 
+}
+.otros-cursos h2 { 
+    margin-bottom: 1rem; 
+    font-weight: 600; 
+}
+
+.lista-cursos {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-curso {
+  background: rgba(255,255,255,0.05);
+  border: 0.0625rem solid rgba(255,255,255,0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  width: 22%;
+}
+
+.foto-precio { 
+    position: relative; 
+}
+
+.foto-precio img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.precio {
+  position: absolute;
+  right: 0;
+  bottom: 3rem;
+  background: #000000;
+  color: #ffffff;
+  padding: 0.15rem 0.4rem;
+  font-size: 1rem;
+}
+
+.pie-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.horas {
+  margin: 0;
+  font-size: 1.5rem;    
+  font-weight: 600;
+}
+
+
+.lado-derecho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.titulo-curso {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.ver-detalle {
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.ver-detalle:hover{
+    color: red
+  }
+
+.btn-comprar {
+  background: #bdbdbd;
+  color: #333333;
+  cursor: default;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.btn-comprar:hover {
+    background-color: #38d36a;
+    color: black;
+    font-weight: 500;
+  }
+
+
+
   
