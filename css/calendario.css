@@ -1,15 +1,29 @@
 .calendario {
-    margin-top: 100px;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-content: start;
-
-    gap: 20px;
-    padding: 20px;
+    margin: 50px;
+    gap: 3px;
     height: auto;
+
+}
+
+.tituloMes {
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 60px;
     padding: 20px;
+    background-image: url(../images/oficina\ developer\ 1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    color: white;
 }
 
 .cartel2026 {
@@ -21,8 +35,7 @@
     color: white;
     padding: 40px 20px;
     text-align: center;
-
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 
@@ -34,24 +47,27 @@
 .cartel2025 p {
     font-size: 1.2em;
     line-height: 1.5em;
-
 }
 
 .espacioCurso {
-
-
-
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
     background: #5B89A6;
-
-    padding: 20px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: left;
+    height: 120px;
 }
 
 .espacioCurso p {
-
+    color: white;
     font-weight: normal;
-    text-align: left;
+    text-align: center;
+    padding: 10px;
+    background-color: #032340;
 }
 
 .espacioCurso img {
@@ -63,6 +79,22 @@
     text-decoration: none;
     color: inherit;
 }
-.pruebaHoover:hover{
+
+.pruebaHoover:hover {
     text-decoration: underline;
+    color: white;
+}
+
+.numeroDia {
+    display: block;
+    text-align: center;
+    font-size: medium;
+
+}
+
+.espacioCurso h2 {
+    text-align: center;
+    padding: 1px;
+    margin-top: 1px;
+
 }
