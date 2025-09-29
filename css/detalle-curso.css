@@ -113,7 +113,7 @@ body {
   }
   
   .duracion {
-    opacity: 0.9;
+    color: #cccccc;
     margin: 0;
   }
 
@@ -263,6 +263,7 @@ body {
   padding: 0.35rem 0.6rem;
   border-radius: 0.3rem;
   font-size: 0.85rem;
+  cursor: pointer;
 }
 
 .btn-comprar:hover {
@@ -270,6 +271,32 @@ body {
     color: black;
     font-weight: 500;
   }
+
+.bloqueado {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bloqueado .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(20,20,20,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .bloqueado .overlay p {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    background: rgba(0,0,0,0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+  }
+  
 
 
 
