@@ -27,67 +27,69 @@ main {
 }
 
 .form__elements {
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1em;
   width: 100%;
 }
 
-.form__input-name {
-  height: 5em;
+.form__elements input,
+textarea {
+  color: hsl(0, 0%, 75%);
+  background-color: #103658;
+  border: none;
+  text-align: start;
+  padding: 10px;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
+  height: 5em;
 }
 
-.form__input-surname {
-  height: 5em;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
-}
-
-.form__input-email {
-  height: 5em;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
-}
-
-.form__input-tel {
-  height: 5em;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
+.form__elements input:hover,
+textarea:hover {
+  color: hsl(0, 0%, 100%);
 }
 
 .form__textarea {
   resize: none;
   height: 10em;
-  border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
+  grid-column: 1 / -1;
 }
 
 .form__button {
-  background-color: #ffff;
-  color: black;
+  background-color: #103658;
+  color: #fff;
   border: none;
   padding: 1em;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px 1px black;
+  grid-column: 1 / -1;
+  width: 20%;
+  justify-self: end;
+}
+
+.form__button:hover {
+  background-color: hsl(208, 69%, 25%);
 }
 
 /* DATOS DE CONTACTO */
 
 .contacto {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
+  align-items: center;
+  justify-content: center; */
+  display: grid;
+  align-items: center;
+  align-self: center;
   grid-column: 2 / 3;
-  padding: 50px;
+  background-color: #103658;
+  padding: 5rem;
+  border-radius: 10px;
 }
 
 .contacto__h2 {
   color: #ffff;
   font-size: 1.5em;
+  display: flex;
 }
 
 .contacto__address {
@@ -96,6 +98,16 @@ main {
   align-items: start;
   justify-content: center;
   color: #ffff;
+  font-style: normal;
+}
+
+.contacto__address a {
+  color: hsl(209, 100%, 79%);
+  text-decoration: none;
+}
+
+.contacto__address a:hover {
+  color: hsl(209, 83%, 50%);
 }
 
 /* UBICACION*/
@@ -107,12 +119,13 @@ main {
   justify-content: center;
   grid-column: 1 / 3;
   padding: 50px;
-  padding-top: 0px;
+  padding-top: 0;
 }
 
 .ubicacion__h2 {
   color: #ffff;
   font-size: 1.5em;
+  padding-bottom: 15px;
 }
 
 .ubicacion__img {
@@ -124,4 +137,56 @@ main {
   background-size: cover;
   shape-margin: 1rem;
   width: 100%;
+  border-radius: 10px;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .form {
+    padding: 2rem;
+    margin: 2rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    grid-column: 1 / -1;
+  }
+
+  .contacto {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    margin: 1rem;
+    width: 70%;
+    justify-self: center;
+  }
+
+  .ubicacion {
+    grid-column: 1 / -1;
+  }
+}
+
+/* COMPUTADORA */
+
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr auto;
+    max-width: 75%;
+  }
+
+  .form__elements {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__button {
+    width: 20%;
+  }
+
+  .contacto {
+    margin: 10rem;
+  }
 }
