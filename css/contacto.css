@@ -17,7 +17,7 @@ main {
   justify-content: center;
   font: inherit;
   grid-column: 1 / 2;
-
+  padding: 100px;
   background: #333;
 }
 
@@ -82,7 +82,7 @@ main {
   align-items: start;
   justify-content: center;
   grid-column: 2 / 3;
-
+  padding: 100px;
   background: #444;
 }
 
@@ -107,6 +107,7 @@ main {
   align-items: start;
   justify-content: center;
   grid-column: 1 / 3;
+  padding: 100px;
   background: #555;
 }
 
