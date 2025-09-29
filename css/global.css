@@ -52,6 +52,8 @@ body {
   transition-timing-function: ease-out;
 }
 
+/*
+
 .header__left-home-link:hover {
   background: #0000003b;
   border: 1xp solid rgb(255, 255, 255);
@@ -82,7 +84,8 @@ body {
 }
 .header__search input::placeholder {
   font-size: 1rem;
-}
+} */
+
 .header__nav {
   flex: 0 1 50%;
   height: 100%;
