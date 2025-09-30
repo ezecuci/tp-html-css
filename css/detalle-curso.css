@@ -39,6 +39,7 @@ body {
   }
   .info-curso_especificaciones li {
     margin: 0.5rem 0;
+    font-size: 1.3rem;
   }
   
   .btn-primario {
@@ -48,7 +49,7 @@ body {
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     font-weight: 600;
     border-radius: 0.4rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -61,6 +62,7 @@ body {
   
   .info-curso_contenido {
     margin: 2rem 0;
+    font-size: 1.3rem;
   }
   
   .info-curso_contenido h2 {
@@ -120,6 +122,7 @@ body {
   .docente {
     margin: 2rem;
     color: #ffffff;
+    font-size: 1.3rem;
   }
   
   .docente h2 {
@@ -174,6 +177,7 @@ body {
 
 .otros-cursos { 
     margin: 2rem; 
+    font-size: 1.3rem;
 }
 .otros-cursos h2 { 
     margin-bottom: 1rem; 
@@ -298,7 +302,7 @@ body {
   
   .bloqueado .overlay p {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: bold;
     background: rgba(0,0,0,0.6);
     padding: 0.5rem 1rem;
@@ -336,7 +340,7 @@ body {
     }
   }
 
-  @media screen and (max-width: 835px) {
+  @media screen and (max-width: 1000px) {
     .info-curso {
       flex-direction: column;
       align-items: center;
