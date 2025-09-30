@@ -305,6 +305,77 @@ body {
     border-radius: 0.4rem;
   }
   
+  /* Media queries */
+  
+  @media screen and (max-width: 1024px) {
+    .lista-cursos .card-curso {
+      width: 23%;
+    }
+  
+    .lista-cursos .precio {
+      bottom: 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 804px) {
+    .info-curso {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 95%;
+    }
+
+    .info-curso_img{
+        width: 55%;
+    }
+
+    .btn-primario {
+      width: 75%;
+      font-size: 1.2rem;
+      padding: 0.75rem;
+      margin: 1rem auto;
+    }
+
+    .info-curso_contenido {
+        width: 95%;
+    }
+
+    .docente{
+        width: 95%;
+    }
+
+    .otros-cursos{
+        width: 95%;
+    }
+  }
+
+  @media screen and (max-width: 804px) {
+    .lista-cursos {
+        justify-content: center;
+        gap: 1rem;
+      }
+    
+      .lista-cursos .card-curso {
+        width: 48%;
+        padding: 1rem;
+      }
+
+      .lista-cursos .precio {
+        bottom: 2.3rem;
+      }
+  }
+
+  @media screen and (max-width: 600px) {
+    .lista-cursos {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .lista-cursos .card-curso {
+      width: 100%;
+    }
+  }
 
 
 
