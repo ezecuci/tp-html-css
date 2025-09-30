@@ -257,7 +257,7 @@ body {
 }
 
 .ver-detalle:hover{
-    color: red
+    color: rgb(255, 0, 43);
   }
 
 .btn-comprar {
