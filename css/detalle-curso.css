@@ -313,7 +313,7 @@ body {
       }
 
       .info-curso_contenido {
-        width: 98%;
+        width: 70%;
     }
 
     .docente{
@@ -326,7 +326,7 @@ body {
 
 
   
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1300px) {
     .lista-cursos .card-curso {
       width: 23%;
     }
@@ -336,7 +336,7 @@ body {
     }
   }
 
-  @media screen and (max-width: 804px) {
+  @media screen and (max-width: 835px) {
     .info-curso {
       flex-direction: column;
       align-items: center;
