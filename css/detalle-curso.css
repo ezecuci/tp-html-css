@@ -368,7 +368,7 @@ body {
     }
   }
 
-  @media screen and (max-width: 804px) {
+  @media screen and (max-width: 875px) {
     .lista-cursos {
         justify-content: center;
         gap: 1rem;
@@ -382,6 +382,41 @@ body {
       .lista-cursos .precio {
         bottom: 2.3rem;
       }
+
+      .info-curso_datos h1 {
+        font-size: 1.25rem;
+      }
+
+      .info-curso_especificaciones li {
+        font-size: 1rem;
+      }
+
+      .info-curso_contenido {
+        font-size: 1rem;
+      }
+
+      .docente {
+        font-size: 1rem;
+      }
+
+      .otros-cursos { 
+        margin: 2rem; 
+        font-size: 0.85rem;
+    }
+
+    .bloqueado .overlay p {
+        font-size: 1rem;
+      }
+    
+      .btn-primario {
+        font-size: 1.1rem;
+      }
+
+      h2{
+        font-size: 1.25rem;
+      }
+
+    
   }
 
   @media screen and (max-width: 600px) {
