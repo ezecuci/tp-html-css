@@ -177,7 +177,7 @@ body {
 
 .otros-cursos { 
     margin: 2rem; 
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 .otros-cursos h2 { 
     margin-bottom: 1rem; 
@@ -221,7 +221,6 @@ body {
   background: #000000;
   color: #ffffff;
   padding: 0.15rem 0.4rem;
-  font-size: 1rem;
 }
 
 .pie-card {
@@ -234,7 +233,7 @@ body {
 
 .horas {
   margin: 0;
-  font-size: 1.5rem;    
+  font-size: 1.6rem;    
   font-weight: 600;
 }
 
@@ -250,14 +249,12 @@ body {
 .titulo-curso {
   margin: 0;
   font-weight: 600;
-  font-size: 1.1rem;
   text-align: right;
 }
 
 .ver-detalle {
   color: #ffffff;
   text-decoration: underline;
-  font-size: 0.85rem;
 }
 
 .ver-detalle:hover{
@@ -272,7 +269,6 @@ body {
   display: inline-block;
   padding: 0.35rem 0.6rem;
   border-radius: 0.3rem;
-  font-size: 0.85rem;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
