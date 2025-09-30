@@ -44,18 +44,20 @@ body {
   .btn-primario {
     width: 20%;
     display: block;
-    background-color: red;
-    color: #cccccc;
+    background-color: rgb(255, 0, 43);
+    color: white;
     text-align: center;
     text-decoration: none;
     font-size: 1.15rem;
     font-weight: 500;
     border-radius: 0.4rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   }
   .btn-primario:hover {
-    background: #700000;
-    font-weight: 600;
-    color: white;
+    transform: scale(1.02);
+    background-color: rgb(180, 0, 30);
+    font-weight: 700;
+    box-shadow: 0 0 1rem rgb(255, 98, 111);
   }
   
   .info-curso_contenido {
@@ -192,7 +194,13 @@ body {
   border-radius: 0.5rem;
   padding: 0.5rem;
   width: 22%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card-curso:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1.7rem rgb(0, 0, 0);
+  }
 
 .foto-precio { 
     position: relative; 
@@ -263,12 +271,14 @@ body {
   border-radius: 0.3rem;
   font-size: 0.85rem;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-comprar:hover {
     background-color: #38d36a;
     color: black;
     font-weight: 500;
+    box-shadow: 0 0 1rem rgb(98, 255, 106);
   }
 
 .bloqueado {
