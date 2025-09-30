@@ -1,0 +1,72 @@
+.contenedor_giftCard {
+
+
+    background-image: url(../images/fondo\ gift\ card.png);
+    background-size: cover;
+    margin: auto;
+    max-width: 75%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    margin-top: 4rem;
+    padding: 20px;
+}
+main{
+    margin-top: 70px;
+}
+
+.contenedor_giftCard h2{
+font-size: 46rem;
+color: #fff;
+
+}
+
+.datos_giftcard {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font: inherit;
+    padding: 30px 40px;
+    background: #5B89A6;
+    border-radius: 8px;
+
+}
+
+.datos_giftcard label {
+    margin: 12px 0 6px
+}
+
+.datos_giftcard input[type="text"],
+.datos_giftcard input[type="number"] {
+
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.datos_giftcard .opciones {
+    display: flex;
+    gap: 10px;
+    margin: 5px 0 15px;
+}
+
+.datos_giftcard button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #590202;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.ubicaciones label {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #333;
+    
+}
