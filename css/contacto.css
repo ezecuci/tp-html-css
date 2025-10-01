@@ -84,6 +84,7 @@ textarea:hover {
   background-color: #103658;
   padding: 5rem;
   border-radius: 10px;
+  max-width: 100%;
 }
 
 .contacto__h2 {
@@ -138,4 +139,60 @@ textarea:hover {
   shape-margin: 1rem;
   width: 100%;
   border-radius: 10px;
+}
+
+@media (max-width: 1300px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 992px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    max-width: 90%;
+  }
+
+  .form {
+    grid-column: 1 / -1;
+    padding: 2rem;
+  }
+
+  .contacto {
+    grid-column: 1 / -1;
+    padding: 2rem;
+  }
+
+  .ubicacion {
+    grid-column: 1 / -1;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form__elements {
+    grid-template-columns: 1fr;
+  }
+
+  .form__button {
+    width: 100%;
+    justify-self: center;
+  }
+
+  .contacto {
+    padding: 1.5rem;
+  }
+
+  .ubicacion {
+    padding: 1.5rem;
+  }
+
+  .ubicacion__img {
+    border-radius: 8px;
+  }
 }
