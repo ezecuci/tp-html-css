@@ -8,11 +8,20 @@
         grid-template-rows: auto auto;
     }
 
-    .vista_previa,
+    
     .datos_giftcard {
         grid-column: 1/-1;
         padding: 20px;
         margin: 1 rem;
+       
+    }
+
+    .vista_previa {
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 20px; 
+        margin: 1rem;
     }
 }
 
