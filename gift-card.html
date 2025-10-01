@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./css/inicio.css" />
-    <link rel="stylesheet" href="./css/gift-card.css"/>
+    <link rel="stylesheet" href="./css/gift-card.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -54,40 +54,65 @@
         </div>
     </header>
     <main>
+
         <div class="contenedor_giftcard">
-            <h2>Personalizacion de Giftcard</h2>
+            <h1 class="titulo">Personalizacion de Giftcard</h1>
+            <div class="vista_previa">
+                <div class="monto_vistaprevia">
+                    <h2>$100.000</h2>
+                </div>
+
+
+                <div class="destinatario_vistaprevia">
+                    <h1>Giftcard Para:</h1>
+                    <h2>Agustin Rosato</h2>
+                </div>
+
+                <a href="/index.html#cursos" class="mensaje_checode">
+                    <p>Hace click, y descubri nuestros cursos</p>
+                </a>
+
+
+            </div>
+
             <form action="" method="get" class="datos_giftcard">
-                <label for="name">Nombre del Destinatario</label>
                 <input type="text" name="name" id="name" required placeholder="Nombre del destinatario "
                     class="gift_card_nombre" />
-                <label>Color</label>
+                <label for="colores" class="titulo-seccion">Color</label>
                 <div class="colores">
-                   <label ></label> <input type="radio" name="Color" value="negro" checked></label>
-                   <label ></label> <input type="radio" name="Color" value="negro"></label>
-                   <label ></label> <input type="radio" name="Color" value="negro"></label>
-                   <label ></label> <input type="radio" name="Color" value="negro"></label>
+                    <label> <input type="radio" name="Color" value="negro" checked>
+                    <span class="color-circulo" style="background-color: black;"></span>
+                    </label>
+                    <label><input type="radio" name="Color" value="rojo">
+                    <span class="color-circulo" style="background-color: red;"></span>
+                    </label>
+                    <label><input type="radio" name="Color" value="azul">
+                    <span class="color-circulo" style="background-color: blue;"></span>
+                    </label>
+                    <label> <input type="radio" name="Color" value="verde">
+                    <span class="color-circulo" style="background-color: green;"></span>
+                    </label>
                 </div>
-                <label>Tamanio de Fuente</label>
+                <label for="fuentes" class="titulo-seccion">Tamanio de Fuente</label>
                 <div class="fuentes">
-                   <label ></label> <input type="radio" name="fuente" value="20px" checked> 20px</label>
-                   <label ></label> <input type="radio" name="fuente" value="28px"> 28px</label>
-                   <label ></label> <input type="radio" name="fuente" value="32px"> 32px</label>
-                   <label ></label> <input type="radio" name="fuente" value="48px">48px</label>
-                   <label ></label> <input type="radio" name="fuente" value="60px">60px</label>
+                    <label> <input type="radio" name="fuente" value="20px" checked> 20px</label>
+                    <label> <input type="radio" name="fuente" value="28px"> 28px</label>
+                    <label> <input type="radio" name="fuente" value="32px"> 32px</label>
+                    <label> <input type="radio" name="fuente" value="48px">48px</label>
+                    <label> <input type="radio" name="fuente" value="60px">60px</label>
                 </div>
-                <label for="monto">Monto $</label>
-                <input type="number" name="monto" id="monto" min="0" />
-                <label for="Ubicacion"></label>
+                <input type="number" name="monto" id="monto" min="0" placeholder="Monto $" />
+                <label for="Ubicacion" class="titulo-seccion">Ubicacion</label>
                 <div class="ubicaciones">
-                   <label ></label> <input type="radio" name="ubicacion" value="izquierda" checked> Izquierda</label>
-                   <label ></label> <input type="radio" name="ubicacion" value="centro"> Centro</label>
-                   <label ></label> <input type="radio" name="ubicacion" value="derecha"> Derecha</label>
+                    <label> <input type="radio" name="ubicacion" value="izquierda" checked> Izquierda</label>
+                    <label> <input type="radio" name="ubicacion" value="centro"> Centro</label>
+                    <label> <input type="radio" name="ubicacion" value="derecha"> Derecha</label>
                 </div>
-                <label for="Fondo"></label>
+                <label for="Fondo" class="titulo-seccion">Fondo</label>
                 <div class="fondos">
-                   <label ></label> <input type="radio" name="fondo" value="gris" checked> Gris</label>
-                   <label ></label> <input type="radio" name="fondo" value="blanco"> Blanco</label>
-                   <label ></label> <input type="radio" name="fondo" value="negro"> Negro</label>
+                    <label> <input type="radio" name="fondo" value="gris" checked> Gris</label>
+                    <label> <input type="radio" name="fondo" value="blanco"> Blanco</label>
+                    <label> <input type="radio" name="fondo" value="negro"> Negro</label>
                 </div>
                 <button type="submit">CONFIRMAR</button>
             </form>
