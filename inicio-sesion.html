@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/inicio.css" />
+    <link rel="stylesheet" href="./css/inicio-sesion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Iniciar sesión - cheCode</title>
+  </head>
+  <body>
+    <main>
+      <section class="login">
+        <div class="login-recuadro">
+          <h2 class="login-titulo">Iniciar sesión</h2>
+          <p class="login-leyenda">
+            Ingresa el email y la contraseña de tu cuenta
+          </p>
+          <form
+            class="login__form"
+            action="./index.html"
+            method="get"
+            autocomplete="off"
+          >
+            <label for="email"></label>
+            <input
+              class="login__form-email icono-usuario"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+            />
+            <label for="contrasenia"></label>
+            <input
+              class="login__form-email icono-password"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Contraseña"
+            />
+            <button type="submit" class="login__button">
+              Iniciar sesión
+            </button>
+          </form>
+          <a class="login-recuperar" href="./recuperacion.html"
+            >¿Olvidaste tu contraseña?</a
+          >
+          <p class="login-leyenda">
+            ¿Aún no tenés una cuenta?<br>
+            <a class="login-registrarse" href="./registro.html">Registrarse ahora</a>
+          </p>
+          <a class="login-registrarse" href="./index.html">Continuar sin una cuenta</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
