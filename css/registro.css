@@ -1,0 +1,144 @@
+html, body {
+    height: 100%;
+  }
+  body {
+    background:#032340;
+    color: white;
+    display: grid;
+    place-items: center;
+    margin: 0;
+  }
+  
+  .registro {
+    min-height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+    border: none;
+  }
+
+  .registro-recuadro{
+    width: 60%;
+    background: linear-gradient(to top, transparent, #5b89a6, transparent);
+    border: 0.0625em solid rgba(255,255,255,.12);
+    border-radius: 1.25rem;
+    padding: 3rem;
+    box-shadow: 0 0 1rem rgb(3, 14, 22);
+    backdrop-filter: blur(3px);
+  }
+
+  .registro-titulo{
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0 0 .25rem;
+  }
+
+  .registro-leyenda{
+    color: #cfe0ea;
+    font-size: .95rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .registro__form{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .registro__radioButton{
+    margin-bottom: 1rem;
+  }
+  
+  .registro__form-email{
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.75em;
+    border: 0.0625em solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    color: white;
+    padding: 0 1rem 0 2.6rem;
+    outline: none;
+    transition: box-shadow .2s ease, border-color .2s ease;
+    background-repeat: no-repeat;
+    background-position: 0.7rem center;
+    background-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .icono-usuario{
+    background-image: url(../images/icono-usuario.svg);
+  }
+
+  .icono-password{
+    background-image: url(../images/contrasenia.svg);
+  }
+
+  .icono-mail{
+    background-image: url(../images/icono-mail.svg);
+  }
+  
+  .registro__form-email::placeholder{
+    color: #b8c9d3;
+    opacity:.85;
+  }
+  
+
+  .registro__form-email:focus{
+    border-color: rgba(138, 222, 255, 0.589);
+    box-shadow: 0 0 1rem rgb(70, 105, 138);
+  }
+  .registro__form-email:user-invalid{
+    border-color: var(--error);
+    box-shadow: 0 0 1rem rgb(158, 22, 22);
+  }
+
+  
+  .registro__button{
+    appearance: none;
+    height: 3rem;
+    border: 0;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(to top, #02304d, #044f7e, #02304d);;
+    box-shadow: 0 8px 20px rgba(20, 94, 124, .35);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    font-size: 0.9em;
+    border-radius: 0.75em;
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+  .registro__button:hover{
+    filter: brightness(1.25);
+    box-shadow: 0 0 1rem rgba(20, 94, 124, .45);
+  }
+  .registro__button:active{
+    transform: scale(.97);
+  }
+  
+  .login-recuperar,
+  .login-registrarse{
+    display: inline-block;
+    margin: .25rem 0;
+    text-decoration: none;
+    color: #cfe0ea;
+    font-weight: 500;
+    border-bottom: 0.0625em solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .login-recuperar{
+    margin: 0.75em 0;
+  }
+  .login-recuperar:hover,
+  .login-registrarse:hover{
+    color: white;
+    border-color: white;
+  }
+
+  @media screen and (max-width: 47.125em) {
+    .registro-recuadro{
+        width: 90%;
+      }
+  }
