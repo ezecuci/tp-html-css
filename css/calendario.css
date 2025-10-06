@@ -1,55 +1,89 @@
-@media screen and (max-width: 47em) {
-    body {
-        font-size: 0.8rem;
-    }
-
-    .calendario {
-        grid-template-columns: repeat(2, 1fr);
-        margin: 1.3rem auto;
-        gap: 0.5rem;
-    }
-
-    .espacioCurso {
-        min-height: 6.3rem;
-        padding: 0.5rem 1rem;
-    }
-
-    .tituloMes {
-        font-size: 1.8rem;
-        padding: 1rem;
-    }
-
-    .cartel2026 {
-        padding: 2rem 1rem;
-    }
-}
-
 .calendario {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto;
-    justify-content: center;
-    align-content: start;
-    margin: 3rem 3rem;
-    gap: 0.5rem;
-    height: auto;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 0.0625rem;
+    width: 90%;
+    max-width: 95rem; 
+    margin: 1.875rem auto;
+    border: 0.0625rem solid #ccc;
+    background-color: #ddd;
 }
 
 .tituloMes {
-    text-align: left;
+    text-align: center;
+    margin-top: 3.125rem;
     font-size: 2.5rem;
-    font-weight: 700;
-    margin-top: 3.8rem;
-    padding: 1.3rem;
-    background-image: url(../images/oficina\ developer\ 1.jpg);
+    background-image: url("../images/oficina\ developer\ 1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-bottom: 0.6rem;
     font-family: "Poppins", sans-serif;
     color: white;
+    font-weight: 600;
 }
 
+.espacioCurso {
+    background-color: #f7f7f7;
+    padding: 0.625rem;
+    min-height: 9.375rem;
+    border: 0.0625rem solid #eee;
+    overflow: hidden; 
+    transition: background-color 0.3s;
+}
+
+.dia-semana {
+    background-color: #e0e0e0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.espacioCurso:hover {
+    background-color: #5B89A6; 
+}
+
+.espacioCurso h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 0.3125rem;
+}
+
+.numeroDia {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-left: 0.3125rem;
+}
+
+.pruebaHoover {
+    display: block;
+    background-color: #007bff; 
+    color: white;
+    padding: 0.5rem;
+    margin-top: 0.3125rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.pruebaHoover:hover {
+    background-color: #590202;
+    transform: translateY(-0.125rem);
+}
+
+.dia-fecha h2 span.numeroDia {
+    display: block;
+    text-align: left;
+    margin-left: 0;
+    font-size: 1.7rem;
+}
+
+.dia-fecha h2 span:not(.numeroDia) {
+    display: none;
+}
 .cartel2026 {
     background-color: #5B89A6;
     background-image: url(../images/fondo\ cursos1.jpg);
@@ -60,68 +94,56 @@
     padding: 2.5rem 1.3rem;
     text-align: center;
     margin-top: 1.3rem;
-}
-
-.cartel2026 h1 {
-    font-size: 3rem;
-    margin-bottom: 1.3rem;
-}
-
-.cartel2026 p {
-    font-size: 0.8rem;
-    line-height: 1.5rem;
-}
-
-.espacioCurso {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    background: #5B89A6;
-    font-weight: normal;
-    text-align: center;
-    min-height: 7.5rem;
     border-radius: 0.5rem;
 }
 
-.espacioCurso p {
-    color: white;
-    font-weight: normal;
-    text-align: center;
-    padding: 0.5rem 0.5rem;
-    background-color: #032340;
-    border-radius: 0.5rem;
-    margin-top: 0.3rem;
-}
 
-.espacioCurso img {
-    max-width: 12.5rem;
-    max-height: 12.5rem;
-}
+@media (max-width: 60em) {
+    .calendario {
+        grid-template-columns: repeat(3, 1fr);
+        width: 95%;
+    }
 
-.pruebaHoover {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
+    .dia-fecha h2 span:not(.numeroDia) {
+        display: inline;
+    }
 
-.pruebaHoover:hover {
-    text-decoration: underline;
-    color: white;
-    box-shadow: 0 0 1rem #032340;
-    font-weight: 700;
-    border-radius: 0.5rem;
-}
+    .dia-fecha h2 span.numeroDia {
+        display: inline;
+        text-align: unset;
+        font-size: 1.5rem;
+        margin-left: 0.3125rem;
+    }
 
-.numeroDia {
-    display: block;
-    text-align: center;
-    font-size: 1rem;
+    .dia-semana {
+        display: none; 
+    }
 }
+@media (max-width: 47em) {
+    .tituloMes {
+        font-size: 2rem;
+    }
 
-.espacioCurso h2 {
-    text-align: center;
-    padding: 0.1rem 0;
-    margin-top: 0.1rem;
+    .calendario {
+        grid-template-columns: 1fr;
+        width: 95%;
+        margin: 0.9375rem auto;
+    }
+
+    .espacioCurso {
+        min-height: 5rem;
+        padding: 0.9375rem;
+    }
+
+    .espacioCurso h2 {
+        font-size: 1.2rem;
+    }
+
+    .dia-semana {
+        display: none;
+    }
+    
+    .calendario > .espacioCurso:last-child {
+        display: none;
+    }
 }
