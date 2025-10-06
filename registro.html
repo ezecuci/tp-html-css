@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/inicio.css" />
+    <link rel="stylesheet" href="./css/inicio-sesion.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Registrarse - cheCode</title>
+  </head>
+  <body>
+    <main>
+      <section class="login">
+        <div class="login-recuadro">
+          <h2 class="login-titulo">Crear cuenta</h2>
+          <p class="login-leyenda">Completá tus datos para registrarte</p>
+
+          <form class="login__form" action="./index.html" method="post" autocomplete="off">
+              <p>Tipo de cuenta<p>
+              <label>
+                <input type="radio" name="tipo" value="personal" checked />
+                <span>Personal</span>
+              </label>
+              <label>
+                <input type="radio" name="tipo" value="empresa" />
+                <span>Empresa</span>
+                <br>
+              </label>
+            <label for="nombre">Nombre y apellido / Nombre de empresa</label>
+            <input
+              class="login__form-email icono-usuario"
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre y apellido / Nombre de empresa"
+              required
+            />
+            <label for="email">Correo electrónico</label>
+            <input
+              class="login__form-email icono-mail"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <label for="password">Contraseña</label>
+            <input
+              class="login__form-email icono-password"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Contraseña"
+              minlength="6"
+              required
+            />
+            <label for="password2">Repetir contraseña</label>
+            <input
+              class="login__form-email icono-password"
+              type="password"
+              id="password2"
+              name="password2"
+              placeholder="Repetir contraseña"
+              minlength="6"
+              required
+            />
+            <button type="submit" class="login__button">Crear cuenta</button>
+          </form>
+          <p class="login-leyenda">
+            ¿Ya tenés una cuenta?
+            <a class="login-registrarse" href="./inicio-sesion.html">Iniciar sesión</a>
+          </p>
+          <a class="login-registrarse" href="./index.html">Continuar sin una cuenta</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
