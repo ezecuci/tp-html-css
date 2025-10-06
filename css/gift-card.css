@@ -39,17 +39,14 @@ main {
 }
 
 .contenedor_giftcard {
-    background-image: url("../images/fondo\ gift\ card.png");
-    
+    background-image: url("../images/fondo\ cursos1.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     width: 90%;
     max-width: 75em;
     margin: 2em auto;
     border-radius: 0.5em;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
@@ -57,7 +54,7 @@ main {
 }
 
 .titulo {
-    background-color: #590202;
+    background: linear-gradient(to left, transparent, rgba(119, 0, 20, 0.658),rgb(119, 0, 20));
     padding-left: 0.6em;
     grid-column: 1/3;
     text-align: left;
@@ -113,6 +110,7 @@ main {
 }
 
 .datos_giftcard {
+    color: #cfe0ea;
     grid-column: 2/3;
     display: flex;
     flex-direction: column;
@@ -120,22 +118,40 @@ main {
     justify-content: flex-start;
     margin: 1rem;
     padding: 1.5em 2em;
-    background: #5B89A6;
-    border-radius: 0.5em;
+    background: linear-gradient(to top, #032340, #5b89a6, #032340);
+    border: 0.0625em solid rgba(255,255,255,.12);
+    border-radius: 1.25rem;
+    box-shadow: 0 0 1rem rgb(3, 14, 22);
     width: calc(100% - 4em)
 }
 
 .datos_giftcard input[type="text"],
 .datos_giftcard input[type="number"] {
-    background-color: #032340;
-    color: #fff;
     width: 100%;
-    padding: 0.6em 0.8em;
-    border: 1px solid #032340;
-    border-radius: 0.25em;
-    margin: 0.9em 0;
-    font-size: 1em;
+    height: 3rem;
+    border-radius: 0.75em;
+    border: 0.0625em solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    color: white;
+    padding: 1rem;
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    background-repeat: no-repeat;
+    background-position: 0.7rem center;
+    background-size: 1.3rem;
+    margin-top: 1rem;
 }
+
+.datos_giftcard input[type="text"]::placeholder,.datos_giftcard input[type="number"]::placeholder{
+    color: #b8c9d3;
+    opacity:.85;
+}
+
+.datos_giftcard input[type="text"]:focus,.datos_giftcard input[type="number"]:focus{
+    border-color: rgba(138, 222, 255, 0.589);
+    box-shadow: 0 0 1rem rgb(70, 105, 138);
+}
+
 
 .titulo-seccion {
     font-size: 1.2em;
@@ -174,14 +190,18 @@ main {
     margin-top: 0.9rem;
     width: 100%;
     padding: 0.6em 1.3em;
-    background: #590202;
-    color: #fff;
+    background: #bdbdbd;
+    color: #333333;
     border: none;
-    border-radius: 0.4em;
+    border-radius: 0.75em;
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .datos_giftcard button:hover {
-    font-weight: 700;
-    box-shadow: 0 0 1em #590202;
+    background-color: #38d36a;
+    color: black;
+    font-weight: 500;
+    box-shadow: 0 0 1rem rgb(98, 255, 106);
 }
+

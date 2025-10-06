@@ -89,7 +89,7 @@
     border: 0;
     font-weight: 700;
     color: white;
-    background: linear-gradient(to top, #02304d, #044f7e, #02304d);;
+    background: linear-gradient(to top, #02304d, #044f7e, #02304d);
     box-shadow: 0 8px 20px rgba(20, 94, 124, .35);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
