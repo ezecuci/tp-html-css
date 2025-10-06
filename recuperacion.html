@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/inicio.css" />
+    <link rel="stylesheet" href="./css/recuperacion.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <title>Recuperar contraseña - cheCode</title>
+  </head>
+  <body>
+    <main>
+      <section class="recuperacion">
+        <div class="recuperacion-recuadro">
+          <h2 class="recuperacion-titulo">Recuperar contraseña</h2>
+          <p class="recuperacion-leyenda">Ingresá tu email para enviarte el enlace de restablecimiento.</p>
+
+          <form class="recuperacion__form" action="./index.html" method="post" autocomplete="off">
+            <label for="email">Correo electrónico</label>
+            <input
+              class="recuperacion__form-email icono-mail"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+
+            <div class="recuperacion__acciones">
+              <button type="submit" class="recuperacion__button">Enviar email</button>
+            </div>
+          </form>
+
+          <p class="recuperacion-leyenda">
+            ¿Recordaste tu contraseña?
+            <a class="login-registrarse" href="./inicio-sesion.html">Iniciar sesión</a>
+          </p>
+          <a class="login-registrarse" href="./index.html">Volver al inicio</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

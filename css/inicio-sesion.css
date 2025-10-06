@@ -54,7 +54,7 @@
     color: white;
     padding: 0 1rem 0 2.6rem;
     outline: none;
-    transition: box-shadow .2s ease, border-color .2s ease;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
     background-repeat: no-repeat;
     background-position: 0.7rem center;
     background-size: 1.3rem;
