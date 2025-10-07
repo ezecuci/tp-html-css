@@ -34,7 +34,7 @@ main {
   border: 0.0625rem solid rgba(255, 255, 255, 0.3);
   border-radius: 0.75rem;
   padding: 2rem 0rem;
-  width: 50%;
+  width: 100%;
   max-width: 50em;
   margin-bottom: 3rem;
   margin-top: 3em;
@@ -84,6 +84,11 @@ main {
 .mis-cursos {
   grid-column: 1 / -1;
   margin-bottom: 3em;
+}
+
+.mis-cursos span,
+p {
+  color: #fff;
 }
 
 .mis-cursos__h2 {
@@ -168,12 +173,12 @@ main {
 }
 
 .ver-detalle {
-  color: #ffffff;
-  text-decoration: underline;
+  color: #4aa3ff;
+  text-decoration: none;
 }
 
 .ver-detalle:hover {
-  color: rgb(255, 0, 43);
+  text-decoration: underline;
 }
 
 .btn-comprar {
@@ -587,5 +592,106 @@ footer {
 
   .footer__paragraph {
     font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    max-width: 90%;
+  }
+
+  .mi-perfil {
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 90%;
+  }
+
+  .perfil img {
+    width: 10em;
+    height: 10em;
+  }
+
+  .datos-perfil h1 {
+    font-size: 1.2rem;
+  }
+
+  .lista-cursos {
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .card-curso {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mi-perfil {
+    grid-template-columns: 1fr;
+    text-align: center;
+    width: 90%;
+    padding: 2rem 1rem;
+  }
+
+  .perfil {
+    justify-content: center;
+  }
+
+  .perfil img {
+    margin-bottom: 1rem;
+  }
+
+  .datos-perfil {
+    align-items: center;
+  }
+
+  .lista-cursos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-curso {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    max-width: 95%;
+  }
+
+  .mi-perfil {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .perfil img {
+    width: 8em;
+    height: 8em;
+  }
+
+  .datos-perfil h1 {
+    font-size: 1rem;
+  }
+
+  .datos-perfil p,
+  .datos-perfil a {
+    font-size: 0.9rem;
+  }
+
+  .card-curso {
+    width: 100%;
+  }
+
+  .pie-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lado-derecho {
+    align-items: center;
   }
 }
