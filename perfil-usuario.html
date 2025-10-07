@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/perfil-usuario.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Perfil</title>
+  </head>
+  <body>
+    <!-- INICIO DEL HEADER -->
+    <header class="header">
+      <div class="header__left">
+        <a class="header__left-home-link" href="./index.html">cheCode</a>
+        <a class="header-short-icon" href="./index.html">C</a>
+      </div>
+      <div class="header__search">
+        <input
+          type="text"
+          list="busqueda"
+          name="buscador"
+          placeholder="Buscar"
+          aria-placeholder=""
+        />
+        <datalist id="busqueda">
+          <option value="HTML"></option>
+          <option value="CSS"></option>
+          <option value="JavaScript"></option>
+          <option value="React"></option>
+          <option value="Python"></option>
+        </datalist>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__nav-elements">
+          <li class="header__nav-element">
+            <a class="header__nav-element-link" href="#cursos">cursos</a>
+          </li>
+          <li class="header__nav-element">
+            <a class="header__nav-element-link" href="./calendario.html">
+              calendario
+            </a>
+          </li>
+          <li class="header__nav-element">
+            <a class="header__nav-element-link" href="./gift-card.html">
+              gift card
+            </a>
+          </li>
+          <li class="header__nav-element">
+            <a class="header__nav-element-link" href="./contacto.html">
+              contacto
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="login">
+        <a href="./inicio-sesion.html">
+          <img src="./images/iniciar-sesion3.png" alt="login-icon" />
+        </a>
+        <div class="login__links">
+          <a class="login-sesion" href="./inicio-sesion.html">iniciar sesion</a>
+          <a class="login-registro" href="">registrate aqui</a>
+        </div>
+      </div>
+      <div class="header__cart">
+        <a href="./shopping-cart.html">
+          <img
+            class="header__cart-white"
+            src="./images/carrito blanco.png"
+            alt="carrito blanco"
+          />
+          <p>+3</p>
+        </a>
+      </div>
+    </header>
+
+    <!-- INICIO DEL MAIN -->
+    <main>
+      <!-- SECCION DE PERFIL -->
+      <article class="mi-perfil">
+        <section class="perfil">
+          <img
+            src="./images/foto-de-perfil.jpg"
+            alt="Foto de perfil"
+            title="Foto de perfil"
+            width="400"
+            height="400"
+          />
+        </section>
+        <section class="datos-perfil">
+          <h1>Juanito Coder</h1>
+          <p>Full Stack Developer</p>
+          <p>juanitocoder@gmail.com</p>
+          <a href="github.com" target="_blank">Github</a>
+          <a href="github.com" target="_blank">Sitio Web</a>
+        </section>
+      </article>
+
+      <!-- MIS CURSOS -->
+      <article class="mis-cursos">
+        <div class="lista-cursos">
+          <div class="card-curso">
+            <div class="foto-precio">
+              <img src="./images/curso_2.png" alt="Imagen curso" />
+            </div>
+            <div class="pie-card">
+              <p class="horas">
+                <strong>120</strong>
+                <span>hs</span>
+              </p>
+              <div class="lado-derecho">
+                <p class="titulo-curso">Modelos de Machine Learning</p>
+                <a class="ver-detalle" href="./detalle-curso2.html">
+                  Ver Detalle
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-curso">
+            <div class="foto-precio">
+              <img src="./images/curso_3.png" alt="Imagen curso" />
+            </div>
+            <div class="pie-card">
+              <p class="horas">
+                <strong>40</strong>
+                <span>hs</span>
+              </p>
+              <div class="lado-derecho">
+                <p class="titulo-curso">Maquetación con Flexbox y Grid</p>
+                <a class="ver-detalle" href="./detalle-curso3.html">
+                  Ver Detalle
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-curso">
+            <div class="foto-precio">
+              <img src="./images/curso_4.png" alt="Imagen curso" />
+            </div>
+            <div class="pie-card">
+              <p class="horas">
+                <strong>70</strong>
+                <span>hs</span>
+              </p>
+              <div class="lado-derecho">
+                <p class="titulo-curso">Pandas y NumPy</p>
+                <a class="ver-detalle" href="./detalle-curso4.html">
+                  Ver Detalle
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-curso">
+            <div class="foto-precio">
+              <img src="./images/curso_5.png" alt="Imagen curso" />
+            </div>
+            <div class="pie-card">
+              <p class="horas">
+                <strong>90</strong>
+                <span>hs</span>
+              </p>
+              <div class="lado-derecho">
+                <p class="titulo-curso">Pentesting básico</p>
+                <a class="ver-detalle" href="./detalle-curso5.html">
+                  Ver Detalle
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- INICIO DEL FOOTER -->
+    <footer>
+      <div class="footer__title">cheCode</div>
+      <div class="footer__container">
+        <div class="footer__flex">
+          <h2>Datos del grupo</h2>
+          <ul class="footer__elements">
+            <li class="footer__element">CUCINELLI EZEQUIEL</li>
+            <li class="footer__element">GIELIS JOAQUIN</li>
+            <li class="footer__element">ROSATO AGUSTIN</li>
+            <li class="footer__element">YANKAUSKA IVAN</li>
+          </ul>
+        </div>
+        <div class="footer__flex">
+          <h2>Menu</h2>
+          <ul class="footer__elements">
+            <li class="footer__element">
+              <a href="./index.html" class="footer__link">Inicio</a>
+            </li>
+            <li class="footer__element">
+              <a href="./gift-card.html" class="footer__link">Giftcard</a>
+            </li>
+            <li class="footer__element">
+              <a href="./calendario.html" class="footer__link">Calendario</a>
+            </li>
+            <li class="footer__element">
+              <a href="./contacto.html" class="footer__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__flex">
+          <h2>Redes sociales</h2>
+          <ul class="footer__elements footer__elements-social">
+            <li class="footer__element">
+              <a href="https://www.facebook.com/" class="footer__link">
+                <img src="./images/payment-icons/facebook1.png" alt="" />
+              </a>
+            </li>
+            <li class="footer__element">
+              <a href="https://www.instagram.com/" class="footer__link">
+                <img src="./images/payment-icons/instagram1.png" alt="" />
+              </a>
+            </li>
+            <li class="footer__element">
+              <a href="https://x.com/" class="footer__link">
+                <img src="./images/payment-icons/twitter-x1.png" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__paragraph">
+        © Programación Web I - Tecnicatura en Desarrollo Web - UNLaM - 2025
+      </p>
+    </footer>
+  </body>
+</html>
