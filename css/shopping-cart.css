@@ -74,16 +74,19 @@ main {
     font-size: 1.1rem;
     font-weight: 400;
     color: rgb(58, 255, 134);
-    background:linear-gradient(to right, #000000, transparent);
+    background:rgba(0, 0, 0, 0.699);
     border-radius: 4px;
     gap: 1.4rem;
     list-style: none;
     padding-left: .5rem;
+    border: 2px solid white;
 }
 
 .contenedor__imagen li:hover { 
     text-decoration: line-through red; 
     cursor: pointer;
+    border: 2px solid rgb(255, 0, 0);
+
 } 
 
 .btn-confirmacion {
