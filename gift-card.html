@@ -77,11 +77,9 @@
                 <div class="monto_vistaprevia">
                     <h2>$100.000</h2>
                 </div>
-
-
                 <div class="destinatario_vistaprevia">
-                    <h1>Giftcard Para:</h1>
-                    <h2>Agustin Rosato</h2>
+                    <h3>GIFT CARD para:</h3>
+                    <h1>Destinatario</h1>
                 </div>
             </div>
 
@@ -103,7 +101,7 @@
                     <span class="color-circulo" style="background-color:  rgb(104, 0, 17);"></span>
                     </label>
                 </div>
-                <label for="fuentes" class="titulo-seccion">Tamaño de Fuente</label>
+                <label for="fuentes" class="titulo-seccion">Tamaño de fuente</label>
                 <div class="fuentes">
                     <label> <input type="radio" name="fuente" value="20px" checked> 20px</label>
                     <label> <input type="radio" name="fuente" value="28px"> 28px</label>
@@ -119,11 +117,20 @@
                     <label> <input type="radio" name="ubicacion" value="derecha"> Derecha</label>
                 </div>
                 <label for="Fondo" class="titulo-seccion">Fondo</label>
-                <div class="fondos">
-                    <label> <input type="radio" name="fondo" value="gris" checked> Gris</label>
-                    <label> <input type="radio" name="fondo" value="blanco"> Blanco</label>
-                    <label> <input type="radio" name="fondo" value="negro"> Negro</label>
-                </div>
+                <div class="fondos fondos--img">
+                    <label class="fondo-miniatura">
+                      <input type="radio" name="fondo" value="fondo1" checked aria-label="Fondo 1">
+                      <span class="fondo-miniatura__img" style="--miniatura: url('../images/fondo gift card.png');"></span>
+                    </label>
+                    <label class="fondo-miniatura">
+                      <input type="radio" name="fondo" value="fondo2" aria-label="Fondo 2">
+                      <span class="fondo-miniatura__img" style="--miniatura: url('../images/oficina developer 3.png');"></span>
+                    </label>
+                    <label class="fondo-miniatura">
+                      <input type="radio" name="fondo" value="fondo3" aria-label="Fondo 3">
+                      <span class="fondo-miniatura__img" style="--miniatura: url('../images/wefw.png');"></span>
+                    </label>
+                  </div>
                 <button type="submit">CONFIRMAR</button>
             </form>
         </div>
