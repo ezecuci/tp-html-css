@@ -64,12 +64,12 @@ main {
     width: 70%;
 }
 
-.contenedor__imagen ul{
+.contenedor__imagen-cursos-list{
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.contenedor__imagen li { 
+.contenedor__imagen-cursos-list-element{ 
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 400;
@@ -82,12 +82,42 @@ main {
     border: 2px solid white;
 }
 
-.contenedor__imagen li:hover { 
+.contenedor__imagen-cursos-list-element:hover { 
     text-decoration: line-through red; 
     cursor: pointer;
     border: 2px solid rgb(255, 0, 0);
-
 } 
+
+.btn-seguir {
+    list-style: none;
+    margin-top: 1.5rem;
+    align-self: center;
+
+}
+/*  #590202
+    #8C0303
+    #F20505
+    #5B89A6
+    #032340   Paleta utilizada        */
+.btn-seguir-comprando {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    color: white;
+    padding: 1rem 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 7px;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.541);
+    transition: ease-out .2s;
+    background: #5b89a6b0;
+}
+
+.btn-seguir-comprando:hover {
+     box-shadow: 0 0 8px 4px #ffffff33;
+     background:#ffffff9d;
+}
 
 .btn-confirmacion {
     margin-top: auto;
