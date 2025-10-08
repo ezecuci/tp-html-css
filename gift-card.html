@@ -104,17 +104,29 @@
                 <label for="fuentes" class="titulo-seccion">Tamaño de fuente</label>
                 <div class="fuentes">
                     <label> <input type="radio" name="fuente" value="20px" checked> 20px</label>
-                    <label> <input type="radio" name="fuente" value="28px"> 28px</label>
-                    <label> <input type="radio" name="fuente" value="32px"> 32px</label>
-                    <label> <input type="radio" name="fuente" value="48px">48px</label>
-                    <label> <input type="radio" name="fuente" value="60px">60px</label>
+                    <label> <input class="espacio" type="radio" name="fuente" value="28px"> 28px</label>
+                    <label> <input class="espacio" type="radio" name="fuente" value="32px"> 32px</label>
+                    <label> <input class="espacio" type="radio" name="fuente" value="48px">48px</label>
+                    <label> <input class="espacio" type="radio" name="fuente" value="60px">60px</label>
                 </div>
-                <input type="number" name="monto" id="monto" min="0" placeholder="Monto $" />
-                <label for="Ubicacion" class="titulo-seccion">Ubicación</label>
-                <div class="ubicaciones">
-                    <label> <input type="radio" name="ubicacion" value="izquierda" checked> Izquierda</label>
-                    <label> <input type="radio" name="ubicacion" value="centro"> Centro</label>
-                    <label> <input type="radio" name="ubicacion" value="derecha"> Derecha</label>
+                <section class="seccion-monto">
+                <label for="monto" class="titulo-seccion">Monto:</label>
+                <input type="number" name="monto" id="monto" min="0" placeholder="$$$" />
+                </section>
+                <label class="titulo-seccion">Ubicación</label>
+                <div class="ubicaciones ubicaciones--mini">
+                  <label class="ubicacion-opcion ubicacion-izq" title="Izquierda">
+                   <input type="radio" name="ubicacion" value="izquierda" checked>
+                   <span class="ubicacion-muestra"></span>
+                  </label>
+                  <label class="ubicacion-opcion ubicacion-centro" title="Centro">
+                   <input type="radio" name="ubicacion" value="centro">
+                   <span class="ubicacion-muestra"></span>
+                  </label>
+                  <label class="ubicacion-opcion ubicacion-der" title="Derecha">
+                   <input type="radio" name="ubicacion" value="derecha">
+                   <span class="ubicacion-muestra"></span>
+                  </label>
                 </div>
                 <label for="Fondo" class="titulo-seccion">Fondo</label>
                 <div class="fondos fondos--img">
