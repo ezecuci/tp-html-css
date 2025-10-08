@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   font-family: Poppins;
@@ -223,96 +222,17 @@ main {
   align-items: center;
 }
 
-.top__image {
-  width: 100%;
-  height: 27rem;
-  overflow: hidden;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.26);
-}
 
-.top__image img {
-  width: 100%;
-  object-fit: cover;
-  object-position: 0 -400px;
-}
-
-.top__image-content-card {
-  position: absolute;
-  z-index: 0;
-  top: 15rem;
-  left: 5rem;
-  color: rgb(0, 0, 0);
-  width: 35rem;
-  background: #ffffff;
-  padding: 1.5rem;
-}
-
-.top__image-content-card h3 {
-  padding-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.top__image-content-card p {
-  text-align: justify;
-  font-size: 0.9rem;
-  font-weight: 100px;
-}
-
-.main__container-enrollment {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.main__container-enrollment h2 {
-  text-align: center;
-  padding: 4rem 0;
-  color: #fff;
-  font-weight: 300;
-  text-shadow: -3px 3px 5px #000000;
-}
-
-.main__enrollment-steps {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  list-style-type: none;
-  justify-content: space-around;
-  padding: 0 1rem;
-}
-
-.enrollment-step {
-  max-width: 12rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(to top, transparent, #5b89a6, transparent);
-  padding: 1rem;
-  border-radius: 40px;
-  box-shadow: -3px 3px 10px 3px #0000003b;
-}
-
-.main__enrollment img {
-  border-radius: 100%;
-  width: 95%;
-}
-
-.main__enrollment-steps p {
-  text-align: center;
-  color: #ffffff;
-  font-weight: 400;
-  padding: 0.5rem;
-}
 
 .cursos__container {
   z-index: 0;
-  margin: 7rem 0;
+  padding-top: 5rem;
   align-content: center;
-  width: 85%;
+  width: 100%;
+  height: 100%;
   background-image: url(../images/fondo\ cursos1.jpg);
   background-size: cover;
   background-position: center;
-  border-radius: 70px;
   box-shadow: -4px 4px 10px 3px #000000a9;
 }
 
@@ -332,7 +252,7 @@ main {
   flex-direction: column;
   height: 27rem;
   max-width: 17rem;
-  background: linear-gradient(to top, transparent, #8c0303, transparent);
+  background: linear-gradient(to top, transparent,   #8C0303    , transparent);
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
@@ -405,32 +325,8 @@ main {
   padding-top: 4rem;
   color: rgba(255, 255, 255, 0.877);
   font-size: 2.5rem;
-}
-
-.cursos__title h2 {
   font-weight: lighter;
-}
 
-.ver__cursos {
-  display: flex;
-  justify-content: center;
-  width: 40%;
-  text-decoration: none;
-  justify-self: center;
-  padding: 0 1rem;
-  color: rgba(255, 255, 255, 0.877);
-  font-size: 2rem;
-  font-weight: lighter;
-  border: 2px white solid;
-  border-radius: 25px;
-  margin: 2rem 1rem 3rem 1rem;
-  transition: ease-out .2s;
-  text-align: center;
-}
-
-.ver__cursos:hover {
-  background: #8c03031a;
-  box-shadow: 0 0 15px 4px #5b89a642;
 }
 
 
@@ -439,38 +335,7 @@ main {
     #F20505
     #5B89A6
     #032340   Paleta utilizada        */
-.logos__slide img {
-  height: 55px;
-  padding: 0.4rem;
-  border-radius: 10px;
-  box-shadow: 0px 4px 5px 0px #ffffff2c;
-  background: #0000003b;
-}
 
-.logos {
-  padding: 0.5rem 0;
-  margin-bottom: 6rem;
-  display: grid;
-  gap: 1.2rem;
-}
-
-.logos__slide {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-
-.logos__title {
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 1.15rem;
-  font-weight: 200;
-  color: #ffffff;
-  border-radius: 7px;
-  text-shadow: -3px 3px 5px #000000;
-}
 
 footer {
   display: flex;
@@ -668,74 +533,18 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
-    height: 23rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: 0 -150px;
-    transform: scale(1.1);
-  }
-
-  .top__image-content-card {
-    position: absolute;
-    z-index: 0;
-    top: 14rem;
-    left: 1rem;
-    color: rgb(0, 0, 0);
-    width: 20rem;
-    background: #ffffff;
-    padding: 0.8rem;
-  }
-
-  .top__image-content-card h3 {
-    padding-bottom: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .top__image-content-card p {
-    text-align: justify;
-    font-size: 0.7rem;
-    font-weight: 100px;
-  }
-  .main__container-enrollment h2 {
-    width: auto;
-    font-size: 1.1rem;
-    padding: 2rem 1rem;
-  }
-
-  .main__enrollment-steps {
-    display: flex;
-    flex-direction: row;
-    padding: 1.1rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    column-gap: 3%;
-    row-gap: 2rem;
-  }
-  .enrollment-step {
-    width: 10.2rem;
-    padding: 1.1rem 0;
-  }
-  .enrollment-step img {
-    width: 8rem;
-  }
-  .main__enrollment-steps p {
-    font-size: 0.8rem;
-    width: 8rem;
-  }
-
+  
   .cursos__container {
-    width: 95%;
+    width: 100%;
     margin: 3rem auto;
     border-radius: 20px;
   }
 
   .cursos__title {
-    font-size: 1.2rem;
-    padding: 1rem 0 1.3rem 0;
+    font-size: 1.8rem;
+    padding: 1rem;
     font-weight: ;
+    text-align: center;
   }
 
   .cursos__cards {
@@ -771,16 +580,6 @@ footer {
     height: 2rem;
     font-size: 0.8rem;
   }
-
-  .ver__cursos {
-    width: 30%;
-    padding: 0 1rem;
-    font-size: 1.4rem;
-    font-weight: lighter;
-    border: 1px white solid;
-    margin: 1rem .5rem 2rem .5rem;
-  }
-
 
   .logos__slide img {
     height: 45px;
@@ -863,66 +662,9 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
-    height: 23rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: -30px 5px;
-    transform: scale(1.7);
-  }
-
-  .top__image-content-card {
-    position: absolute;
-    z-index: 0;
-    top: 14rem;
-    left: 1rem;
-    color: rgb(0, 0, 0);
-    width: 20rem;
-    background: #ffffff;
-    padding: 0.8rem;
-  }
-
-  .top__image-content-card h3 {
-    padding-bottom: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  .top__image-content-card p {
-    text-align: justify;
-    font-size: 0.7rem;
-    font-weight: 100px;
-  }
-  .main__container-enrollment h2 {
-    width: auto;
-    font-size: 1.1rem;
-    padding: 2rem 1rem;
-  }
-
-  .main__enrollment-steps {
-    display: flex;
-    flex-direction: row;
-    padding: 1.1rem;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    column-gap: 3%;
-    row-gap: 2rem;
-  }
-  .enrollment-step {
-    width: 10.2rem;
-    padding: 1.1rem 0;
-  }
-  .enrollment-step img {
-    width: 8rem;
-  }
-  .main__enrollment-steps p {
-    font-size: 0.8rem;
-    width: 8rem;
-  }
 
   .cursos__container {
-    width: 95%;
+ 
     margin: 3rem auto;
     border-radius: 20px;
   }
@@ -965,16 +707,6 @@ footer {
     width: 6.5rem;
     height: 2rem;
     font-size: 0.8rem;
-  }
-
-    .ver__cursos {
-    width: 30%;
-    padding: 0 1rem;
-    font-size: 1rem;
-    font-weight: lighter;
-    border: 1px white solid;
-    margin: 1rem .5rem 2rem .5rem;
-    border-radius: 10px;
   }
 
   .logos__slide img {
@@ -1112,51 +844,9 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
-    height: 15rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: -20px 0px;
-    transform: scale(1.25);
-  }
-
-  .top__image-content-card {
-    display: none;
-  }
-
-  .main__enrollment {
-    width: 100%;
-  }
-  .main__container-enrollment h2 {
-    width: auto;
-    font-size: 1.1rem;
-    padding: 2rem 0;
-  }
-
-  .main__enrollment-steps {
-    display: flex;
-    flex-direction: row;
-    gap: 1.1rem;
-    padding: 1.1rem;
-    flex-wrap: wrap;
-  }
-  .enrollment-step {
-    flex: 1 1 20%;
-    width: 45%;
-  }
-  .enrollment-step img {
-    width: 8rem;
-  }
-
-  .main__enrollment-steps p {
-    font-size: 0.8rem;
-    width: 9rem;
-  }
+  
 
   .cursos__container {
-    width: 95%;
     margin: 3rem auto;
     border-radius: 20px;
   }
