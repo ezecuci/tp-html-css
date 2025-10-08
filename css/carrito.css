@@ -17,6 +17,11 @@ html, body {
     width: 100%;
   }
 
+  .titulo {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
   .carrito-contenedor{
     background-image: url(../images/carrito-imagen.jpg);
     background-size: cover;
@@ -37,6 +42,7 @@ html, body {
   flex-wrap:wrap;
   gap:1.3rem;
   align-items:flex-start;
+  max-width: 100%;
 }
 
 .carrito__items{
@@ -188,6 +194,7 @@ html, body {
 
 .descuento__input{
   flex:1 1 auto;
+  min-width: 65%;
   height:3rem;
   border-radius:.75em;
   border:.0625rem solid rgba(255,255,255,.18);
