@@ -82,7 +82,7 @@
 <section class="pago">
     <div class="pago__tarjeta">
       <h2 class="pago__titulo">Formulario de pago</h2>
-      <form class="pago__formulario" action="#" method="post" autocomplete="off" novalidate>
+      <form class="pago__formulario" method="post" autocomplete="off" action="./perfil-usuario.html">
         <label for="numero-tarjeta" class="pago__label">Número de tarjeta</label>
         <input
           id="numero-tarjeta"
@@ -128,7 +128,7 @@
           placeholder="Nombre del titular de la tarjeta"
           required
         />
-        <a href="./perfil-usuario.html" class="btn btn--primario pago__boton">Pagar</a>
+        <button type="submit" href="./perfil-usuario.html" class="btn--primario pago__boton">Pagar</button>
       </form>
     </div>
   </section>
