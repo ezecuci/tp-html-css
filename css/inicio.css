@@ -704,21 +704,16 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
-    height: 23rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: 0 -150px;
-    transform: scale(1.1);
-  }
+  .container__top__image {
+    height: 22rem;
+    margin-bottom: 3rem;
+}
 
   .top__image-content-card {
     position: absolute;
     z-index: 0;
-    top: 14rem;
-    left: 1rem;
+    top: 12rem;
+    left: 3rem;
     color: rgb(0, 0, 0);
     width: 20rem;
     background: #ffffff;
@@ -735,6 +730,11 @@ footer {
     font-size: 0.7rem;
     font-weight: 100px;
   }
+
+  .top__image-btn {
+  font-size: 4rem;
+
+}
   .main__container-enrollment h2 {
     width: auto;
     font-size: 1.1rem;
@@ -899,25 +899,19 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
-    height: 23rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: -30px 5px;
-    transform: scale(1.7);
+
+  .container__top__image {
+    height: 16rem;
+    margin-bottom: 3rem;
+  } 
+
+  .top__image-btn {
+    font-size: 3rem;
   }
 
   .top__image-content-card {
-    position: absolute;
-    z-index: 0;
-    top: 14rem;
-    left: 1rem;
-    color: rgb(0, 0, 0);
-    width: 20rem;
-    background: #ffffff;
-    padding: 0.8rem;
+    top: 7rem;
+    left: 2rem;
   }
 
   .top__image-content-card h3 {
@@ -1148,15 +1142,10 @@ footer {
     width: 2rem;
   }
 
-  .top__image {
+   .container__top__image {
     height: 15rem;
-  }
-  .top__image img {
-    object-position: center;
-    object-fit: cover;
-    object-position: -20px 0px;
-    transform: scale(1.25);
-  }
+   
+}
 
   .top__image-content-card {
     display: none;
