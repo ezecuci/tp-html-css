@@ -9,17 +9,23 @@ html, body {
     margin: 0;
   }
   
-  .registro {
-    min-height: 100%;
+  main {
     width: 100%;
-    display: grid;
+  }
+
+  .registro {
+    display: flex;
+    flex: 1 1 60%;
+    justify-content: center;
+    min-width: 60%;
+    min-height: 100%;
     place-items: center;
     padding: 2rem 1rem;
     border: none;
   }
 
   .registro-recuadro{
-    width: 60%;
+    width: 100%;
     background: linear-gradient(to top, transparent, #5b89a6, transparent);
     border: 0.0625em solid rgba(255,255,255,.12);
     border-radius: 1.25rem;

@@ -22,7 +22,7 @@
           <p class="registro-leyenda">Completá tus datos para registrarte</p>
 
           <form class="registro__form" action="./index.html" method="post" autocomplete="off">
-              <p>Tipo de cuenta<p>
+              <p>Tipo de cuenta</p>
               <label>
                 <input class="registro__radioButton" type="radio" name="tipo" value="personal" checked />
                 <span>Personal</span>
@@ -32,13 +32,13 @@
                 <span>Empresa</span>
                 <br>
               </label>
-            <label for="nombre">Nombre y apellido / Nombre de empresa</label>
+            <label class="nombre" for="nombre">Nombre y apellido</label>
             <input
               class="registro__form-email icono-usuario"
               type="text"
               id="nombre"
               name="nombre"
-              placeholder="Nombre y apellido / Nombre de empresa"
+              placeholder="Nombre y apellido"
               required
             />
             <label for="email">Correo electrónico</label>
@@ -80,5 +80,6 @@
         </div>
       </section>
     </main>
+    <script src="./js/registro.js"></script>
   </body>
 </html>
