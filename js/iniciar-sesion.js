@@ -1,4 +1,8 @@
 
+import { Modal } from './modal.js'; 
+
+const modal = new Modal();
+
 const form = document.querySelector('.login__form');
 
 const inputEmail = document.getElementById('email');
@@ -31,21 +35,29 @@ function sePuedeIniciarSesion(email, password){
 
             if( actual.password === password){
 
+                sessionStorage.setItem('sesionActiva', JSON.stringify({
+                    email: actual.email,
+                    nombre: actual.nombre
+                }));
+
                 return true;
+
             }else {
 
-            alert('contraseña incorrecta, intentelo nuevamente');
-            
-            inputContrasenia.focus();
+            modal.mostrarMensaje('contraseña incorrecta, intentelo nuevamente' , () => {
+                inputContrasenia.focus();
+            });
+    
             return false;
             
             }
         }
-
     }
 
-    alert('ingreso invalido, el email ingresado no se encuentra registrado');
-    inputEmail.focus();
+    modal.mostrarMensaje('ingreso invalido, el email ingresado no se encuentra registrado', () => {
+        inputEmail.focus();
+    });
+
     return false;
 
 }

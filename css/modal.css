@@ -1,0 +1,68 @@
+.modal{
+    color: rgb(0, 0, 0);
+    position: fixed;
+    inset: 0;
+    background: #00000083;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal__visible {
+    display: flex;
+}
+
+.modal__contenedor{
+  font-size: 130%;
+  font-weight: 500;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  flex: 0 0 0 40%;
+  margin: 1rem;
+  animation: aparecer 0.3s ease;
+}
+
+.modal__cerrar{
+    position: absolute;
+    width: 2rem;
+    font-size: 1.5rem;
+    top: 2px;
+    right: 2px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.modal__continuar {
+    font-size: 100%;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    background-color: #032340 ;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+.modal__continuar:hover{
+    background-color:#5B89A6;
+}
+.modal__cerrar:hover {
+    background-color:#590202;
+    color: white;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
