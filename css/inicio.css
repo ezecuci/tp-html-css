@@ -366,7 +366,7 @@ main {
   flex: 1 1 33.33%;
   display: flex;
   flex-direction: column;
-  height: 27rem;
+  height: 29rem;
   max-width: 17rem;
   background: linear-gradient(to top, transparent, #8c0303, transparent);
   justify-content: space-between;
@@ -405,6 +405,7 @@ main {
 }
 
 .card a {
+
   color: #fff;
   font-size: small;
   text-decoration: none;
@@ -424,14 +425,17 @@ main {
   height: 2rem;
   border-radius: 10px;
   transition: 0.2s ease-out;
+  margin: .8rem 0 0 0 ;
+  width: auto;
+  padding: 0 1rem;
 }
+
 
 .card a button:hover {
   cursor: pointer;
   font-size: medium;
   background: rgba(0, 0, 0, 0.918);
   height: 2.6rem;
-  width: 9rem;
   border-radius: 13px;
 }
 
@@ -783,7 +787,7 @@ footer {
 
   .card {
     max-width: 80%;
-    min-height: 27rem;
+    height:auto;
     border-radius: 20px;
     padding: 1rem;
     max-width: 17rem;
@@ -793,6 +797,17 @@ footer {
     height: 9rem;
   }
 
+  .card a {
+    display: flex;
+    flex-direction:column ;
+  }
+
+.card a button:hover {
+  cursor: pointer;
+  font-size: .8rem;
+  height: auto;
+  border-radius: 13px;
+}
   .card__img a img {
     height: 10rem;
     object-fit: cover;
@@ -803,9 +818,9 @@ footer {
   }
 
   .card a button {
-    width: 6.5rem;
-    height: 2rem;
+    height: auto;
     font-size: 0.8rem;
+    padding: .5rem;
   }
 
   .ver__cursos {
@@ -991,11 +1006,7 @@ footer {
     transform: scale(2);
   }
 
-  .card a button {
-    width: 6.5rem;
-    height: 2rem;
-    font-size: 0.8rem;
-  }
+
 
     .ver__cursos {
     width: 30%;
@@ -1219,12 +1230,7 @@ footer {
     transform: scale(2);
   }
 
-  .card a button {
-    width: 6.5rem;
-    height: 2rem;
-    font-size: 0.8rem;
-  }
-
+ 
   .logos__slide img {
     height: 45px;
     background: #0000003b;

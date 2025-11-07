@@ -1,3 +1,5 @@
+import { TarjetaCurso } from './TarjetaCurso.js';
+
 const contenedorDeImagenes = document.querySelector('.top__image');
 const imagenesDelSlide = document.querySelectorAll('.top__image img');
 const btnBack = document.querySelector('.top__image-btn.back');
@@ -29,3 +31,9 @@ setInterval(() => {
   if (index >= imagenesDelSlide.length) index = 0;
   desplazarImagen();
 }, 5000);
+
+
+// CREAR TARJETAS DE CURSOS EN INICIO
+const contenedorCursos = document.querySelector('.cursos__cards');
+const tarjetas = new TarjetaCurso();
+tarjetas.renderizarTarjetas(contenedorCursos);
