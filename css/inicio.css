@@ -210,6 +210,10 @@ body {
   width: 2.2rem;
 }
 
+.header__cart a p {
+  
+}
+
 .header__cart:hover {
   cursor: pointer;
   opacity: 60%;
@@ -404,19 +408,20 @@ main {
   cursor: pointer;
 }
 
-.card a {
+
+.card a, .btn--agregar {
 
   color: #fff;
   font-size: small;
   text-decoration: none;
 }
 
-.card a:hover {
+.card a:hover, .btn--agregar:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.card a button {
+.card a button , .btn--agregar{
   color: #ffffff;
   font-size: small;
   width: 8rem;
@@ -431,7 +436,7 @@ main {
 }
 
 
-.card a button:hover {
+.card a button:hover,.btn--agregar:hover {
   cursor: pointer;
   font-size: medium;
   background: rgba(0, 0, 0, 0.918);
@@ -802,7 +807,7 @@ footer {
     flex-direction:column ;
   }
 
-.card a button:hover {
+.card a button:hover, .btn--agregar:hover{
   cursor: pointer;
   font-size: .8rem;
   height: auto;
@@ -817,7 +822,7 @@ footer {
     transform: scale(2);
   }
 
-  .card a button {
+  .card a button , .btn--agregar {
     height: auto;
     font-size: 0.8rem;
     padding: .5rem;
@@ -900,6 +905,9 @@ footer {
     flex: 1 1 10%;
     min-width: 11rem;
     border: none;
+  }
+  .login img{
+    display: none;
   }
   .header__cart {
     display: flex;
@@ -1129,7 +1137,7 @@ footer {
   }
   .login{
     flex: 1 1 10%;
-    min-width: 10.2rem;
+    min-width: 9rem;
   }
 
   .login-sesion{
@@ -1259,5 +1267,8 @@ footer {
 @media screen and (max-width: 319px) {
   html {
     font-size: 12px;
+  }
+   .login{
+    min-width: 8rem;
   }
 }

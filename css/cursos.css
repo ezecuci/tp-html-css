@@ -236,7 +236,7 @@ main {
   box-shadow: -4px 4px 10px 3px #000000a9;
 }
 
-.cursos__cards {
+.cursos__cards--todas {
   display: flex;
   flex-direction: row;
   list-style: none;
@@ -250,7 +250,7 @@ main {
   flex: 1 1 33.33%;
   display: flex;
   flex-direction: column;
-  height: 27rem;
+  height: 29rem;
   max-width: 17rem;
   background: linear-gradient(to top, transparent,   #8C0303    , transparent);
   justify-content: space-between;
@@ -299,23 +299,25 @@ main {
   text-decoration: underline;
 }
 
-.card a button {
+.card a button , .btn--agregar{
   color: #ffffff;
   font-size: small;
-  width: 8rem;
+  margin:.8rem 0 0 0 ;
   background: rgba(0, 0, 0, 0.582);
   border: none;
   height: 2rem;
   border-radius: 10px;
   transition: 0.2s ease-out;
+  width: auto;
+  padding: 0 1rem;
 }
 
-.card a button:hover {
+.card a button:hover ,.btn--agregar:hover {
   cursor: pointer;
   font-size: medium;
   background: rgba(0, 0, 0, 0.918);
   height: 2.6rem;
-  width: 9rem;
+
   border-radius: 13px;
 }
 
@@ -367,7 +369,9 @@ footer {
     #032340   azul oscuro
     
     Paleta utilizada        */
-
+footer {
+  z-index: 10;
+}
 .footer__container {
   display: flex;
   justify-content: center;
@@ -547,7 +551,7 @@ footer {
     text-align: center;
   }
 
-  .cursos__cards {
+  .cursos__cards--todas {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
@@ -575,10 +579,11 @@ footer {
     transform: scale(2);
   }
 
-  .card a button {
-    width: 6.5rem;
-    height: 2rem;
+  .card a button ,.btn--agregar {
+
+    height: auto;
     font-size: 0.8rem;
+    padding: .5rem;
   }
 
   .logos__slide img {
@@ -675,7 +680,7 @@ footer {
     font-weight: ;
   }
 
-  .cursos__cards {
+  .cursos__cards--todas{
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
@@ -698,15 +703,6 @@ footer {
     height: 10rem;
     object-fit: cover;
     transform: scale(1.7);
-  }
-  .card__img a img:hover {
-    transform: scale(2);
-  }
-
-  .card a button {
-    width: 6.5rem;
-    height: 2rem;
-    font-size: 0.8rem;
   }
 
   .logos__slide img {
@@ -857,7 +853,7 @@ footer {
     font-weight: ;
   }
 
-  .cursos__cards {
+  .cursos__cards--todas {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
@@ -884,11 +880,6 @@ footer {
     transform: scale(2);
   }
 
-  .card a button {
-    width: 6.5rem;
-    height: 2rem;
-    font-size: 0.8rem;
-  }
 
   .logos__slide img {
     height: 45px;

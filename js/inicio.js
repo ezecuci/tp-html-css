@@ -1,4 +1,7 @@
-import { TarjetaCurso } from './TarjetaCurso.js';
+import { RenderizadorDeCursos } from './renderizadorDeCursos.js';
+import { CarritoModal } from './carritoModal.js';
+
+const carritoModal = new CarritoModal();
 
 const contenedorDeImagenes = document.querySelector('.top__image');
 const imagenesDelSlide = document.querySelectorAll('.top__image img');
@@ -35,5 +38,27 @@ setInterval(() => {
 
 // CREAR TARJETAS DE CURSOS EN INICIO
 const contenedorCursos = document.querySelector('.cursos__cards');
-const tarjetas = new TarjetaCurso();
+const tarjetas = new RenderizadorDeCursos();
 tarjetas.renderizarTarjetas(contenedorCursos);
+
+
+//BTN AGREGAR AL CARRITO
+
+const btnAgregar = document.querySelectorAll('.btn--agregar');
+const contadorCarrito = document.querySelector('.contador-carrito');
+const carrito = [];
+
+function actualizarContador() {
+    contadorCarrito.innerHTML = `+${carrito.length}`;
+}
+
+btnAgregar.forEach((btn, indice) => {
+
+    btn.addEventListener('click', () => {
+        carrito.push(indice);
+        sessionStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarContador();
+    });
+});
+
+
