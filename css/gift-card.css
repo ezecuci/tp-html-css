@@ -48,8 +48,8 @@ main {
 }
 
 .monto_vistaprevia h2{
-    background-color: rgb(255, 0, 43);
-    box-shadow: 0 0 1rem rgb(255, 0, 43);;
+    background-color: #5b89a6;
+    box-shadow: 0 0 1rem #5b89a6;;
 }
 
 .destinatario_vistaprevia {
@@ -250,7 +250,6 @@ main {
     box-shadow: 0 0 1rem rgb(189, 229, 255);
   }
 
-  /* Contenedor en línea, mantiene tu estética */
 .ubicaciones.ubicaciones--mini{
     width: 100%;
     display:flex; 
