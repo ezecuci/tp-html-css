@@ -10,7 +10,6 @@ export class CarritoModal {
         this.descuento = 0;
         this.total = 0;
 
-
         this.codigoAplicado = sessionStorage.getItem('carrito_codigo') || null;
 
         this.contadorCarrito = document.querySelector('.contador-carrito');
@@ -20,23 +19,62 @@ export class CarritoModal {
 
         this.cursosAgregados = JSON.parse(sessionStorage.getItem('carrito')) || [];
 
+
         this.modal = document.createElement('article');
         this.modal.classList.add('modal__contenedor');
+
+
+        this.modal.addEventListener('click', (e) => {
+            const target = e.target;
+
+          
+            if (target.classList.contains('modal--cerrar')) {
+                this.modal.remove();
+                return;
+            }
+
+          
+            if (target.classList.contains('carrito-item__eliminar')) {
+                const botones = Array.from(this.modal.querySelectorAll('.carrito-item__eliminar'));
+                const index = botones.indexOf(target);
+                if (index > -1) this.eliminarCurso(index);
+                return;
+            }
+
+          
+            if (target.classList.contains('aplicar--descuento')) {
+                const inputCodigo = this.modal.querySelector('.input--descuento');
+                
+                let codigo = '';
+                if (inputCodigo) {
+                    codigo = inputCodigo.value.trim().toLowerCase();
+                }
+
+                if (this.cursosAgregados.length === 0) {
+                    this.notifModal.mostrarMensaje('Tu carrito está vacío. Agrega cursos para aplicar un código.');
+                    return;
+                }
+
+                if (codigo === 'checode20') {
+                    this.codigoAplicado = 'checode20';
+                    sessionStorage.setItem('carrito_codigo', this.codigoAplicado);
+                    this.notifModal.mostrarMensaje('Código aplicado: 20% de descuento.');
+                } else {
+                    this.codigoAplicado = null;
+                    sessionStorage.removeItem('carrito_codigo');
+                    this.notifModal.mostrarMensaje('Código no válido.');
+                }
+
+                this.renderizarModal();
+                return;
+            }
+        });
 
         this.btnCarritoHeader = document.querySelector('.header__cart');
         this.btnCarritoHeader.addEventListener('click', () => this.abrirCerrarModal());
 
-
-        this.modal.addEventListener('click', (e) => {
-            if (e.target.classList.contains('carrito-item__eliminar')) {
-                const index = Array.from(this.modal.querySelectorAll('.carrito-item__eliminar')).indexOf(e.target);
-                this.eliminarCurso(index);
-            }
-        });
-
         this.renderizarModal();
     }
-
 
     renderizarCursos() {
         this.itemCurso = '';
@@ -60,7 +98,6 @@ export class CarritoModal {
             this.subtotal += curso.precio;
         });
 
- 
         if (this.cursosAgregados.length === 0) {
             this.codigoAplicado = null;
             this.descuento = 0;
@@ -74,7 +111,6 @@ export class CarritoModal {
         this.total = this.subtotal - this.descuento;
     }
 
-
     renderizarModal() {
         this.renderizarCursos();
 
@@ -82,7 +118,7 @@ export class CarritoModal {
             <div class="cont--superior">
                 <h4 class="modal--titulo">¡Solo queda un paso para finalizar la compra!</h4>
                 <button class="modal--cerrar">&times;</button>
-            </div?
+            </div>
             <div class="modal__cursos">
                 <ul class="cursos--lista">
                     ${this.itemCurso || '<p>Tu carrito está vacío</p>'}
@@ -92,8 +128,8 @@ export class CarritoModal {
                 <h4 class="resumen--titulo">Resumen</h4>
                 <p>Código de descuento</p>
                 <div class="cont--descuento">
-                    <input type="text" class="input--descuento" name="cod_descuento" 
-                        placeholder="Ej: CHECODE20" 
+                    <input type="text" class="input--descuento" name="cod_descuento"
+                        placeholder="Ej: CHECODE20"
                         value="${this.codigoAplicado ? this.codigoAplicado.toUpperCase() : ''}">
                     <button class="aplicar--descuento">Aplicar</button>
                 </div>
@@ -110,39 +146,6 @@ export class CarritoModal {
                 <a href="./cursos.html">Ver más cursos</a>
             </div>
         `;
-
-
-        const btnAplicar = this.modal.querySelector('.aplicar--descuento');
-        const inputCodigo = this.modal.querySelector('.input--descuento');
-
-
-        btnAplicar.onclick = () => {
-            const codigo = inputCodigo.value.trim().toLowerCase();
-
-            if (this.cursosAgregados.length === 0) {
-                this.notifModal.mostrarMensaje('Tu carrito está vacío. Agrega cursos para aplicar un código.');
-                return;
-            }
-
-            if (codigo === 'checode20') {
-                this.codigoAplicado = 'checode20';
-                sessionStorage.setItem('carrito_codigo', this.codigoAplicado);
-                this.notifModal.mostrarMensaje('Código aplicado: 20% de descuento.');
-            } else {
-                this.codigoAplicado = null;
-                sessionStorage.removeItem('carrito_codigo');
-                this.notifModal.mostrarMensaje('Código no válido.');
-            }
-
-            this.renderizarModal();
-        };
-    }
-
-    eliminarCurso(index) {
-        this.cursosAgregados.splice(index, 1);
-        sessionStorage.setItem('carrito', JSON.stringify(this.cursosAgregados));
-        this.actualizarContador();
-        this.renderizarModal();
     }
 
     mostrarModal() {
@@ -150,8 +153,6 @@ export class CarritoModal {
         if (!document.body.contains(this.modal)) {
             document.body.appendChild(this.modal);
         }
-
-        this.cerrarModal();
     }
 
     abrirCerrarModal() {
@@ -163,14 +164,11 @@ export class CarritoModal {
         }
     }
 
-    cerrarModal() {
-        const btnCerrarr = this.modal.querySelector('.modal--cerrar');
-        
-        if(btnCerrarr) {
-            btnCerrarr.addEventListener('click', () => {
-                this.modal.remove();
-            });
-        }
+    eliminarCurso(index) {
+        this.cursosAgregados.splice(index, 1);
+        sessionStorage.setItem('carrito', JSON.stringify(this.cursosAgregados));
+        this.actualizarContador();
+        this.renderizarModal();
     }
 
     agregarCurso(indice) {
