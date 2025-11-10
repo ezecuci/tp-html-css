@@ -20,16 +20,20 @@ html, body {
     min-width: 60%;
     min-height: 100%;
     place-items: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 0.5rem;
     border: none;
   }
 
+  .tipoCuenta label{
+    margin: 0 0.5rem 0 0;
+  }
+  
   .registro-recuadro{
     width: 100%;
     background: linear-gradient(to top, transparent, #5b89a6, transparent);
     border: 0.0625em solid rgba(255,255,255,.12);
     border-radius: 1.25rem;
-    padding: 3rem;
+    padding: 2rem;
     box-shadow: 0 0 1rem rgb(3, 14, 22);
     backdrop-filter: blur(3px);
   }
@@ -53,7 +57,7 @@ html, body {
   }
 
   .registro__radioButton{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   
   .registro__form-email{
