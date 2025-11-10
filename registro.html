@@ -36,13 +36,31 @@
               </label>
             </section>
             <label class="nombre-apellido" for="nombre-apellido">Nombre y apellido</label>
+            <div class="fila-personal">
             <input
               class="registro__form-email icono-usuario"
               type="text"
-              id="nombre-apellido"
-              name="nombre-apellido"
-              placeholder="Nombre y apellido"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
               required />
+              <input
+              class="registro__form-email icono-usuario"
+              type="text"
+              id="apellido"
+              name="apellido"
+              placeholder="Apellido"
+              required />
+            </div>
+            <label class="nombre-empresa" for="nombre-empresa" style="display:none;">Nombre de empresa</label>
+            <input
+              class="registro__form-email icono-usuario input-empresa"
+              type="text"
+              id="nombre-empresa"
+              name="nombre-empresa"
+              placeholder="Nombre de empresa"
+              style="display: none;"
+               />
             <label for="email">Correo electrónico</label>
             <input
               class="registro__form-email icono-mail"
@@ -53,6 +71,7 @@
               required
             />
             <label for="password">Contraseña</label>
+            <div class="fila-password">
             <input
               class="registro__form-email icono-password"
               type="password"
@@ -62,7 +81,6 @@
               minlength="6"
               required
             />
-            <label for="password2">Repetir contraseña</label>
             <input
               class="registro__form-email icono-password"
               type="password"
@@ -72,6 +90,7 @@
               minlength="6"
               required
             />
+          </div>
             <button type="submit" class="registro__button">Crear cuenta</button>
           </form>
           <p class="registro-leyenda">

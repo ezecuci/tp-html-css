@@ -147,6 +147,24 @@ html, body {
     border-color: white;
   }
 
+  .fila-personal {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .fila-personal .registro__form-email {
+    flex: 1;
+  }
+
+  .fila-password {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .fila-password .registro__form-email {
+    flex: 1;
+  }
+  
   @media screen and (max-width: 47.125em) {
     .registro-recuadro{
         width: 90%;

@@ -13,23 +13,36 @@ const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
 
 const form = document.querySelector('.registro__form');
-const labelNombreApellido = document.querySelector('.nombre-apellido');
-const inputNombreApellido = document.getElementById('nombre-apellido');
+const inputNombre = document.getElementById('nombre');
+const inputApellido = document.getElementById('apellido');
+const inputEmpresa = document.getElementById("nombre-empresa");
+const labelEmpresa = document.querySelector(".nombre-empresa");
+const labelPersonal = document.querySelector(".nombre-apellido");
 const inputEmail = document.getElementById('email');
 const inputPassword = document.getElementById('password');
 const inputPassword2 = document.getElementById('password2');
-
+const radios = document.querySelectorAll(".registro__radioButton")
 form.addEventListener('change', (e) => {
 
     const target = e.target;
 
     if(!target.matches('.registro__radioButton')) return;   
     if(target.value === 'personal'){
-        labelNombreApellido.textContent = 'Nombre y apellido';
-        inputNombreApellido.placeholder = 'Nombre y apellido';
+        labelPersonal.style.display = "";
+        document.querySelector(".fila-personal").style.display = "flex";
+        labelEmpresa.style.display = "none";
+        inputEmpresa.style.display = "none";
+        inputEmpresa.removeAttribute("required");
+        inputNombre.setAttribute("required", "");
+        inputApellido.setAttribute("required", "")
     }else if (target.value === 'empresa') {
-        labelNombreApellido.textContent = 'Nombre de empresa'; 
-        inputNombreApellido.placeholder = 'Nombre de empresa';
+        labelPersonal.style.display = "none";
+        document.querySelector(".fila-personal").style.display = "none";
+        inputNombre.removeAttribute("required");
+        inputApellido.removeAttribute("required");
+        labelEmpresa.style.display = "";
+        inputEmpresa.style.display = "";
+        inputEmpresa.setAttribute("required", "");
     }
 });
 
@@ -40,25 +53,43 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const tipo = document.querySelector('.registro__radioButton:checked').value;
-    const nombreIngresado = inputNombreApellido.value.trim();
     const email = inputEmail.value.trim().toLowerCase();
     const password = inputPassword.value;
     const password2 = inputPassword2.value;
+    let nombre = "";
+    let apellido = "";
+    let empresa = "";
 
     if(tipo === 'personal'){
-        if (!nombreIngresado.includes(' ')) {
-            modal.mostrarMensaje('Ingresá tu nombre y apellido', () => {
-              inputNombre.focus();
-            });
-            return;}
-        }else {
-        if (nombreIngresado.length < 2) {
-          modal.mostrarMensaje('Ingresá el nombre de la empresa', () => {
-            inputNombre.focus();
-          });
-          return;
+        nombre = inputNombre.value.trim();
+        apellido = inputApellido.value.trim();
+        if (nombre === "" || apellido === "") {
+            modal.mostrarMensaje("Completá nombre y apellido", () => {
+                if (nombre === "") inputNombre.focus();
+                else inputApellido.focus();
+            }); return;
         }
-      }
+        if (!validador.esNombrePropioValido(nombre.toUpperCase())) {
+            modal.mostrarMensaje("El nombre no es válido", () => {
+                inputNombre.focus();
+            });
+            return;
+        }
+        if (!validador.esNombrePropioValido(apellido.toUpperCase())) {
+            modal.mostrarMensaje("El apellido no es válido", () => {
+                inputApellido.focus();
+            });
+            return;
+        }
+        }else {
+            empresa = inputEmpresa.value.trim();
+            if (empresa.length < 2) {
+                modal.mostrarMensaje("Ingresá el nombre de la empresa", () => {
+                    inputEmpresa.focus();
+                });
+                return;
+            }
+        }
 
       if (!validador.esUnEmailValido(email)) {
         modal.mostrarMensaje(
@@ -94,22 +125,28 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-
-  const nuevoUsuario = {tipo, nombre: nombreIngresado.toUpperCase(), email, password};
-
-  usuarios.push(nuevoUsuario);
-  localStorage.setItem('usuarios', JSON.stringify(usuarios));
-  sessionStorage.setItem(
-    'sesionActiva',
-    JSON.stringify({
-      email,
-      nombre: nombreIngresado,
-    })
-  );
-  modal.mostrarMensaje('Usuario registrado correctamente!', () => {
-    form.reset();
-    window.location.href = './index.html';
-  });
-});
-
+  const nuevoUsuario = {tipo,
+    nombre: tipo === "personal" ? nombre.toUpperCase() : empresa.toUpperCase(),
+    apellido: tipo === "personal" ? apellido.toUpperCase() : null,
+    email,
+    password};
     
+    usuarios.push(nuevoUsuario);
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    sessionStorage.setItem(
+        'sesionActiva',
+        JSON.stringify({
+            email,
+            nombre:tipo === "personal" ? `${nombre} ${apellido}` : empresa,
+            tipo,
+        })
+    );
+    modal.mostrarMensaje('Usuario registrado correctamente!', () => {
+        form.reset();
+        labelPersonal.style.display = "";
+        document.querySelector(".fila-personal").style.display = "flex";
+        labelEmpresa.style.display = "none";
+        inputEmpresa.style.display = "none";
+        window.location.href = './index.html';
+    });
+});
