@@ -79,7 +79,10 @@ export class CarritoModal {
         this.renderizarCursos();
 
         this.modal.innerHTML = `
-            <h4 class="modal--titulo">¡Solo queda un paso para finalizar la compra!</h4>
+            <div class="cont--superior">
+                <h4 class="modal--titulo">¡Solo queda un paso para finalizar la compra!</h4>
+                <button class="modal--cerrar">&times;</button>
+            </div?
             <div class="modal__cursos">
                 <ul class="cursos--lista">
                     ${this.itemCurso || '<p>Tu carrito está vacío</p>'}
@@ -99,7 +102,7 @@ export class CarritoModal {
                     <li class="detalle--item"><div>Descuento</div><div>-$${this.descuento}</div></li>
                     <li class="detalle--item"><div>Total</div><div>$${this.total}</div></li>
                 </ul>
-                <a href="./facturacion.html">
+                <a class="link--pagar" href="./facturacion.html">
                     <button class="button--comprar" type="button" ${this.cursosAgregados.length === 0 ? 'disabled' : ''}>
                         Ir a pagar
                     </button>
@@ -147,6 +150,8 @@ export class CarritoModal {
         if (!document.body.contains(this.modal)) {
             document.body.appendChild(this.modal);
         }
+
+        this.cerrarModal();
     }
 
     abrirCerrarModal() {
@@ -155,6 +160,16 @@ export class CarritoModal {
             existe.remove();
         } else {
             this.mostrarModal();
+        }
+    }
+
+    cerrarModal() {
+        const btnCerrarr = this.modal.querySelector('.modal--cerrar');
+        
+        if(btnCerrarr) {
+            btnCerrarr.addEventListener('click', () => {
+                this.modal.remove();
+            });
         }
     }
 
