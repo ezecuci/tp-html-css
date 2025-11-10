@@ -45,19 +45,10 @@ tarjetas.renderizarTarjetas(contenedorCursos);
 //BTN AGREGAR AL CARRITO
 
 const btnAgregar = document.querySelectorAll('.btn--agregar');
-const contadorCarrito = document.querySelector('.contador-carrito');
-const carrito = [];
-
-function actualizarContador() {
-    contadorCarrito.innerHTML = `+${carrito.length}`;
-}
 
 btnAgregar.forEach((btn, indice) => {
-
     btn.addEventListener('click', () => {
-        carrito.push(indice);
-        sessionStorage.setItem('carrito', JSON.stringify(carrito));
-        actualizarContador();
+        carritoModal.agregarCurso(indice);
     });
 });
 
