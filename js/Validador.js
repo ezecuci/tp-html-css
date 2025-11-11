@@ -26,4 +26,25 @@ export class Validador {
         return formatoEmail.test(email);
     }
 
+    esNumeroTarjetaValido(numero) {
+
+        const formatoTarjeta = /^(?:\d{4}\s?){4}$/;
+        
+        return formatoTarjeta.test(numero);
+    }
+
+    esFechaVencimientoValida(fecha) {
+    
+        const formatoFecha = /^(0[1-9]|1[0-2])\/\d{2}$/; 
+    
+        return formatoFecha.test(fecha);
+    }
+    
+    esCodigoSeguridadValido(codigo) {
+        
+        const formatoCodigo = /^\d{3}$/;
+        
+        return formatoCodigo.test(codigo);
+    }
+
 }

@@ -33,22 +33,33 @@ function sePuedeIniciarSesion(email, password){
 
         if(actual.email === email){
 
-            if( actual.password === password){
+            if (actual.password === password) {
 
-                sessionStorage.setItem('sesionActiva', JSON.stringify({
-                    email: actual.email,
-                    nombre: actual.nombre
-                }));
+                if (actual.tipo === 'personal') {
+                    sessionStorage.setItem('sesionActiva', JSON.stringify({
+                        tipo: 'personal',
+                        email: actual.email,
+                        nombre: actual.nombre,
+                        apellido: actual.apellido
+                    }));
+
+                } else if (actual.tipo === 'empresa') {
+                    sessionStorage.setItem('sesionActiva', JSON.stringify({
+                        tipo: 'empresa',
+                        email: actual.email,
+                        nombreEmpresa: actual.nombreEmpresa
+                    }));
+                }
 
                 return true;
 
             }else {
 
-            modal.mostrarMensaje('contraseña incorrecta, intentelo nuevamente' , () => {
-                inputContrasenia.focus();
-            });
+                modal.mostrarMensaje('contraseña incorrecta, intentelo nuevamente' , () => {
+                    inputContrasenia.focus();
+                });
     
-            return false;
+                return false;
             
             }
         }

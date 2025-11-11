@@ -125,28 +125,33 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  const nuevoUsuario = {tipo,
-    nombre: tipo === "personal" ? nombre.toUpperCase() : empresa.toUpperCase(),
-    apellido: tipo === "personal" ? apellido.toUpperCase() : null,
-    email,
-    password};
+  let nuevoUsuario = { tipo, email, password };
+
+  if (tipo === "personal") {
+    nuevoUsuario.nombre = nombre.toUpperCase();
+    nuevoUsuario.apellido = apellido.toUpperCase();
+  } else {
+    nuevoUsuario.nombreEmpresa = empresa.toUpperCase();
+  }
     
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    sessionStorage.setItem(
-        'sesionActiva',
-        JSON.stringify({
-            email,
-            nombre:tipo === "personal" ? `${nombre} ${apellido}` : empresa,
-            tipo,
-        })
-    );
-    modal.mostrarMensaje('Usuario registrado correctamente!', () => {
-        form.reset();
-        labelPersonal.style.display = "";
-        document.querySelector(".fila-personal").style.display = "flex";
-        labelEmpresa.style.display = "none";
-        inputEmpresa.style.display = "none";
-        window.location.href = './index.html';
-    });
+  usuarios.push(nuevoUsuario);
+  localStorage.setItem('usuarios', JSON.stringify(usuarios));
+  let sesionActiva = { tipo, email };
+
+  if (tipo === "personal") {
+    sesionActiva.nombre = nombre;
+    sesionActiva.apellido = apellido;
+  } else {
+    sesionActiva.nombreEmpresa = empresa;
+  }
+
+  sessionStorage.setItem("sesionActiva", JSON.stringify(sesionActiva));
+      modal.mostrarMensaje('Usuario registrado correctamente!', () => {
+          form.reset();
+          labelPersonal.style.display = "";
+          document.querySelector(".fila-personal").style.display = "flex";
+          labelEmpresa.style.display = "none";
+          inputEmpresa.style.display = "none";
+          window.location.href = './index.html';
+      });
 });

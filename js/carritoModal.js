@@ -74,6 +74,7 @@ export class CarritoModal {
         this.btnCarritoHeader.addEventListener('click', () => this.abrirCerrarModal());
 
         this.renderizarModal();
+        this.actualizarContador();
     }
 
     renderizarCursos() {
