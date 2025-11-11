@@ -1,7 +1,3 @@
-
-// codigo para modificar el label y placeholder de tipo de usuario
-// con el input radio 
-
 import { Validador } from './Validador.js';
 import { Modal } from './modal.js';
 
@@ -21,7 +17,6 @@ const labelPersonal = document.querySelector(".nombre-apellido");
 const inputEmail = document.getElementById('email');
 const inputPassword = document.getElementById('password');
 const inputPassword2 = document.getElementById('password2');
-const radios = document.querySelectorAll(".registro__radioButton")
 form.addEventListener('change', (e) => {
 
     const target = e.target;
@@ -45,8 +40,6 @@ form.addEventListener('change', (e) => {
         inputEmpresa.setAttribute("required", "");
     }
 });
-
-// REGISTRO DE USUARIO ---->>>
 
 form.addEventListener('submit', (e) => {
 
@@ -101,7 +94,13 @@ form.addEventListener('submit', (e) => {
         return;
       }
 
-      const existe = usuarios.some((u) => u.email === email);
+      let existe = false;
+      for (let i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].email === email) {
+            existe = true;
+            break;
+        }
+    }
       if (existe) {
         modal.mostrarMensaje('Ya existe una cuenta con ese email. Usá otro correo o iniciá sesión.',() => {
         inputEmail.focus();

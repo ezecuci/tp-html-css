@@ -1272,3 +1272,35 @@ footer {
     min-width: 8rem;
   }
 }
+
+.login__usuario {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.login__perfil-link {
+  color: #032340;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 0.0625em solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.login__perfil-link:hover {
+  opacity: 70%;
+  border-color: #032340;
+}
+
+.login__logout {
+  background: transparent;
+  border: transparent;
+  color: white;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.login__logout:hover {
+  opacity: 70%;
+}

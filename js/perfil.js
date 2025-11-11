@@ -37,22 +37,16 @@ if (datosSesion && iconoLogin && enlaceLogin) {
   enlaceLogin.href = './perfil-usuario.html';
 }
 
-import { RenderizadorDeCursos } from "./renderizadorDeCursos.js";
-import { CarritoModal } from "./carritoModal.js";
-
-const carritoModal = new CarritoModal();
-
-const contenedorCursos = document.querySelector('.cursos__cards--todas');
-const tarjetas = new RenderizadorDeCursos();
-tarjetas.renderizarTarjetas(contenedorCursos);
-
-
-
-
-const btnAgregar = document.querySelectorAll('.btn--agregar');
-
-btnAgregar.forEach((btn, indice) => {
-    btn.addEventListener('click', () => {
-        carritoModal.agregarCurso(indice);
-    });
-});
+const sesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
+const nombreTitulo = document.querySelector('.datos-perfil h1');
+const subtitulo = document.querySelector('.datos-perfil p:first-of-type');
+const emailTexto = document.querySelector('.datos-perfil p:nth-of-type(2)');
+if (sesion.tipo === 'personal') {
+  nombreTitulo.textContent = `${sesion.nombre.toUpperCase()} ${sesion.apellido.toUpperCase()}`;
+  subtitulo.textContent = 'Cuenta personal - Estudiante de cheCode';
+  emailTexto.textContent = sesion.email;
+} else if (sesion.tipo === 'empresa') {
+  nombreTitulo.textContent = sesion.nombreEmpresa.toUpperCase();
+  subtitulo.textContent = 'Cuenta empresarial - Socio de cheCode';
+  emailTexto.textContent = sesion.email;
+}
