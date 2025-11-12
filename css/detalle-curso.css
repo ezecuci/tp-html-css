@@ -254,6 +254,8 @@ body {
 .ver-detalle {
   color: #ffffff;
   text-decoration: underline;
+  background-color: transparent;
+  border: transparent;
 }
 
 .ver-detalle:hover{
@@ -397,7 +399,3 @@ body {
       width: 100%;
     }
   }
-
-
-
-  

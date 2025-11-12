@@ -36,3 +36,206 @@ if (datosSesion && iconoLogin && enlaceLogin) {
   iconoLogin.alt = 'icono de perfil';
   enlaceLogin.href = './perfil-usuario.html';
 }
+
+var cursoActualId = null;
+
+function obtenerIdDeURL() {
+  var p = new URLSearchParams(window.location.search);
+  return p.get('id');
+}
+
+function generarEstrellas(n) {
+  var html = '';
+  for (var i = 0; i < 5; i++) {
+    if (i < n) { html += '<span class="star">★</span>'; }
+    else { html += '<span class="star off">★</span>'; }
+  }
+  return html;
+}
+
+function mostrarDatosCurso(curso) {
+  document.title = curso.titulo + ' - cheCode';
+  var img = document.querySelector('.info-curso_img img');
+  if (img) {
+    img.src = curso.imagen;
+    img.alt = 'Imagen del curso ' + curso.titulo;
+  }
+  var h1 = document.querySelector('.info-curso_datos h1');
+  if (h1) h1.textContent = curso.titulo;
+  var lista = document.querySelector('.info-curso_especificaciones');
+  if (lista) {
+    var texto = '';
+    texto += '<li><strong>Valor:</strong> ' + curso.valor + '</li>';
+    texto += '<li><strong>Tiempo de dedicación necesario:</strong> ' + curso.duracion + '</li>';
+    texto += '<li><strong>Descripción del curso:</strong> ' + curso.descripcion + '</li>';
+    texto += '<li><strong>Requisitos Previos:</strong> ' + curso.requisitos + '</li>';
+    lista.innerHTML = texto;
+  }
+}
+
+function mostrarDocente(curso) {
+  var foto = document.querySelector('.docente_foto img');
+  var nombre = document.querySelector('.docente_nombre');
+  var estrellas = document.querySelector('.docente_estrellas');
+  var bio = document.querySelector('.docente_bio');
+  if (foto) {
+    foto.src = curso.docente.foto;
+    foto.alt = 'Foto del docente ' + curso.docente.nombre;
+  }
+  if (nombre) nombre.textContent = curso.docente.nombre;
+  if (estrellas) estrellas.innerHTML = generarEstrellas(curso.docente.estrellas);
+  if (bio) bio.textContent = curso.docente.bio;
+}
+
+function mostrarModulos(curso) {
+  var cont = document.getElementById('curso-modulos');
+  if (!cont) return;
+  cont.innerHTML = '';
+  for (var i = 0; i < curso.modulos.length; i++) {
+    var modulo = curso.modulos[i];
+    var details = document.createElement('details');
+    details.className = 'modulo';
+    var summary = document.createElement('summary');
+    summary.textContent = modulo.titulo;
+    details.appendChild(summary);
+    var caja = document.createElement('div');
+    caja.className = 'caja-modulo';
+    var ul = document.createElement('ul');
+    ul.className = 'clases';
+    for (var j = 0; j < modulo.clases.length; j++) {
+      var clase = modulo.clases[j];
+      var li = document.createElement('li');
+      li.className = 'clase';
+      var pT = document.createElement('p');
+      pT.className = 'titulo';
+      pT.textContent = clase.titulo;
+      var pE = document.createElement('p');
+      pE.className = 'estado_pendiente';
+      pE.textContent = 'Pendiente';
+      var pD = document.createElement('p');
+      pD.className = 'duracion';
+      pD.textContent = clase.duracion;
+      li.appendChild(pT);
+      li.appendChild(pE);
+      li.appendChild(pD);
+      ul.appendChild(li);
+    }
+
+    caja.appendChild(ul);
+    details.appendChild(caja);
+    cont.appendChild(details);
+  }
+}
+
+function crearTarjeta(idCurso, data) {
+  var card = document.createElement('div');
+  card.className = 'card-curso rec-item';
+  card.setAttribute('data-id', idCurso);
+
+  var fotoPrecio = document.createElement('div');
+  fotoPrecio.className = 'foto-precio';
+
+  var img = document.createElement('img');
+  img.src = data.imagen;
+  img.alt = data.titulo;
+  fotoPrecio.appendChild(img);
+
+  var precio = document.createElement('span');
+  precio.className = 'precio';
+  precio.textContent = data.valor;
+  fotoPrecio.appendChild(precio);
+
+  var pie = document.createElement('div');
+  pie.className = 'pie-card';
+
+  var horas = document.createElement('p');
+  horas.className = 'horas';
+  horas.innerHTML = '<strong>' + data.duracion + '</strong>';
+
+  var lado = document.createElement('div');
+  lado.className = 'lado-derecho';
+
+  var titulo = document.createElement('p');
+  titulo.className = 'titulo-curso';
+  titulo.textContent = data.titulo;
+
+  var ver = document.createElement('button');
+  ver.className = 'ver-detalle';
+  ver.type = 'button';
+  ver.textContent = 'Ver Detalle';
+
+  var comprar = document.createElement('a');
+  comprar.className = 'btn-comprar';
+  comprar.href = './carrito.html';
+  comprar.textContent = 'Comprar';
+
+  lado.appendChild(titulo);
+  lado.appendChild(ver);
+  lado.appendChild(comprar);
+
+  pie.appendChild(horas);
+  pie.appendChild(lado);
+
+  card.appendChild(fotoPrecio);
+  card.appendChild(pie);
+
+  ver.addEventListener('click', function () {
+    cargarCurso(idCurso);
+  });
+
+  img.addEventListener('click', function () {
+    cargarCurso(idCurso);
+  });
+
+  return card;
+}
+
+function mostrarRecomendados(idActual) {
+  var lista = document.getElementById('rec-lista');
+  if (!lista) return;
+  lista.innerHTML = '';
+  var ids = [];
+  for (var id in CURSOS) { ids.push(id); }
+
+  var iActual = 0;
+  for (var i = 0; i < ids.length; i++) {
+    if (ids[i] === idActual) { iActual = i; break; }
+  }
+
+  var agregados = 0;
+  var total = ids.length;
+  var idx = (iActual + 1) % total;
+
+  while (agregados < 4 && total > 1) {
+    var id = ids[idx];
+    if (id !== idActual) {
+      var data = CURSOS[id];
+      var card = crearTarjeta(id, data);
+      lista.appendChild(card);
+      agregados++;
+    }
+    idx = (idx + 1) % total;
+  }
+}
+
+function cargarCurso(id) {
+  var curso = CURSOS[id];
+  if (!curso) return;
+
+  cursoActualId = id;
+  mostrarDatosCurso(curso);
+  mostrarDocente(curso);
+  mostrarModulos(curso);
+  mostrarRecomendados(id);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof CURSOS === 'undefined') {
+    console.error('Primero cargá cursosData.js');
+    return;
+  }
+
+  var id = obtenerIdDeURL();
+
+  cargarCurso(id);
+});
