@@ -124,3 +124,34 @@ radiosFondo.forEach((radio) => {
 
 aplicarFondoSeleccionado();
 actualizarPreviewMonto();
+
+
+function getFondo() {
+  const seleccionado = document.querySelector('input[name="fondo"]:checked');
+  if (!seleccionado) return './images/fondo gift card.png';
+  if (seleccionado.value === 'fondo2') return './images/oficina developer 3.png';
+  if (seleccionado.value === 'fondo3') return './images/wefw.png';
+  return './images/fondo gift card.png';
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const monto = Number(inputMonto.value);
+  const nombre = (inputNombre.value || '').trim() || 'Destinatario';
+  const imagen = getFondo();
+
+  const gift = {
+    tipo: 'giftcard',
+    descripcion: `Giftcard para ${nombre}`,
+    duracion: 'Aplicable a cualquiera de nuestros cursos!',
+    precioNumero: monto,
+    precioTexto: (window.carrito && typeof window.carrito.formatearPrecio === 'function')
+      ? window.carrito.formatearPrecio(monto)
+      : `$${monto} USD`,
+    imagen
+  };
+
+  if (window.carrito && typeof window.carrito.agregarGiftcard === 'function') {
+    window.carrito.agregarGiftcard(gift);
+  }
+});

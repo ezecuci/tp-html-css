@@ -113,6 +113,24 @@ export class CarritoModal {
         this.subtotal = 0;
         
         for (let i = 0; i < this.cursosAgregados.length; i++) {
+            const item = this.cursosAgregados[i];
+            if (item && typeof item === 'object' && item.tipo === 'giftcard') {
+              this.itemCurso += `
+                <li class="carrito-item">
+                  <img class="carrito-item__img" src="${item.imagen}" alt="${item.descripcion}">
+                  <div class="carrito-item__info">
+                    <h3 class="carrito-item__nombre">${item.descripcion}</h3>
+                    <p class="carrito-item__detalles">${item.duracion}</p>
+                    <button class="carrito-item__eliminar" type="button">Eliminar</button>
+                  </div>
+                  <div class="carrito-item__precio">${item.precioTexto}</div>
+                </li>
+              `;
+              if (typeof item.precioNumero === 'number') {
+                this.subtotal += item.precioNumero;
+              }
+              continue;
+            }
             const indice = this.cursosAgregados[i];
             const curso = this.listCursos[indice];
             if (!curso) continue;
@@ -148,7 +166,7 @@ export class CarritoModal {
         
         this.total = this.subtotal - this.descuento;
         if (this.total < 0) this.total = 0;
-        }
+    }
         
         formatearPrecio(n) {
               return `$${n} USD`;
@@ -242,6 +260,17 @@ export class CarritoModal {
           sessionStorage.removeItem('carrito_mensaje');
         }
       }
+
+      agregarGiftcard(giftObj) {
+        if (!giftObj || typeof giftObj !== 'object' || giftObj.precioNumero < 1) {
+          return;
+        }
+        this.cursosAgregados.push(giftObj);
+        sessionStorage.setItem('carrito', JSON.stringify(this.cursosAgregados));
+        this.actualizarContador();
+        this.mostrarModal();
+      }
+      
       
     actualizarContador() {
         this.contadorCarrito.innerHTML = `+${this.cursosAgregados.length}`;
