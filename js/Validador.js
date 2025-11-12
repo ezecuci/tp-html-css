@@ -47,4 +47,13 @@ export class Validador {
         return formatoCodigo.test(codigo);
     }
 
+    esTelefonoValido(telefono) {
+        const formatoTelefono = /^(\+?\d{1,3}[-.\s]?)?(\(?\d{2,4}\)?[-.\s]?)?[\d-.\s]{6,10}$/;
+        return formatoTelefono.test(telefono);
+    }
+
+    esMensajeValido(mensaje) {
+        const formatoMensaje = /^[\wÀ-ÿ\s.,!?()'"-]{10,500}$/;
+        return formatoMensaje.test(mensaje);
+    }
 }
