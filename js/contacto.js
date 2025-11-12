@@ -1,38 +1,76 @@
-const datosSesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
-const contenedorLogin = document.querySelector('.login');
+import { Modal } from "./modal.js";
+import { Validador } from "./Validador.js";
 
-if (datosSesion) {
-  const links = contenedorLogin.querySelector('.login__links');
-  if (links) {
-    links.style.display = 'none';
-  }
+export class Contacto {
+    constructor() {
+        this.modal = new Modal();
+        this.validador = new Validador();
+        this.form = document.querySelector('.form__elements');
 
-  const icono = contenedorLogin.querySelector('a');
-  if (icono) {
-    icono.removeAttribute('href');
-  }
+        if (this.form) {
+            this.form.addEventListener('submit', (e) => this.enviarFormulario(e));
+        } else {
+            
+        }
+    }
 
-  const infoUsuario = document.createElement('div');
-  infoUsuario.classList.add('login__usuario');
+    enviarFormulario(e) {
+        e.preventDefault();
 
-  infoUsuario.innerHTML = `
-    <a href="./perfil-usuario.html" class="login__perfil-link">mi perfil</a>
-    <button class="login__logout" type="button">cerrar sesión</button>
-  `;
+        const inputNombre = document.querySelector('#name');
+        const inputApellido = document.querySelector('#Surname');
+        const inputEmail = document.querySelector('#email');
+        const inputTelefono = document.querySelector('#telephone');
+        const inputConsulta = document.querySelector('#textarea');
 
-  contenedorLogin.appendChild(infoUsuario);
-  const btnLogout = infoUsuario.querySelector('.login__logout');
-  btnLogout.addEventListener('click', function () {
-    sessionStorage.removeItem('sesionActiva');
-    window.location.href = './index.html'; 
-  });
+        const nombre = inputNombre?.value.trim().toUpperCase();
+        const apellido = inputApellido?.value.trim().toUpperCase();
+        const email = inputEmail?.value.trim();
+        const telefono = inputTelefono?.value.trim();
+        const consulta = inputConsulta?.value.trim();
+
+        if (!this.validador.esNombrePropioValido(nombre)) {
+            this.modal.mostrarMensaje("El nombre no es válido", () => {
+                inputNombre.focus();
+            });
+            return;
+        }
+
+        if (!this.validador.esNombrePropioValido(apellido)) {
+            this.modal.mostrarMensaje("El apellido no es válido", () => {
+                inputApellido.focus();
+            });
+            return;
+        }
+
+        if (!this.validador.esUnEmailValido(email)) {
+            this.modal.mostrarMensaje("El email no es válido", () => {
+                inputEmail.focus();
+            });
+            return;
+        }
+
+        if (telefono && !this.validador.esTelefonoValido(telefono)) {
+            this.modal.mostrarMensaje("El teléfono no es válido", () => {
+                inputTelefono.focus();
+            });
+            return;
+        }
+
+        if (consulta && !this.validador.esMensajeValido(consulta)) {
+            this.modal.mostrarMensaje("La consulta ingresada no es válida", () => {
+                inputConsulta.focus();
+            });
+            return;
+        }
+
+        this.modal.mostrarMensaje("Formulario enviado con éxito", () => {
+            this.form.reset();
+            window.location.href = "./index.html";
+        });
+
+        
+    }
 }
 
-const iconoLogin = document.querySelector('.login img');
-const enlaceLogin = document.querySelector('.login a');
-
-if (datosSesion && iconoLogin && enlaceLogin) {
-  iconoLogin.src = './images/perfil-logeado.png';
-  iconoLogin.alt = 'icono de perfil';
-  enlaceLogin.href = './perfil-usuario.html';
-}
+new Contacto();
