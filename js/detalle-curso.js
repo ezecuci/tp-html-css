@@ -185,9 +185,9 @@ function crearTarjeta(idCurso, data) {
   ver.type = 'button';
   ver.textContent = 'Ver Detalle';
 
-  var comprar = document.createElement('a');
+  var comprar = document.createElement('button');
   comprar.className = 'btn-comprar';
-  comprar.href = './carrito.html';
+  comprar.type = 'button';
   comprar.textContent = 'Comprar';
 
   lado.appendChild(titulo);
@@ -250,6 +250,81 @@ function cargarCurso(id) {
   mostrarRecomendados(id);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function obtenerSesion() {
+  try { return JSON.parse(sessionStorage.getItem('sesionActiva') || 'null'); }
+  catch { return null; }
+}
+
+function esCuentaEmpresa(sesion) {
+  return sesion && sesion.nombreEmpresa;
+}
+
+function obtenerIndiceCursoPorId(idBuscado) {
+  const cursos = [];
+  let indice = 0;
+  for (let id in CURSOS) {
+    const curso = CURSOS[id];
+    cursos.push({ id, indice });
+    indice++;
+  }
+  const encontrado = cursos.find(c => c.id === idBuscado);
+  return encontrado ? String(encontrado.indice) : null;
+}
+
+function agregarAlCarrito(indice) {
+  const carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
+  const existe = carrito.some(i => String(i) === String(indice));
+  if (existe) {
+    if (window.carritoModal) {
+      carritoModal.mostrarModal();
+    }
+    return;
+  }
+
+  carrito.push(indice);
+  sessionStorage.setItem('carrito', JSON.stringify(carrito));
+
+  if (window.carritoModal) {
+    carritoModal.cursosAgregados = carrito;
+    carritoModal.actualizarContador();
+    carritoModal.mostrarModal();
+  }
+}
+
+const botonInscribirse = document.querySelector('.btn-primario');
+if (botonInscribirse) {
+  botonInscribirse.addEventListener('click', function (e) {
+    const sesion = obtenerSesion();
+    const idCurso = window.cursoActualId || new URLSearchParams(location.search).get('id');
+    const indice = obtenerIndiceCursoPorId(idCurso);
+
+    if (esCuentaEmpresa(sesion)) {
+      window.location.href = './form-empresas.html';
+      return;
+    }
+
+    agregarAlCarrito(indice);
+  });
+}
+
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.btn-comprar');
+  if (!btn) return;
+
+  const sesion = obtenerSesion();
+  const card = btn.closest('.rec-item');
+  const idCurso = card ? card.getAttribute('data-id') : null;
+  const indice = obtenerIndiceCursoPorId(idCurso);
+
+  if (esCuentaEmpresa(sesion)) {
+    window.location.href = './form-empresas.html';
+    return;
+  }
+
+  agregarAlCarrito(indice);
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof CURSOS === 'undefined') {
