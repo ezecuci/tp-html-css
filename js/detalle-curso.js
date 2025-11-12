@@ -37,6 +37,27 @@ if (datosSesion && iconoLogin && enlaceLogin) {
   enlaceLogin.href = './perfil-usuario.html';
 }
 
+function obtenerCursosComprados() {
+  const sesion = JSON.parse(sessionStorage.getItem('sesionActiva') || 'null');
+  if (!sesion || !sesion.email) return new Set();
+  const key = 'mis_cursos:' + sesion.email;
+  const ids = JSON.parse(localStorage.getItem(key) || '[]');
+  return new Set(ids);
+}
+
+function marcarEstadoInscripcionDetalle(idCursoActual) {
+  const comprados = obtenerCursosComprados();
+  if (!idCursoActual || !comprados.has(idCursoActual)) return;
+
+  const btnPrincipal = document.querySelector('.btn-primario');
+
+  if (btnPrincipal) {
+    const adquirido = document.createElement('span');
+    adquirido.textContent = 'INSCRIPTO';
+    adquirido.className = 'inscripto';
+    btnPrincipal.replaceWith(adquirido);
+  }  
+}
 var cursoActualId = null;
 
 function obtenerIdDeURL() {
@@ -194,27 +215,27 @@ function mostrarRecomendados(idActual) {
   var lista = document.getElementById('rec-lista');
   if (!lista) return;
   lista.innerHTML = '';
+  var comprados = obtenerCursosComprados();
   var ids = [];
-  for (var id in CURSOS) { ids.push(id); }
-
-  var iActual = 0;
-  for (var i = 0; i < ids.length; i++) {
-    if (ids[i] === idActual) { iActual = i; break; }
+  for (var id in CURSOS) {
+    if (id === idActual) continue;
+    if (comprados.has(id)) continue;
+    ids.push(id);
   }
 
-  var agregados = 0;
-  var total = ids.length;
-  var idx = (iActual + 1) % total;
+  if (!ids.length) return;
 
-  while (agregados < 4 && total > 1) {
+  var agregados = 0;
+  var idx = 0;
+  while (agregados < 4 && idx < ids.length) {
     var id = ids[idx];
-    if (id !== idActual) {
-      var data = CURSOS[id];
+    var data = CURSOS[id];
+    if (data) {
       var card = crearTarjeta(id, data);
       lista.appendChild(card);
       agregados++;
     }
-    idx = (idx + 1) % total;
+    idx++;
   }
 }
 
@@ -239,4 +260,5 @@ document.addEventListener('DOMContentLoaded', function () {
   var id = obtenerIdDeURL();
 
   cargarCurso(id);
+  marcarEstadoInscripcionDetalle(id);   
 });

@@ -780,7 +780,6 @@ footer {
   .cursos__title {
     font-size: 1.2rem;
     padding: 1rem 0 1.3rem 0;
-    font-weight: ;
   }
 
   .cursos__cards {
@@ -1094,7 +1093,6 @@ footer {
     flex-direction: row;
     height: auto;
     padding: 0.5rem 0.5rem 0 0.5rem;
-    gap: ;
     flex-wrap: wrap;
   }
 
@@ -1208,7 +1206,6 @@ footer {
   .cursos__title {
     font-size: 1.2rem;
     padding: 1rem 0 1.3rem 0;
-    font-weight: ;
   }
 
   .cursos__cards {
@@ -1303,4 +1300,17 @@ footer {
 
 .login__logout:hover {
   opacity: 70%;
+}
+
+.adquirido{
+  background-color: #78ff95;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
+
+.inscripto{
+  font-size: 1.5rem;
+  background-color: #439940;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
 }

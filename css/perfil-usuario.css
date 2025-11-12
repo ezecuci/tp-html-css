@@ -695,3 +695,84 @@ footer {
     align-items: center;
   }
 }
+
+.mis-cursos .lista-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  align-items: stretch;
+  justify-content: initial;
+}
+
+.mis-cursos .card-curso {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.mis-cursos .card-curso .foto-precio {
+  position: relative;
+}
+.mis-cursos .card-curso .foto-precio img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.mis-cursos .card-curso .pie-card {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding: .6rem .7rem;
+}
+
+.mis-cursos .horas {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mis-cursos .lado-derecho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .25rem;
+  flex: 1;
+}
+
+.mis-cursos .titulo-curso {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.mis-cursos .ver-detalle {
+  color: #4aa3ff;
+  text-decoration: none;
+  font-size: .95rem;
+}
+.mis-cursos .ver-detalle:hover { text-decoration: underline; }
+
+.mis-cursos .precio,
+.mis-cursos .btn-comprar { display: none !important; }
+
+.mis-cursos .sin-cursos {
+  grid-column: 1 / -1;
+  color: #cfe0ea;
+  opacity: .9;
+  margin: .5rem 0 0;
+}
+
+@media (max-width: 380px) {
+  .mis-cursos .lista-cursos { grid-template-columns: 1fr; }
+}

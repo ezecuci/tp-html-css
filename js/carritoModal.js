@@ -64,14 +64,47 @@ export class CarritoModal {
                     sessionStorage.setItem('carrito_mensaje', this.mensajeCodigo);
                 }
 
+
+
                 this.renderizarModal();
                 return;
             }
-        });
+            // --- Ir a pagar ---
+            if (e.target.closest('.button--comprar')) {
+                e.preventDefault();
+                if (this.cursosAgregados.length === 0) {
+                    const resumen = this.modal.querySelector('.form__resumen');
+                    let m = resumen.querySelector('.carrito__mensaje-login');
+                    if (!m) {
+                        m = document.createElement('p');
+                        m.className = 'mensaje--error carrito__mensaje-login';
+                        m.textContent = 'Tu carrito está vacío.';
+                        resumen.insertBefore(m, resumen.querySelector('.detalle--lista'));
+                    } else {
+                        m.textContent = 'Tu carrito está vacío.';
+                    }return;}
+                    
+                    const sesion = sessionStorage.getItem('sesionActiva');
+                    if (!sesion) {
+                        const resumen = this.modal.querySelector('.form__resumen');
+                        let m = resumen.querySelector('.carrito__mensaje-login');
+                        if (!m) {
+                            m = document.createElement('p');
+                            m.className = 'mensaje--error carrito__mensaje-login';
+                            m.textContent = 'Iniciá sesión para procesar el pago.';
+                            resumen.insertBefore(m, resumen.querySelector('.detalle--lista'));
+                        } else {
+                            m.textContent = 'Iniciá sesión para procesar el pago.';
+                        }
+                        return;
+                    }
+                    window.location.href = './facturacion.html';
+                    return;
+                }
+            });
 
         this.btnCarritoHeader = document.querySelector('.header__cart');
         this.btnCarritoHeader.addEventListener('click', () => this.abrirCerrarModal());
-
         this.renderizarModal();
         this.actualizarContador();
     }
@@ -154,11 +187,7 @@ export class CarritoModal {
                   <li class="detalle--item"><div>Descuento</div><div>${descuentoTxt}</div></li>
                   <li class="detalle--item"><div>Total</div><div>${totalTxt}</div></li>
                 </ul>
-                <a class="link--pagar" href="./facturacion.html">
-                  <button class="button--comprar" type="button" ${this.cursosAgregados.length === 0 ? 'disabled' : ''}>
-                    Ir a pagar
-                  </button>
-                </a>
+                <button class="button--comprar" type="button" ${this.cursosAgregados.length === 0 ? 'disabled' : ''}>Ir a pagar</button>
                 <a href="./cursos.html">Ver más cursos</a>
               </div>
             `;

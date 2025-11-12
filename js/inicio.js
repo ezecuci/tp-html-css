@@ -40,6 +40,40 @@ if (datosSesion && iconoLogin && enlaceLogin) {
 import { RenderizadorDeCursos } from './renderizadorDeCursos.js';
 import { CarritoModal } from './carritoModal.js';
 
+function obtenerCursosComprados() {
+  const sesion = JSON.parse(sessionStorage.getItem('sesionActiva') || 'null');
+  if (!sesion || !sesion.email) return new Set();
+  const key = 'mis_cursos:' + sesion.email;
+  const ids = JSON.parse(localStorage.getItem(key) || '[]');
+  return new Set(ids);
+}
+
+function extraerIdDesdeHref(href) {
+  try {
+    const u = new URL(href, location.origin);
+    return u.searchParams.get('id');
+  } catch { return null; }
+}
+
+function marcarAdquiridosEnListado(contenedor) {
+  const comprados = obtenerCursosComprados();
+  if (!contenedor || !comprados.size) return;
+
+  contenedor.querySelectorAll('li.card').forEach(card => {
+    const link = card.querySelector('a[href*="detalle-curso.html"]');
+    const id = link ? extraerIdDesdeHref(link.href) : null;
+    if (!id || !comprados.has(id)) return;
+
+    const btn = card.querySelector('.btn--agregar');
+    if (btn) {
+      const adquirido = document.createElement('span');
+      adquirido.textContent = 'Adquirido';
+      adquirido.className = 'adquirido';
+      btn.replaceWith(adquirido);
+    }
+  });
+}
+
 const carritoModal = new CarritoModal();
 
 const contenedorDeImagenes = document.querySelector('.top__image');
@@ -74,21 +108,16 @@ setInterval(() => {
   desplazarImagen();
 }, 5000);
 
-
-// CREAR TARJETAS DE CURSOS EN INICIO
 const contenedorCursos = document.querySelector('.cursos__cards');
 const tarjetas = new RenderizadorDeCursos();
+
 tarjetas.renderizarTarjetas(contenedorCursos);
 
+marcarAdquiridosEnListado(contenedorCursos);
 
-//BTN AGREGAR AL CARRITO
-
-const btnAgregar = document.querySelectorAll('.btn--agregar');
-
+const btnAgregar = contenedorCursos.querySelectorAll('.btn--agregar');
 btnAgregar.forEach((btn, indice) => {
-    btn.addEventListener('click', () => {
-        carritoModal.agregarCurso(indice);
-    });
+  btn.addEventListener('click', () => {
+    carritoModal.agregarCurso(indice);
+  });
 });
-
-
