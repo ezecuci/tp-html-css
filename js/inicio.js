@@ -115,9 +115,12 @@ tarjetas.renderizarTarjetas(contenedorCursos);
 
 marcarAdquiridosEnListado(contenedorCursos);
 
-const btnAgregar = contenedorCursos.querySelectorAll('.btn--agregar');
-btnAgregar.forEach((btn, indice) => {
-  btn.addEventListener('click', () => {
-    carritoModal.agregarCurso(indice);
-  });
+contenedorCursos.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn--agregar');
+  if (!btn) return;
+
+  const idx = btn.getAttribute('data-index');
+  if (!idx) return;
+
+  carritoModal.agregarCurso(idx);
 });

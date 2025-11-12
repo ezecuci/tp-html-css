@@ -41,21 +41,19 @@ export class RenderizadorDeCursos{
 
   renderizarTarjetas(contenedor) {
     contenedor.innerHTML = '';
-
+  
     let listaDeCursos = [];
-
-    if(contenedor.classList.contains('cursos__cards')) {
+  
+    if (contenedor.classList.contains('cursos__cards')) {
       listaDeCursos = this.cursosInicio;
     }
-
-    if(contenedor.classList.contains('cursos__cards--todas')) {
+  
+    if (contenedor.classList.contains('cursos__cards--todas')) {
       listaDeCursos = this.cursosInicio.concat(this.masCursos);
     }
-
     listaDeCursos.forEach(curso => {
       const tarjeta = document.createElement('li');
       tarjeta.classList.add('card');
-
       tarjeta.innerHTML = `
         <article class="card__img">
           <a href="${curso.enlace}">
@@ -72,13 +70,10 @@ export class RenderizadorDeCursos{
         <a href="${curso.enlace}">
           <button>Ver detalle</button>
         </a>
-          <button class="btn--agregar">Agregar al carrito</button>
-        
+        <button class="btn--agregar" data-index="${curso.id}">Agregar al carrito</button>
       `;
-
+  
       contenedor.appendChild(tarjeta);
     });
   }
-
-  
 }
