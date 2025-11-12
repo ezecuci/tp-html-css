@@ -18,6 +18,8 @@ export class CarritoModal {
         this.listCursos = this.renderizadorDeCursos.cursosInicio.concat(this.renderizadorDeCursos.masCursos);
 
         this.cursosAgregados = JSON.parse(sessionStorage.getItem('carrito')) || [];
+        this.codigoAplicado = sessionStorage.getItem('carrito_codigo') || null;
+        this.mensajeCodigo = sessionStorage.getItem('carrito_mensaje') || '';
 
 
         this.modal = document.createElement('article');
@@ -50,19 +52,16 @@ export class CarritoModal {
                     codigo = inputCodigo.value.trim().toLowerCase();
                 }
 
-                if (this.cursosAgregados.length === 0) {
-                    this.notifModal.mostrarMensaje('Tu carrito está vacío. Agrega cursos para aplicar un código.');
-                    return;
-                }
-
                 if (codigo === 'checode20') {
                     this.codigoAplicado = 'checode20';
                     sessionStorage.setItem('carrito_codigo', this.codigoAplicado);
-                    this.notifModal.mostrarMensaje('Código aplicado: 20% de descuento.');
+                    this.mensajeCodigo = '<p class="mensaje--ok">¡Código de descuento aplicado!</p>';
+                    sessionStorage.setItem('carrito_mensaje', this.mensajeCodigo);
                 } else {
                     this.codigoAplicado = null;
                     sessionStorage.removeItem('carrito_codigo');
-                    this.notifModal.mostrarMensaje('Código no válido.');
+                    this.mensajeCodigo = '<p class="mensaje--error">Código no válido.</p>';
+                    sessionStorage.setItem('carrito_mensaje', this.mensajeCodigo);
                 }
 
                 this.renderizarModal();
@@ -80,74 +79,91 @@ export class CarritoModal {
     renderizarCursos() {
         this.itemCurso = '';
         this.subtotal = 0;
-
-        this.cursosAgregados.forEach(indice => {
+        
+        for (let i = 0; i < this.cursosAgregados.length; i++) {
+            const indice = this.cursosAgregados[i];
             const curso = this.listCursos[indice];
-            if (!curso) return;
-
+            if (!curso) continue;
+            
             this.itemCurso += `
-                <li class="carrito-item">
-                    <img class="carrito-item__img" src="${curso.imagen}" alt="${curso.descripcion}">
-                    <div class="carrito-item__info">
-                        <h3 class="carrito-item__nombre">${curso.descripcion}</h3>
-                        <p class="carrito-item__detalles">${curso.duracion} hs</p>
-                        <button class="carrito-item__eliminar" type="button">Eliminar</button>
-                    </div>
-                    <div class="carrito-item__precio">$${curso.precio}</div>
-                </li>
+            <li class="carrito-item">
+            <img class="carrito-item__img" src="${curso.imagen}" alt="${curso.descripcion}">
+            <div class="carrito-item__info">
+            <h3 class="carrito-item__nombre">${curso.descripcion}</h3>
+            <p class="carrito-item__detalles">${curso.duracion} hs</p>
+            <button class="carrito-item__eliminar" type="button">Eliminar</button>
+            </div>
+            <div class="carrito-item__precio">${curso.precioTexto}</div>
+            </li>
             `;
-            this.subtotal += curso.precio;
-        });
-
+            
+            if (typeof curso.precioNumero === 'number') {
+                this.subtotal += curso.precioNumero;
+            }
+        }
+        
         if (this.cursosAgregados.length === 0) {
             this.codigoAplicado = null;
             this.descuento = 0;
+            this.mensajeCodigo = " ";
             sessionStorage.removeItem('carrito_codigo');
+            sessionStorage.removeItem('carrito_mensaje');
         } else if (this.codigoAplicado === 'checode20') {
             this.descuento = this.subtotal * 0.2;
         } else {
             this.descuento = 0;
         }
-
+        
         this.total = this.subtotal - this.descuento;
-    }
+        if (this.total < 0) this.total = 0;
+        }
+        
+        formatearPrecio(n) {
+              return `$${n} USD`;
+            }
 
-    renderizarModal() {
-        this.renderizarCursos();
-
-        this.modal.innerHTML = `
-            <div class="cont--superior">
+        renderizarModal() {
+            this.renderizarCursos();
+            
+            const subtotalTxt  = this.formatearPrecio(this.subtotal);
+            const descuentoTxt = '-' + this.formatearPrecio(this.descuento);
+            const totalTxt     = this.formatearPrecio(this.total);
+          
+            this.modal.innerHTML = `
+              <div class="cont--superior">
                 <h4 class="modal--titulo">¡Solo queda un paso para finalizar la compra!</h4>
                 <button class="modal--cerrar">&times;</button>
-            </div>
-            <div class="modal__cursos">
+              </div>
+              <div class="modal__cursos">
                 <ul class="cursos--lista">
-                    ${this.itemCurso || '<p>Tu carrito está vacío</p>'}
+                  ${this.itemCurso || '<p>Tu carrito está vacío</p>'}
                 </ul>
-            </div>
-            <div class="form__resumen">
+              </div>
+              <div class="form__resumen">
                 <h4 class="resumen--titulo">Resumen</h4>
                 <p>Código de descuento</p>
+                ${this.mensajeCodigo || ''}
                 <div class="cont--descuento">
-                    <input type="text" class="input--descuento" name="cod_descuento"
-                        placeholder="Ej: CHECODE20"
-                        value="${this.codigoAplicado ? this.codigoAplicado.toUpperCase() : ''}">
-                    <button class="aplicar--descuento">Aplicar</button>
+                  <input type="text" class="input--descuento" name="cod_descuento"
+                    placeholder="Ej: CHECODE20"
+                    value="${this.codigoAplicado ? this.codigoAplicado.toUpperCase() : ''}">
+                  <button class="aplicar--descuento">Aplicar</button>
                 </div>
                 <ul class="detalle--lista">
-                    <li class="detalle--item"><div>Subtotal</div><div>$${this.subtotal}</div></li>
-                    <li class="detalle--item"><div>Descuento</div><div>-$${this.descuento}</div></li>
-                    <li class="detalle--item"><div>Total</div><div>$${this.total}</div></li>
+                  <li class="detalle--item"><div>Subtotal</div><div>${subtotalTxt}</div></li>
+                  <li class="detalle--item"><div>Descuento</div><div>${descuentoTxt}</div></li>
+                  <li class="detalle--item"><div>Total</div><div>${totalTxt}</div></li>
                 </ul>
                 <a class="link--pagar" href="./facturacion.html">
-                    <button class="button--comprar" type="button" ${this.cursosAgregados.length === 0 ? 'disabled' : ''}>
-                        Ir a pagar
-                    </button>
+                  <button class="button--comprar" type="button" ${this.cursosAgregados.length === 0 ? 'disabled' : ''}>
+                    Ir a pagar
+                  </button>
                 </a>
                 <a href="./cursos.html">Ver más cursos</a>
-            </div>
-        `;
-    }
+              </div>
+            `;
+          }
+          
 
     mostrarModal() {
         this.renderizarModal();
@@ -177,6 +193,12 @@ export class CarritoModal {
         sessionStorage.setItem('carrito', JSON.stringify(this.cursosAgregados));
         this.actualizarContador();
         this.mostrarModal();
+        if (this.cursosAgregados.length === 0) {
+            this.codigoAplicado = null;
+            this.mensajeCodigo = '';
+            sessionStorage.removeItem('carrito_codigo');
+            sessionStorage.removeItem('carrito_mensaje');
+          }
     }
 
     actualizarContador() {

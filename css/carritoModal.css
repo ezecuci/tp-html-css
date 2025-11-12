@@ -1,24 +1,24 @@
 .modal__contenedor {
-    color: white;
-    position: fixed;
-    font-size: 1.3rem;
-    z-index: 0;
-    overflow: hidden;
-    top: 4rem;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    background-image: url(../images/carrito-imagen2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    gap: .5rem;
-    padding: 1rem;
-    max-width: 40%;
-    min-width: 24rem;
-    max-height: 90vh;
-    overflow-y: auto; 
-    border-radius: 0 0 0 20px;
+  color: white;
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100vh - 4rem);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background-image: url(../images/carrito-imagen2.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  gap: .5rem;
+  padding: 1rem;
+  width: 100%;
+  overflow-y: auto;
+  border-radius: 0;
+  font-size: 1.3rem;
 }
 
 .modal--titulo {
@@ -100,7 +100,11 @@
 }
 
 .carrito-item__precio{
-  width:4rem; text-align:right; font-size: 1.3rem ;font-weight:500; color:#ffffff;
+  margin-left: auto;
+  text-align: right;
+  width:4rem; font-size: 1.3rem ;
+  font-weight:500; 
+  color:#ffffff;
 }
 
 .form__resumen{
@@ -257,6 +261,7 @@
 .modal__contenedor {
     top: 5.2rem;
 }
+}
 
 
 @media screen and (max-width: 765px) {
@@ -277,5 +282,16 @@
 .modal__contenedor {
   min-width: 100vw;
 }
-  
+}
+
+.mensaje--ok {
+  color: #38d36a;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.mensaje--error {
+  color: #ff6666;
+  font-size: 0.95rem;
+  font-weight: 500;
 }

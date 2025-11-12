@@ -4,11 +4,24 @@ export class RenderizadorDeCursos{
     let indice = 0;
     for (let idCurso in CURSOS) {
       const c = CURSOS[idCurso];
+      let precioNumero = 0;
+      let texto = typeof c.valor === 'string' ? c.valor : String(c.valor);
+      let limpio = '';
+      for (let i = 0; i < texto.length; i++) {
+        const  caracter = texto[i];
+        if ((caracter >= '0' && caracter <= '9') || caracter === '.') {
+          limpio += caracter;
+        }
+      }
+      if (limpio !== '') {
+        precioNumero = parseFloat(limpio);
+       }
       const nuevo = {
         imagen: c.imagen,
         descripcion: c.titulo,
         duracion: c.duracion,
-        precio: c.valor,
+        precioTexto: texto,
+        precioNumero: precioNumero,
         enlace: `./detalle-curso.html?id=${idCurso}`,
         id: indice
       };
@@ -53,7 +66,7 @@ export class RenderizadorDeCursos{
           <a href="${curso.enlace}">
             ${curso.descripcion}<br>
             Duración: ${curso.duracion}<br>
-            Precio: ${curso.precio}
+            Precio: ${curso.precioTexto}
           </a>
         </article>
         <a href="${curso.enlace}">
