@@ -1,6 +1,9 @@
 const datosSesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
 const contenedorLogin = document.querySelector('.login');
 
+import { CarritoModal } from './carritoModal.js';
+const carritoModal = new CarritoModal();
+
 if (datosSesion) {
   const links = contenedorLogin.querySelector('.login__links');
   if (links) links.style.display = 'none';
