@@ -24,7 +24,7 @@ if (datosSesion) {
   const btnLogout = infoUsuario.querySelector('.login__logout');
   btnLogout.addEventListener('click', function () {
     sessionStorage.removeItem('sesionActiva');
-    window.location.reload();
+    window.location.href = './index.html'; 
   });
 }
 
@@ -43,12 +43,6 @@ if (datosSesion && iconoLogin && enlaceLogin) {
   const subt = document.querySelector('.datos-perfil p:first-of-type');
   const mail = document.querySelector('.datos-perfil p:nth-of-type(2)');
 
-  if (!sesion) {
-    if (h1) h1.textContent = 'Invitado';
-    if (subt) subt.textContent = 'Iniciá sesión para ver tu perfil';
-    if (mail) mail.textContent = '';
-    return;
-  }
   if (sesion.tipo === 'personal') {
     if (h1) h1.textContent = (sesion.nombre + ' ' + sesion.apellido).toUpperCase();
     if (subt) subt.textContent = 'Cuenta personal - Estudiante de cheCode';

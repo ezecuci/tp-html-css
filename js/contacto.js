@@ -1,76 +1,38 @@
-import { Modal } from "./modal.js";
-import { Validador } from "./Validador.js";
+const datosSesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
+const contenedorLogin = document.querySelector('.login');
 
-export class Contacto {
-    constructor() {
-        this.modal = new Modal();
-        this.validador = new Validador();
-        this.form = document.querySelector('.form__elements');
+if (datosSesion) {
+  const links = contenedorLogin.querySelector('.login__links');
+  if (links) {
+    links.style.display = 'none';
+  }
 
-        if (this.form) {
-            this.form.addEventListener('submit', (e) => this.enviarFormulario(e));
-        } else {
-            console.error("No se encontró el formulario con la clase .form__elements");
-        }
-    }
+  const icono = contenedorLogin.querySelector('a');
+  if (icono) {
+    icono.removeAttribute('href');
+  }
 
-    enviarFormulario(e) {
-        e.preventDefault();
+  const infoUsuario = document.createElement('div');
+  infoUsuario.classList.add('login__usuario');
 
-        const inputNombre = document.querySelector('#name');
-        const inputApellido = document.querySelector('#Surname');
-        const inputEmail = document.querySelector('#email');
-        const inputTelefono = document.querySelector('#telephone');
-        const inputConsulta = document.querySelector('#textarea');
+  infoUsuario.innerHTML = `
+    <a href="./perfil-usuario.html" class="login__perfil-link">mi perfil</a>
+    <button class="login__logout" type="button">cerrar sesión</button>
+  `;
 
-        const nombre = inputNombre?.value.trim().toUpperCase();
-        const apellido = inputApellido?.value.trim().toUpperCase();
-        const email = inputEmail?.value.trim();
-        const telefono = inputTelefono?.value.trim();
-        const consulta = inputConsulta?.value.trim();
-
-        if (!this.validador.esNombrePropioValido(nombre)) {
-            this.modal.mostrarMensaje("El nombre no es válido", () => {
-                inputNombre.focus();
-            });
-            return;
-        }
-
-        if (!this.validador.esNombrePropioValido(apellido)) {
-            this.modal.mostrarMensaje("El apellido no es válido", () => {
-                inputApellido.focus();
-            });
-            return;
-        }
-
-        if (!this.validador.esUnEmailValido(email)) {
-            this.modal.mostrarMensaje("El email no es válido", () => {
-                inputEmail.focus();
-            });
-            return;
-        }
-
-        if (telefono && !this.validador.esTelefonoValido(telefono)) {
-            this.modal.mostrarMensaje("El teléfono no es válido", () => {
-                inputTelefono.focus();
-            });
-            return;
-        }
-
-        if (consulta && !this.validador.esMensajeValido(consulta)) {
-            this.modal.mostrarMensaje("La consulta ingresada no es válida", () => {
-                inputConsulta.focus();
-            });
-            return;
-        }
-
-        this.modal.mostrarMensaje("Formulario enviado con éxito", () => {
-            this.form.reset();
-            window.location.href = "./index.html";
-        });
-
-        
-    }
+  contenedorLogin.appendChild(infoUsuario);
+  const btnLogout = infoUsuario.querySelector('.login__logout');
+  btnLogout.addEventListener('click', function () {
+    sessionStorage.removeItem('sesionActiva');
+    window.location.href = './index.html'; 
+  });
 }
 
-new Contacto();
+const iconoLogin = document.querySelector('.login img');
+const enlaceLogin = document.querySelector('.login a');
+
+if (datosSesion && iconoLogin && enlaceLogin) {
+  iconoLogin.src = './images/perfil-logeado.png';
+  iconoLogin.alt = 'icono de perfil';
+  enlaceLogin.href = './perfil-usuario.html';
+}

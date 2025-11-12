@@ -18,7 +18,7 @@ if (datosSesion) {
   `;
   contenedorLogin.appendChild(info);
   info.querySelector('.login__logout').addEventListener('click', () => {
-    sessionStorage.removeItem('sesionActiva'); location.reload();
+    sessionStorage.removeItem('sesionActiva'); window.location.href = './index.html';
   });
 }
 const iconoLogin = document.querySelector('.login img');
