@@ -38,16 +38,17 @@ if (datosSesion && iconoLogin && enlaceLogin) {
 }
 
 function obtenerCursosComprados() {
-  const sesion = JSON.parse(sessionStorage.getItem('sesionActiva') || 'null');
-  if (!sesion || !sesion.email) return new Set();
-  const key = 'mis_cursos:' + sesion.email;
-  const ids = JSON.parse(localStorage.getItem(key) || '[]');
-  return new Set(ids);
+  const sesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
+  if (!sesion || !sesion.email) return [];
+  const llave = 'mis_cursos:' + sesion.email;
+  const ids = JSON.parse(localStorage.getItem(llave) || '[]');
+  return ids;
 }
+
 
 function marcarEstadoInscripcionDetalle(idCursoActual) {
   const comprados = obtenerCursosComprados();
-  if (!idCursoActual || !comprados.has(idCursoActual)) return;
+  if (!idCursoActual || !comprados.includes(idCursoActual)) return;
 
   const btnPrincipal = document.querySelector('.btn-primario');
 
@@ -56,8 +57,9 @@ function marcarEstadoInscripcionDetalle(idCursoActual) {
     adquirido.textContent = 'INSCRIPTO';
     adquirido.className = 'inscripto';
     btnPrincipal.replaceWith(adquirido);
-  }  
+  }
 }
+
 var cursoActualId = null;
 
 function obtenerIdDeURL() {
