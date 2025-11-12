@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="./css/inicio.css" />
   <link rel="stylesheet" href="./css/calendario.css" />
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/carritoModal.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -54,12 +56,12 @@
         <a class="login-registro" href="./registro.html">registrate aqui</a>
       </div>
     </div>
-    <div class="header__cart">
-      <a href="./carrito.html">
-        <img class="header__cart-white" src="./images/carrito blanco.png" alt="carrito blanco" />
-        <p>+3</p>
+    <article class="header__cart">
+      <a>
+        <img class="header__cart-white" src="./images/carrito blanco.png" alt="carrito blanco"/>
+        <p class="contador-carrito">+0</p>
       </a>
-    </div>
+    </article>
   </header>
   <div class="tituloMes">
     <h1>Octubre</h1>
@@ -355,6 +357,8 @@
     </p>
   </footer>
   <script src="./js/calendario.js"></script>
+  <script src="./js/cursosData.js"></script>
+  <script type="module">import { CarritoModal } from './js/carritoModal.js'; window.carrito = window.carrito || new CarritoModal();</script>
 </body>
 
 </html>

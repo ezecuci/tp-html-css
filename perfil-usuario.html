@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/perfil-usuario.css" />
     <link rel="stylesheet" href="./css/inicio.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/carritoModal.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,16 +70,12 @@
           <a class="login-registro" href="./registro.html">registrate aqui</a>
         </div>
       </div>
-      <div class="header__cart">
-        <a href="./carrito.html">
-          <img
-            class="header__cart-white"
-            src="./images/carrito blanco.png"
-            alt="carrito blanco"
-          />
-          <p>+3</p>
+      <article class="header__cart">
+        <a>
+          <img class="header__cart-white" src="./images/carrito blanco.png" alt="carrito blanco"/>
+          <p class="contador-carrito">+0</p>
         </a>
-      </div>
+      </article>
     </header>
 
     <!-- INICIO DEL MAIN -->
@@ -236,5 +234,7 @@
       </p>
     </footer>
     <script src="./js/perfil.js"></script>
+    <script src="./js/cursosData.js"></script>
+    <script type="module">import { CarritoModal } from './js/carritoModal.js'; window.carrito = window.carrito || new CarritoModal();</script>
   </body>
 </html>
