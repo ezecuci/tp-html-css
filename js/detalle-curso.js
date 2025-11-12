@@ -227,6 +227,7 @@ function cargarCurso(id) {
   mostrarDocente(curso);
   mostrarModulos(curso);
   mostrarRecomendados(id);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
