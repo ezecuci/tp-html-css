@@ -69,7 +69,6 @@ export class CarritoModal {
                 this.renderizarModal();
                 return;
             }
-            // --- Ir a pagar ---
             if (e.target.closest('.button--comprar')) {
                 e.preventDefault();
                 if (this.cursosAgregados.length === 0) {
@@ -123,7 +122,7 @@ export class CarritoModal {
             <img class="carrito-item__img" src="${curso.imagen}" alt="${curso.descripcion}">
             <div class="carrito-item__info">
             <h3 class="carrito-item__nombre">${curso.descripcion}</h3>
-            <p class="carrito-item__detalles">${curso.duracion} hs</p>
+            <p class="carrito-item__detalles">${curso.duracion}</p>
             <button class="carrito-item__eliminar" type="button">Eliminar</button>
             </div>
             <div class="carrito-item__precio">${curso.precioTexto}</div>
@@ -218,18 +217,32 @@ export class CarritoModal {
     }
 
     agregarCurso(indice) {
+        let encontrado = false;
+        for (let i = 0; i < this.cursosAgregados.length; i++) {
+          if (this.cursosAgregados[i] == indice) {
+            encontrado = true;
+            break;
+          }
+        }
+      
+        if (encontrado) {
+          this.mostrarModal();
+          return;
+        }
+      
         this.cursosAgregados.push(indice);
         sessionStorage.setItem('carrito', JSON.stringify(this.cursosAgregados));
         this.actualizarContador();
         this.mostrarModal();
+      
         if (this.cursosAgregados.length === 0) {
-            this.codigoAplicado = null;
-            this.mensajeCodigo = '';
-            sessionStorage.removeItem('carrito_codigo');
-            sessionStorage.removeItem('carrito_mensaje');
-          }
-    }
-
+          this.codigoAplicado = null;
+          this.mensajeCodigo = '';
+          sessionStorage.removeItem('carrito_codigo');
+          sessionStorage.removeItem('carrito_mensaje');
+        }
+      }
+      
     actualizarContador() {
         this.contadorCarrito.innerHTML = `+${this.cursosAgregados.length}`;
     }
