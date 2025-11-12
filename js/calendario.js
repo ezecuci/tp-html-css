@@ -4,23 +4,20 @@ const contenedorLogin = document.querySelector('.login');
 if (datosSesion) {
   const links = contenedorLogin.querySelector('.login__links');
   if (links) links.style.display = 'none';
-  const icono = contenedorLogin.querySelector('a');
-  if (icono) icono.removeAttribute('href');
+  const a = contenedorLogin.querySelector('a');
+  if (a) a.removeAttribute('href');
 
-  const infoUsuario = document.createElement('div');
-  infoUsuario.classList.add('login__usuario');
-  infoUsuario.innerHTML = `
+  const info = document.createElement('div');
+  info.className = 'login__usuario';
+  info.innerHTML = `
     <a href="./perfil-usuario.html" class="login__perfil-link">mi perfil</a>
     <button class="login__logout" type="button">cerrar sesión</button>
   `;
-  contenedorLogin.appendChild(infoUsuario);
-  const btnLogout = infoUsuario.querySelector('.login__logout');
-  btnLogout.addEventListener('click', () => {
-    sessionStorage.removeItem('sesionActiva');
-    window.location.reload();
+  contenedorLogin.appendChild(info);
+  info.querySelector('.login__logout').addEventListener('click', () => {
+    sessionStorage.removeItem('sesionActiva'); location.reload();
   });
 }
-
 const iconoLogin = document.querySelector('.login img');
 const enlaceLogin = document.querySelector('.login a');
 if (datosSesion && iconoLogin && enlaceLogin) {
@@ -29,65 +26,31 @@ if (datosSesion && iconoLogin && enlaceLogin) {
   enlaceLogin.href = './perfil-usuario.html';
 }
 
+const meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const diasSemana = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
 
+let hoy = new Date();
+let mesActual = hoy.getMonth();
+let anioActual = hoy.getFullYear();
 
-const meses = [
-  "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-];
-const diasSemana = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+const diasSemanaEl   = document.getElementById('diasSemana');
+const contenedorDias = document.getElementById('contenedorDias');
 
-let fechaActual = new Date();
-let mesActual = fechaActual.getMonth();
-let anioActual = fechaActual.getFullYear();
-
-const primerCalendario = document.querySelector('.calendario');
-
-
-let contenedorMes = document.getElementById('calendar_control_container');
-if (!contenedorMes) {
-  contenedorMes = document.createElement('div');
-  contenedorMes.id = 'calendar_control_container';
-  contenedorMes.className = 'contenedorMes';
-
-  const btnPrev = document.createElement('button');
-  btnPrev.id = 'calendar_prev';
-  btnPrev.textContent = '◀';
-
-  const titulo = document.createElement('h2');
-  titulo.id = 'calendar_control_titulo';
-  titulo.className = 'tituloMes';
-
-  const btnNext = document.createElement('button');
-  btnNext.id = 'calendar_next';
-  btnNext.textContent = '▶';
-
-  contenedorMes.append(btnPrev, titulo, btnNext);
-  primerCalendario.parentNode.insertBefore(contenedorMes, primerCalendario);
-
-
-  const frase = document.createElement('h4');
-  frase.textContent = '¡Explorá el cronograma disponible!';
-  frase.classList.add('frase-calendario');
-  primerCalendario.parentNode.insertBefore(frase, primerCalendario);
+let control = document.getElementById('calendar_control_container');
+if (!control) {
+  control = document.createElement('div');
+  control.id = 'calendar_control_container';
+  control.className = 'contenedorMes';
+  control.innerHTML = `
+    <button id="calendar_prev">◀</button>
+    <h2 id="calendar_titulo" class="tituloMes"></h2>
+    <button id="calendar_next">▶</button>
+  `;
+  contenedorDias.parentNode.insertBefore(control, contenedorDias);
 }
-
-let diasSemanaDiv = document.getElementById('calendar_diasSemana');
-if (!diasSemanaDiv) {
-  diasSemanaDiv = document.createElement('div');
-  diasSemanaDiv.id = 'calendar_diasSemana';
-  diasSemanaDiv.className = 'dias-semana calendario';
-  primerCalendario.parentNode.insertBefore(diasSemanaDiv, primerCalendario);
-}
-
-let contenedorDias = document.getElementById('calendar_contenedorDias');
-if (!contenedorDias) {
-  contenedorDias = document.createElement('div');
-  contenedorDias.id = 'calendar_contenedorDias';
-  contenedorDias.className = 'calendario';
-  primerCalendario.parentNode.insertBefore(contenedorDias, primerCalendario.nextSibling);
-}
-
+const tituloMesEl = document.getElementById('calendar_titulo');
+const btnPrev = document.getElementById('calendar_prev');
+const btnNext = document.getElementById('calendar_next');
 
 const cursosPorFecha = {
   "2025-11-12": "pentesting",
@@ -95,74 +58,69 @@ const cursosPorFecha = {
   "2025-11-20": "backend"
 };
 
-const tituloMesControl = document.getElementById('calendar_control_titulo');
-const btnPrevControl = document.getElementById('calendar_prev');
-const btnNextControl = document.getElementById('calendar_next');
-
-
-function mostrarDiasSemana() {
-  diasSemanaDiv.innerHTML = '';
-  for (const dia of diasSemana) {
-    const el = document.createElement('div');
-    el.className = 'dia-semana';
-    el.textContent = dia;
-    diasSemanaDiv.appendChild(el);
+function pintarCabecera() {
+  diasSemanaEl.innerHTML = '';
+  for (let i = 0; i < diasSemana.length; i++) {
+    const d = document.createElement('div');
+    d.className = 'dia-semana';
+    d.textContent = diasSemana[i];
+    diasSemanaEl.appendChild(d);
   }
 }
 
-
-function mostrarCalendario(mes, anio) {
+function pintarCalendario(mes, anio) {
   contenedorDias.innerHTML = '';
-  const primerDia = new Date(anio, mes, 1);
-  const ultimoDia = new Date(anio, mes + 1, 0);
-  const primerDiaSemana = primerDia.getDay();
-  const totalDias = ultimoDia.getDate();
-  tituloMesControl.textContent = `${meses[mes]} ${anio}`;
+  tituloMesEl.textContent = `${meses[mes]} ${anio}`;
 
+  const primero = new Date(anio, mes, 1);
+  const ultimo  = new Date(anio, mes + 1, 0);
+  const huecosInicio = primero.getDay();
+  const totalDias = ultimo.getDate();
 
-  for (let i = 0; i < primerDiaSemana; i++) {
-    const vacio = document.createElement('div');
-    vacio.className = 'espacioCurso dia-semana';
-    contenedorDias.appendChild(vacio);
+  for (let i = 0; i < huecosInicio; i++) {
+    const v = document.createElement('div');
+    v.className = 'espacioCurso dia-semana';
+    contenedorDias.appendChild(v);
   }
-
 
   for (let dia = 1; dia <= totalDias; dia++) {
     const celda = document.createElement('div');
     celda.className = 'espacioCurso dia-fecha';
 
-    const titulo = document.createElement('h2');
-    const span = document.createElement('span');
-    span.className = 'numeroDia';
-    span.textContent = dia;
-    titulo.appendChild(span);
-    celda.appendChild(titulo);
+    const h2 = document.createElement('h2');
+    const spanNum = document.createElement('span');
+    spanNum.className = 'numeroDia';
+    spanNum.textContent = dia;
+    h2.appendChild(spanNum);
+    celda.appendChild(h2);
 
-    const fechaClave = `${anio}-${String(mes + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
-    const cursoId = cursosPorFecha[fechaClave];
+    const fechaClave = `${anio}-${String(mes + 1).padStart(2,'0')}-${String(dia).padStart(2,'0')}`;
+    const idCurso = cursosPorFecha[fechaClave];
 
-    if (cursoId && window.CURSOS[cursoId]) {
-      const curso = window.CURSOS[cursoId];
-      const enlace = document.createElement('a');
-      enlace.href = '#';
-      enlace.className = 'pruebaHoover';
-      enlace.textContent = curso.titulo;
-      enlace.addEventListener('click', e => {
+    if (idCurso && window.CURSOS && window.CURSOS[idCurso]) {
+      const curso = window.CURSOS[idCurso];
+      const link = document.createElement('a');
+      link.href = '#';
+      link.className = 'pruebaHoover';
+      link.textContent = curso.titulo;
+      link.addEventListener('click', (e) => {
         e.preventDefault();
-        mostrarPopupCurso(curso);
+        mostrarPopupCurso(idCurso);
       });
-      celda.appendChild(enlace);
+      celda.appendChild(link);
     }
 
     contenedorDias.appendChild(celda);
   }
 }
 
+function mostrarPopupCurso(idCurso) {
+  const curso = window.CURSOS[idCurso];
+  if (!curso) return;
 
-function mostrarPopupCurso(curso) {
-  const popup = document.createElement('div');
-  popup.classList.add('popup-overlay');
-  popup.innerHTML = `
+  const overlay = document.createElement('div');
+  overlay.className = 'popup-overlay';
+  overlay.innerHTML = `
     <div class="popup">
       <button class="popup-cerrar">✖</button>
       <img src="${curso.imagen}" alt="${curso.titulo}">
@@ -170,36 +128,23 @@ function mostrarPopupCurso(curso) {
       <p class="popup-descripcion">${curso.descripcion}</p>
       <p><strong>Duración:</strong> ${curso.duracion}</p>
       <p><strong>Valor:</strong> ${curso.valor}</p>
-      <a href="./detalle-curso.html" class="popup-boton">Ver detalle</a>
+      <a href="./detalle-curso.html?id=${idCurso}" class="popup-boton">Ver detalle</a>
     </div>
   `;
-  document.body.appendChild(popup);
+  document.body.appendChild(overlay);
 
-  const cerrar = popup.querySelector('.popup-cerrar');
-  cerrar.addEventListener('click', () => popup.remove());
-  popup.addEventListener('click', e => {
-    if (e.target === popup) popup.remove();
-  });
+  overlay.querySelector('.popup-cerrar').addEventListener('click', () => overlay.remove());
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
 }
 
-
-btnPrevControl.addEventListener('click', () => {
-  mesActual--;
-  if (mesActual < 0) {
-    mesActual = 11;
-    anioActual--;
-  }
-  mostrarCalendario(mesActual, anioActual);
+btnPrev.addEventListener('click', () => {
+  mesActual--; if (mesActual < 0) { mesActual = 11; anioActual--; }
+  pintarCalendario(mesActual, anioActual);
 });
-btnNextControl.addEventListener('click', () => {
-  mesActual++;
-  if (mesActual > 11) {
-    mesActual = 0;
-    anioActual++;
-  }
-  mostrarCalendario(mesActual, anioActual);
+btnNext.addEventListener('click', () => {
+  mesActual++; if (mesActual > 11) { mesActual = 0; anioActual++; }
+  pintarCalendario(mesActual, anioActual);
 });
 
-
-mostrarDiasSemana();
-mostrarCalendario(mesActual, anioActual);
+pintarCabecera();
+pintarCalendario(mesActual, anioActual);
