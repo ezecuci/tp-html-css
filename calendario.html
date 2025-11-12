@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="stylesheet" href="./css/modal.css">
+  <link rel="stylesheet" href="./css/carritoModal.css" />
+
   <link rel="stylesheet" href="./css/inicio.css" />
   <link rel="stylesheet" href="./css/calendario.css" />
   <link rel="stylesheet" href="./css/modal.css">
@@ -57,245 +60,31 @@
       </div>
     </div>
     <article class="header__cart">
-      <a>
-        <img class="header__cart-white" src="./images/carrito blanco.png" alt="carrito blanco"/>
-        <p class="contador-carrito">+0</p>
-      </a>
-    </article>
+        <a >
+          <img
+            class="header__cart-white"
+            src="./images/carrito blanco.png"
+            alt="carrito blanco"
+          />
+          <p class="contador-carrito">+0</p>
+        </a>
+      </article>
   </header>
-  <div class="tituloMes">
-    <h1>Octubre</h1>
-  </div>
 
-  <div class="calendario">
-    <div class="espacioCurso dia-semana">
-      <h2>Lunes <span class="numeroDia">29</span></h2>
+<main>
+  
 
+  <div id="diasSemana" class="calendario dias-semana"></div>
 
+  <div id="contenedorDias" class="calendario"></div>
 
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Martes <span class="numeroDia">30</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Miercoles <span class="numeroDia">1</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Jueves <span class="numeroDia">2</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Viernes <span class="numeroDia">3</span></h2>
-
-
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Sabado <span class="numeroDia">4</span></h2>
-
-
-    </div>
-    <div class="espacioCurso dia-semana">
-      <h2>Domingo <span class="numeroDia">5</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">6</span></h2>
-      <a href="./detalle-curso1.html" class="pruebaHoover">
-        <p>Desarrollo de API REST con Spring Boot y Maven</p>
-
-      </a>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">7</span></h2>
-
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">8</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">9</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">10</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">11</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">12</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">13</span></h2>
-
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">14</span></h2>
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">15</span></h2>
-
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">16</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">17</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">18</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">19</span></h2>
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">20</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">21</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">22</span></h2>
-      <a href="./detalle-curso4.html" class="pruebaHoover">
-        <p>
-          Manipulación y análisis de datos con Pandas y NumPy</p>
-      </a>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">23</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">24</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">25</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">26</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">27</span></h2>
-       <a href="./detalle-curso2.html" class="pruebaHoover">
-        <p>
-          Modelos de Machine Learning con TensorFlow y Scikit-learn </p>
-      </a>
-
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">28</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">29</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">30</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">31</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">1</span></h2>
-
-
-
-    </div>
-    <div class="espacioCurso dia-fecha">
-      <h2><span class="numeroDia">2</span></h2>
-
-    </div>
-
-  </div>
   <div class="cartel2026">
     <h1>Ciclo 2026</h1>
     <p>Mantenete atento, el ciclo 2026 viene con nuevos cursos y ofertas para vos!</p>
   </div>
 
-  </div>
+
+  </main>
   <footer>
     <div class="footer__title">cheCode</div>
     <div class="footer__container">
@@ -337,17 +126,17 @@
         <h2>Redes sociales</h2>
         <ul class="footer__elements footer__elements-social">
           <li class="footer__element">
-            <a href="https://www.facebook.com/" class="footer__link">
-              <img src="./images/payment-icons/facebook1.png" alt="">
+            <a href="https://www.facebook.com/" class="footer__link" target="_blank">
+              <img src="./images/payment-icons/facebook1.png" alt="" >
             </a>
           </li>
           <li class="footer__element">
-            <a href="https://www.instagram.com/" class="footer__link">
+            <a href="https://www.instagram.com/" class="footer__link" target="_blank">
               <img src="./images/payment-icons/instagram1.png" alt="">
             </a>
           </li>
           <li class="footer__element">
-            <a href="https://x.com/" class="footer__link"><img src="./images/payment-icons/twitter-x1.png" alt=""> </a>
+            <a href="https://x.com/" target="_blank" class="footer__link"><img src="./images/payment-icons/twitter-x1.png" alt=""> </a>
           </li>
         </ul>
       </div>
@@ -356,9 +145,9 @@
       © Programación Web I - Tecnicatura en Desarrollo Web - UNLaM - 2025
     </p>
   </footer>
-  <script src="./js/calendario.js"></script>
+  <script type="module" src="./js/calendario.js"></script>
   <script src="./js/cursosData.js"></script>
-  <script type="module">import { CarritoModal } from './js/carritoModal.js'; window.carrito = window.carrito || new CarritoModal();</script>
+  <script src="./js/calendario.js"></script>
 </body>
 
 </html>
