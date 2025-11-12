@@ -24,7 +24,7 @@ if (datosSesion) {
   const btnLogout = infoUsuario.querySelector('.login__logout');
   btnLogout.addEventListener('click', function () {
     sessionStorage.removeItem('sesionActiva');
-    window.location.reload();
+    window.location.href = './index.html'; 
   });
 }
 
