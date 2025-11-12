@@ -124,3 +124,76 @@ contenedorCursos.addEventListener('click', (e) => {
 
   carritoModal.agregarCurso(idx);
 });
+
+
+var contenedorImagenes = document.querySelector('.top__image');
+var imagenes = document.querySelectorAll('.top__image img');
+var sliderIndex = 0;
+var sliderInterval;
+var fijo = false; 
+
+var indicadores = document.createElement('div');
+indicadores.className = 'slider-indicadores';
+
+for (var i = 0; i < imagenes.length; i++) {
+  var cuadradito = document.createElement('span');
+  cuadradito.className = 'indicador';
+  cuadradito.setAttribute('data-index', i);
+  indicadores.appendChild(cuadradito);
+}
+
+document.querySelector('.container__top__image').appendChild(indicadores);
+
+
+function moverSlider() {
+  contenedorImagenes.style.transform = 'translateX(' + (-sliderIndex * 100) + '%)';
+  actualizarIndicadores();
+}
+
+
+function actualizarIndicadores() {
+  var todos = document.querySelectorAll('.indicador');
+  for (var j = 0; j < todos.length; j++) {
+    todos[j].className = 'indicador';
+  }
+  todos[sliderIndex].className = 'indicador activo';
+}
+
+
+var todosCuadraditos = document.querySelectorAll('.indicador');
+
+for (var k = 0; k < todosCuadraditos.length; k++) {
+  todosCuadraditos[k].addEventListener('click', function() {
+    sliderIndex = parseInt(this.getAttribute('data-index'));
+    fijo = true; 
+    moverSlider();
+  });
+}
+
+function autoplay() {
+  if (!fijo) {
+    sliderIndex++;
+    if (sliderIndex >= imagenes.length) {
+      sliderIndex = 0;
+    }
+    moverSlider();
+  }
+}
+
+
+sliderInterval = setInterval(autoplay, 5000);
+
+
+btnNext.addEventListener('click', function() {
+  sliderIndex++;
+  if (sliderIndex >= imagenes.length) sliderIndex = 0;
+  fijo = true;
+  moverSlider();
+});
+
+btnBack.addEventListener('click', function() {
+  sliderIndex--;
+  if (sliderIndex < 0) sliderIndex = imagenes.length - 1;
+  fijo = true;
+  moverSlider();
+});
