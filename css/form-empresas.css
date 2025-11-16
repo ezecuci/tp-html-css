@@ -7,7 +7,7 @@ input {
 }
 
 label {
-  position: absolute;   /* lo saca del flujo del documento */
+  position: absolute;
   width: 1px;           /* ancho mínimo */
   height: 1px;          /* alto mínimo */
   padding: 0;           
@@ -100,56 +100,58 @@ label {
     padding-bottom: 5rem;
     border-radius: 40px;
     padding: 3rem;
-    
     background: url(../images/000000.jpg);
     background-position: -210px -850px;
     background-size: 130%;
-    
     box-shadow: 0 0 15px 3px black;
 }
 
 .empleados__inscripcion-formulario-campos{
     border: none;
     display: grid;
-    /* grid-template-columns: repeat(4, 23%) 5%;  */
     grid-template-columns: repeat(auto-fit, minmax(180px, 20%)) 5%;
     gap: 1rem;
-   
     justify-content: center;
-    
 }   
 
 .empleados__inscripcion-formulario-campos > button {
-    height: 3rem;
-    width: 3rem;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    border: none;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 50rem;
+  border: 0.0625em solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.05);
+  color: white;
+  outline: none;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .empleados__inscripcion-formulario-campos > button:hover {
-    background: rgba(0, 0, 0, 0);
-    color: white;
-    font-size: 1.5rem;
+    border-color: rgba(138, 222, 255, 0.589);
+    box-shadow: 0 0 1rem rgb(70, 105, 138);
 }
 
  .empleados__inscripcion-formulario > button { /* boton de finalizar inscripcion */
-  
   height: 60%;
-  align-self: flex-end;
   justify-self: center;
   padding: 0 20px;
   font-size: 1.1rem;
-  font-weight: bold;
+  background: #bdbdbd;
+  color: #333333;
+  cursor: default;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.3rem;
   cursor: pointer;
-  border-radius: 7px;
-  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.541);
-  transition: ease-out .2s;
+  border: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .empleados__inscripcion-formulario > button:hover {
-     box-shadow: 0 0 8px 4px #00ff6270;
-     background:#2bff7c;
-     color: rgb(2, 58, 25);
+    background-color: #38d36a;
+    color: black;
+    box-shadow: 0 0 1rem rgb(98, 255, 106);
 }
 
 .empleados__inscripcion-formulario-campos > legend{
@@ -158,28 +160,49 @@ label {
     text-align: center;
 } 
 
+
+
 .empleados__inscripcion-formulario-campos > input{
-    background: #ffffffb2;
-    border:none;
+    width: 100%;
     height: 3rem;
-    border-radius: 4px;
-    padding: 0 0 0 1rem;
+    border-radius: 0.75em;
+    border: 0.0625em solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.05);
+    color: white;
+    padding: 0 1rem 0 2.6rem;
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    background-repeat: no-repeat;
+    background-position: 0.7rem center;
+    background-size: 1.3rem;
 }
 
 .empleados__inscripcion-formulario-campos > input::placeholder{
-    font-size: 1.3rem;
-    justify-items: center;
-    padding: 0 0 0 .5rem;
+    color: #b8c9d3;
+    opacity:.85;
     
 }
 
 .empleados__inscripcion-formulario-campos > input:focus {
-    border: none;
-    opacity: 0.6;
-    outline: none;
-    color: white;
-    background: rgb(0, 0, 0);
+    border-color: rgba(138, 222, 255, 0.589);
+    box-shadow: 0 0 1rem rgb(70, 105, 138);
 }
+
+.empleados__inscripcion-formulario-campos > :user-invalid {
+    box-shadow: 0 0 1rem rgb(158, 22, 22);
+}
+
+.empleados__inscripcion-formulario-campos > input.icono-usuario{
+    background-image: url('../images/icono-usuario.svg');
+  }
+
+  .empleados__inscripcion-formulario-campos > input.icono-mail{
+    background-image: url(../images/icono-mail.svg);
+  }
+
+  .empleados__inscripcion-formulario-campos > input.icono-tel{
+    background-image: url(../images/tel-icon.svg);
+  }
 
 
 @media screen and (max-width: 1350px) {

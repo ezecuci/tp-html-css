@@ -72,22 +72,13 @@
           <h2>
             Cargá los datos de los cursantes para comenzar
           </h2>
-
-          <div class="empleados__inscripcion-detalle-inferior">
-            <span>Curso</span> 
-
-            <input type="text" list="list-cursos" name="cursos-disponibles" placeholder="Seleccione uno de nuestros cursos" aria-placeholder="seleccionar curso">
-            <datalist id="list-cursos">
-              <option value="Desarrollo de API REST con Spring Boot y Maven">
-              <option value="Modelos de Machine Learning con TensorFlow y Scikit-learn">
-              <option value="Maquetación de layouts modernos con Flexbox y CSS Grid">
-              <option value="Manipulación y análisis de datos con Pandas y NumPy">
-              <option value="Pentesting y análisis de vulnerabilidades con Kali Linux">
-              <option value="Interfaces nativas y declarativas con Jetpack Compose (Android)"></option>
-            </datalist>
-           
-            <p>Inscripción</p>
-          </div>
+          <div class="empleados__inscripcion-detalle-inferior" id="cursoSeleccionado">
+            <span>Curso</span>
+            <div class="curso-seleccion-resumen" role="group" aria-label="Curso seleccionado">
+              <h3 class="curso-seleccion-titulo">—</h3>
+              <p class="curso-seleccion-detalle">Cargando…</p>
+            </div>
+          </div>          
         </article>
 
 
@@ -97,63 +88,23 @@
             <legend>Cursante 1</legend>
 
             <label for="apellido1">apellido</label>
-            <input type="text" id="apellido1" name="apellido1" required placeholder="Apellido">
+            <input type="text" id="apellido1" name="apellido1"  class="icono-usuario" placeholder="Apellido">
 
             <label for="nombre1">nombre</label>
-            <input type="text" id="nombre1" name="nombre1" required placeholder="Nombre">
+            <input type="text" id="nombre1" name="nombre1" class="icono-usuario" required placeholder="Nombre">
 
             <label for="email1">email</label>
-            <input type="email" id="email1" name="email1" required placeholder="email">
+            <input type="email" id="email1" name="email1" class="icono-mail" required placeholder="Email">
             
             <label for="tel1">telefono</label>
-            <input type="tel" id="tel1" name="tel1" required placeholder="telefono">
+            <input type="tel" id="tel1" name="tel1" class="icono-tel" required placeholder="Teléfono">
           
             <button type="button" aria-label="Agregar cursante">+</button>
           </fieldset>
-
-          <fieldset class="empleados__inscripcion-formulario-campos">
-            <legend>Cursante 2</legend>
-
-            <label for="apellido2">apellido</label>
-            <input type="text" id="apellido2" name="apellido2" placeholder="Apellido">
-
-            <label for="nombre2">nombre</label>
-            <input type="text" id="nombre2" name="nombre2" placeholder="Nombre">
-
-            <label for="email2">email</label>
-            <input type="email" id="email2" name="email2" placeholder="email">
-            
-            <label for="tel2">telefono</label>
-            <input type="tel" id="tel2" name="tel2" placeholder="telefono">
-            
-            <button type="button" aria-label="Agregar cursante">+</button>
-          </fieldset>
-
-          <fieldset class="empleados__inscripcion-formulario-campos">
-            <legend>Cursante 3</legend>
-
-            <label for="apellido1">apellido</label>
-            <input type="text" id="apellido3" name="apellido3" placeholder="Apellido">
-
-            <label for="nombre3">nombre</label>
-            <input type="text" id="nombre3" name="nombre3" placeholder="Nombre">
-
-            <label for="email3">email</label>
-            <input type="email" id="email3" name="email3" placeholder="email">
-            
-            <label for="tel3">telefono</label>
-            <input type="tel" id="tel3" name="tel3" placeholder="telefono">
-            
-            <button aria-label="Agregar cursante">+</button>
-          </fieldset>
-
           <button type="submit">Finalizar inscripción</button>
         </form>
 
       </section>
-
-      
-
     </main>
         <footer>
       <div class="footer__title">cheCode</div>
