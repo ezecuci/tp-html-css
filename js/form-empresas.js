@@ -1,51 +1,103 @@
 (function () {
-    var datos = null;
-    try {
-      datos = JSON.parse(sessionStorage.getItem('sesionActiva') || 'null');
-    } catch (e) {}
-  
-    var cont = document.querySelector('.login');
-    if (!cont) return;
-  
-    if (datos) {
-      var links = cont.querySelector('.login__links');
-      if (links) {
-        links.style.display = 'none';
-      }
-  
-      var a = cont.querySelector('a');
-      var img = cont.querySelector('img');
-  
-      if (img) {
-        img.src = './images/perfil-logeado.png';
-        img.alt = 'icono de perfil';
-      }
-      if (a) {
-        a.href = './perfil-usuario.html';
-      }
-  
-      if (!cont.querySelector('.login__usuario')) {
-        var info = document.createElement('div');
-        info.className = 'login__usuario';
-        info.innerHTML =
-          '<a href="./perfil-usuario.html" class="login__perfil-link">mi perfil</a>' +
-          '<button class="login__logout" type="button">cerrar sesión</button>';
-  
-        cont.appendChild(info);
-  
-        var btnLogout = info.querySelector('.login__logout');
-        if (btnLogout) {
-          btnLogout.addEventListener('click', function () {
-            sessionStorage.removeItem('sesionActiva');
-            window.location.href = './index.html';
-          });
-        }
+  var datos = null;
+  try {
+    datos = JSON.parse(sessionStorage.getItem('sesionActiva') || 'null');
+  } catch (e) {}
+
+  var cont = document.querySelector('.login');
+  if (!cont) return;
+
+  if (datos) {
+    var links = cont.querySelector('.login__links');
+    if (links) {
+      links.style.display = 'none';
+    }
+
+    var a = cont.querySelector('a');
+    var img = cont.querySelector('img');
+
+    if (img) {
+      img.src = './images/perfil-logeado.png';
+      img.alt = 'icono de perfil';
+    }
+    if (a) {
+      a.href = './perfil-usuario.html';
+    }
+
+    if (!cont.querySelector('.login__usuario')) {
+      var info = document.createElement('div');
+      info.className = 'login__usuario';
+      info.innerHTML =
+        '<a href="./perfil-usuario.html" class="login__perfil-link">mi perfil</a>' +
+        '<button class="login__logout" type="button">cerrar sesión</button>';
+
+      cont.appendChild(info);
+
+      var btnLogout = info.querySelector('.login__logout');
+      if (btnLogout) {
+        btnLogout.addEventListener('click', function () {
+          sessionStorage.removeItem('sesionActiva');
+          window.location.href = './index.html';
+        });
       }
     }
-  })();
-  
+  }
+})();
 
-  function renumerar() {
+
+function obtenerIdCursoDesdeURL() {
+  var search = window.location.search || '';
+  var params = new URLSearchParams(search);
+  return params.get('id');
+}
+
+function cargarCursoSeleccionado() {
+  if (typeof CURSOS === 'undefined') {
+    return;
+  }
+
+  var idCurso = obtenerIdCursoDesdeURL();
+  if (!idCurso) {
+    return;
+  }
+
+  var curso = CURSOS[idCurso];
+  if (!curso) {
+    return;
+  }
+
+  var cont = document.getElementById('cursoSeleccionado');
+  if (!cont) {
+    return;
+  }
+
+  var img = cont.querySelector('.curso-imagen');
+  if (img) {
+    img.src = curso.imagen;
+    img.alt = curso.titulo;
+  }
+
+  var titulo = cont.querySelector('.curso-titulo');
+  if (titulo) {
+    titulo.textContent = curso.titulo;
+  }
+
+  var precio = cont.querySelector('.curso-precio');
+  if (precio) {
+    // valor viene tipo "$25 USD"
+    precio.textContent = curso.valor + ' por empleado';
+  }
+
+  var btnDetalle = cont.querySelector('.detalle-curso');
+  if (btnDetalle) {
+    btnDetalle.addEventListener('click', function () {
+      window.location.href = './detalle-curso.html?id=' + encodeURIComponent(idCurso);
+    });
+  }
+}
+
+
+function renumerar() {
   var form = document.querySelector('.empleados__inscripcion-formulario');
   if (!form) return;
 
@@ -72,58 +124,56 @@
   }
 }
 
-  
-  
-  function vincularBotones(fs) {
-    if (!fs) return;
-  
-    var btnMas = fs.querySelector('button[aria-label="Agregar cursante"]');
-    var btnMenos = fs.querySelector('button[aria-label="Eliminar cursante"]');
-    var form = document.querySelector('.empleados__inscripcion-formulario');
-    if (!form) return;
-  
-    if (btnMas) {
-      btnMas.onclick = function () {
-        var primero = form.querySelector('fieldset');
-        if (!primero) return;
-  
-        var nuevo = primero.cloneNode(true);
-  
-        var ins = nuevo.querySelectorAll('input');
-        for (var i = 0; i < ins.length; i++) {
-          ins[i].value = '';
-        }
-  
-        var submit = form.querySelector('button[type="submit"]');
-        form.insertBefore(nuevo, submit);
-  
-        renumerar();
-        vincularBotones(nuevo);
-      };
-    }
-  
-    if (btnMenos) {
-      btnMenos.onclick = function () {
-        var todos = form.querySelectorAll('fieldset');
-        if (todos.length <= 1) {
-          return;
-        }
-  
-        fs.remove();
-        renumerar();
-      };
-    }
-  }
-  
+function vincularBotones(fs) {
+  if (!fs) return;
 
-  (function init() {
-    
-    var fs0 = document.querySelector('.empleados__inscripcion-formulario fieldset');
-    if (fs0) {
-      vincularBotones(fs0);
-    }
-  
-    renumerar();
-  })();
-  
-  
+  var btnMas = fs.querySelector('button[aria-label="Agregar cursante"]');
+  var btnMenos = fs.querySelector('button[aria-label="Eliminar cursante"]');
+  var form = document.querySelector('.empleados__inscripcion-formulario');
+  if (!form) return;
+
+  if (btnMas) {
+    btnMas.onclick = function () {
+      var primero = form.querySelector('fieldset');
+      if (!primero) return;
+
+      var nuevo = primero.cloneNode(true);
+
+      var ins = nuevo.querySelectorAll('input');
+      for (var i = 0; i < ins.length; i++) {
+        ins[i].value = '';
+      }
+
+      var submit = form.querySelector('button[type="submit"]');
+      form.insertBefore(nuevo, submit);
+
+      renumerar();
+      vincularBotones(nuevo);
+    };
+  }
+
+  if (btnMenos) {
+    btnMenos.onclick = function () {
+      var todos = form.querySelectorAll('fieldset');
+      if (todos.length <= 1) {
+        return;
+      }
+
+      fs.remove();
+      renumerar();
+    };
+  }
+}
+
+(function init() {
+  // Primero muestro el curso en la card
+  cargarCursoSeleccionado();
+
+  // Después engancho + y -
+  var fs0 = document.querySelector('.empleados__inscripcion-formulario fieldset');
+  if (fs0) {
+    vincularBotones(fs0);
+  }
+
+  renumerar();
+})();
