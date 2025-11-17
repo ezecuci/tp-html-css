@@ -776,3 +776,4 @@ footer {
 @media (max-width: 380px) {
   .mis-cursos .lista-cursos { grid-template-columns: 1fr; }
 }
+
