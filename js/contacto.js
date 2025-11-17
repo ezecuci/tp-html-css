@@ -49,19 +49,24 @@ export class Contacto {
             });
             return;
         }
-
-        if (telefono && !this.validador.esTelefonoValido(telefono)) {
+        if(!telefono){
+            this.modal.mostrarMensaje("Ingrese un teléfono de contacto");
+            return;
+        } else if (telefono && !this.validador.esTelefonoValido(telefono)) {
             this.modal.mostrarMensaje("El teléfono no es válido", () => {
                 inputTelefono.focus();
             });
             return;
         }
 
-        if (consulta && !this.validador.esMensajeValido(consulta)) {
+        if(!consulta){
+            this.modal.mostrarMensaje("La consulta ingresada no es válida");
+            return;
+        } else if(consulta && !this.validador.esMensajeValido(consulta)) {
             this.modal.mostrarMensaje("La consulta ingresada no es válida", () => {
                 inputConsulta.focus();
             });
-            return;
+        return;
         }
 
         this.modal.mostrarMensaje("Formulario enviado con éxito", () => {
