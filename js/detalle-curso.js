@@ -300,7 +300,7 @@ if (botonInscribirse) {
     const indice = obtenerIndiceCursoPorId(idCurso);
 
     if (esCuentaEmpresa(sesion)) {
-      window.location.href = './form-empresas.html';
+      window.location.href = './form-empresas.html?id=';
       return;
     }
 
@@ -318,7 +318,7 @@ document.addEventListener('click', function (e) {
   const indice = obtenerIndiceCursoPorId(idCurso);
 
   if (esCuentaEmpresa(sesion)) {
-    window.location.href = './form-empresas.html';
+    window.location.href = './form-empresas.html?id=';
     return;
   }
 
