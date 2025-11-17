@@ -71,6 +71,7 @@
       </article>
     </header>
     <main>
+      <div class="form-contacto-grid">
       <!-- Inicio del formulario -->
       <section class="form">
         <h2 class="form__h2">Contacto</h2>
@@ -81,8 +82,9 @@
             id="name"
             required
             placeholder="Ingresa tu nombre"
-            class="form__input-name"
+            class="form__input-name icono-usuario"
             autofocus
+            autocomplete="off"
           />
           <input
             type="text"
@@ -90,7 +92,8 @@
             id="Surname"
             required
             placeholder="Ingresa tu apellido"
-            class="form__input-surname"
+            class="form__input-surname icono-usuario"
+            autocomplete="off"
           />
           <input
             type="email"
@@ -98,20 +101,23 @@
             id="email"
             required
             placeholder="Ingresa tu email ej. usuario@email.com"
-            class="form__input-email"
+            class="form__input-email icono-mail"
+            autocomplete="off"
           />
           <input
             type="tel"
             name="telephone"
             id="telephone"
             placeholder="Ingresa tu numero de telefono"
-            class="form__input-tel"
+            class="form__input-tel icono-tel"
+            autocomplete="off"
           />
           <textarea
             name="textarea"
             id="textarea"
             placeholder="Ingresa tu consulta (opcional)"
             class="form__textarea"
+            autocomplete="off"
           ></textarea>
           <button type="submit" class="form__button">Enviar</button>
         </form>
@@ -133,6 +139,7 @@
           Florencio Varela 1903 Buenos Aires, Argentina
         </address>
       </section>
+    </div>
       <!-- Ubicacion mapa -->
       <section class="ubicacion">
         <h2 class="ubicacion__h2">Ubicacion</h2>
