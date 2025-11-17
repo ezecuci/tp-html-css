@@ -2,7 +2,7 @@
   color: white;
   position: fixed;
   top: 4rem;
-  left: 0;
+  left: auto;
   right: 0;
   bottom: 0;
   height: calc(100vh - 4rem);
@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   gap: .5rem;
   padding: 1rem;
-  width: 100%;
+  width: min(30rem, 92%);
   overflow-y: auto;
   border-radius: 0;
   font-size: 1.3rem;
@@ -294,4 +294,13 @@
   color: #ff6666;
   font-size: 0.95rem;
   font-weight: 500;
+}
+
+@media (max-width: 56.25rem) {
+  .modal__contenedor {
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+  }
 }
