@@ -1,3 +1,9 @@
+import { Validador } from './Validador.js';
+import { Modal } from './modal.js';
+
+const validador = new Validador();
+const modal = new Modal();
+
 const datosSesion = JSON.parse(sessionStorage.getItem('sesionActiva'));
 const contenedorLogin = document.querySelector('.login');
 
@@ -60,6 +66,7 @@ function actualizarPreviewMonto() {
   vistaMonto.textContent =
     valor === "" ? "$$$" : "$" + valor;
 }
+
 
 inputMonto.addEventListener("input", actualizarPreviewMonto);
 radiosColor.forEach((radio) => {
@@ -136,8 +143,25 @@ function getFondo() {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const monto = Number(inputMonto.value);
-  const nombre = (inputNombre.value || '').trim() || 'Destinatario';
+
+  let nombre = inputNombre.value.trim();
+  if (!validador.esNombrePropioValido(nombre.toUpperCase())) {
+      modal.mostrarMensaje("El nombre no es válido", () => {
+          inputNombre.focus();
+      });
+      return;
+  }
+
+  let monto = inputMonto.value.trim();
+  if (!validador.esMontoValido(monto)) {
+      modal.mostrarMensaje("El monto no es válido", () => {
+          inputMonto.focus();
+      });
+      return;
+  }
+
+  monto = Number(inputMonto.value);
+  nombre = (inputNombre.value || '').trim() || 'Destinatario';
   const imagen = getFondo();
 
   const gift = {

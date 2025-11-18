@@ -56,4 +56,13 @@ export class Validador {
         const formatoMensaje = /^[\wÀ-ÿ\s.,!?()'"-]{10,500}$/;
         return formatoMensaje.test(mensaje);
     }
+
+    esMontoValido(monto) {
+   
+        const formato = /^\d+(\.\d{1,2})?$/;
+        if (!formato.test(monto)) return false;
+
+        const numero = parseFloat(monto);
+        return numero >= 5 && numero <= 500;
+    }
 }

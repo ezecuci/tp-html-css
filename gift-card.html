@@ -78,7 +78,7 @@
             </div>
 
             <form action="./carrito.html" method="get" class="datos_giftcard">
-                <input type="text" name="name" id="name" required placeholder="Nombre del destinatario "
+                <input type="text" name="name" id="name"  placeholder="Nombre del destinatario "
                     class="gift_card_nombre" />
                 <label for="colores" class="titulo-seccion">Color</label>
                 <div class="colores">
@@ -105,7 +105,7 @@
                 </div>
                 <section class="seccion-monto">
                 <label for="monto" class="titulo-seccion">Monto:</label>
-                <input type="number" name="monto" id="monto" min="1" placeholder="$$$" required/>
+                <input type="text" name="monto" id="monto" min="1" placeholder="$$$" />
                 </section>
                 <label class="titulo-seccion">Ubicación</label>
                 <div class="ubicaciones ubicaciones--mini">
@@ -196,9 +196,9 @@
             © Programación Web I - Tecnicatura en Desarrollo Web - UNLaM - 2025
         </p>
     </footer>
-    <script src="./js/gift-card.js"></script>
-    <script src="./js/cursosData.js"></script>
-    <script src="./js/buscador.js"></script>
+    <script type="module" src="./js/gift-card.js"></script>
+    <script type="module" src="./js/cursosData.js"></script>
+    <script type="module" src="./js/buscador.js"></script>
     <script type="module">import { CarritoModal } from './js/carritoModal.js'; window.carrito = window.carrito || new CarritoModal();</script>
 </body>
 </html>
