@@ -296,8 +296,17 @@
   font-weight: 500;
 }
 
-@media (max-width: 56.25rem) {
+
+@media screen and (max-width: 28.125rem) {
   .modal__contenedor {
+    min-width: 100vw;
+  }
+}
+
+@media screen and (max-width: 62.5rem) {
+  .modal__contenedor {
+    top: 6rem;
+    height: calc(100vh - 6rem);
     left: 0;
     right: 0;
     width: 100%;
