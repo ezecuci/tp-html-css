@@ -95,6 +95,34 @@ function cargarCursoSeleccionado() {
   }
 }
 
+function obtenerPrecioNumero(valor) {
+  var texto = '';
+
+  if (typeof valor === 'string') {
+    texto = valor;
+  } else {
+    texto = String(valor);
+  }
+
+  var limpio = '';
+  for (var i = 0; i < texto.length; i++) {
+    var c = texto[i];
+    if ((c >= '0' && c <= '9') || c === '.') {
+      limpio += c;
+    }
+  }
+
+  if (limpio === '') {
+    return 0;
+  }
+
+  var n = parseFloat(limpio);
+  if (isNaN(n)) {
+    return 0;
+  }
+  return n;
+}
+
 var contadorCursantes = 1;
 
 function agregarCursante() {
@@ -144,6 +172,72 @@ function eliminarCursante() {
   contadorCursantes--;
 }
 
+function agregarCursoAlCarrito(evento) {
+  if (evento && evento.preventDefault) {
+    evento.preventDefault();
+  }
+
+  var cantidad = contadorCursantes;
+  if (cantidad < 1) {
+    cantidad = 1;
+  }
+
+  var tituloCurso = '';
+  var imagenCurso = '';
+  var precioUnitario = 0;
+
+  if (typeof CURSOS !== 'undefined') {
+    var idCurso = obtenerIdCursoDesdeURL();
+    if (idCurso && CURSOS[idCurso]) {
+      var curso = CURSOS[idCurso];
+      tituloCurso = curso.titulo;
+      imagenCurso = curso.imagen;
+      precioUnitario = obtenerPrecioNumero(curso.valor);
+    }
+  }
+
+  if (!tituloCurso || !imagenCurso || precioUnitario === 0) {
+    var cont = document.getElementById('cursoSeleccionado');
+    if (cont) {
+      var img = cont.querySelector('.curso-imagen');
+      var titulo = cont.querySelector('.curso-titulo');
+      var precio = cont.querySelector('.curso-precio');
+
+      if (img) {
+        imagenCurso = img.src;
+      }
+      if (titulo) {
+        tituloCurso = titulo.textContent || '';
+      }
+      if (precio) {
+        precioUnitario = obtenerPrecioNumero(precio.textContent || '');
+      }
+    }
+  }
+
+  if (!tituloCurso || precioUnitario === 0) {
+    alert('No se pudo obtener la información del curso.');
+    return;
+  }
+
+  var precioTotal = precioUnitario * cantidad;
+
+  if (!window.carrito || typeof window.carrito.agregarGiftcard !== 'function') {
+    alert('El carrito no está inicializado en esta página.');
+    return;
+  }
+
+  var itemEmpresa = {
+    tipo: 'giftcard',
+    imagen: imagenCurso,
+    descripcion: tituloCurso,
+    duracion: 'Empleados: ' + cantidad,
+    precioNumero: precioTotal,
+    precioTexto: '$' + precioTotal
+  };
+
+  window.carrito.agregarGiftcard(itemEmpresa);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   cargarCursoSeleccionado();
@@ -156,5 +250,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (btnMenos) {
     btnMenos.addEventListener('click', eliminarCursante);
+  }
+
+  var form = document.querySelector('.empleados__inscripcion-formulario');
+  if (form) {
+    form.addEventListener('submit', agregarCursoAlCarrito);
   }
 });
