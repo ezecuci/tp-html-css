@@ -86,6 +86,21 @@ marcarAdquiridosEnListado(contenedorCursos);
 contenedorCursos.addEventListener('click', (e) => {
   const btn = e.target.closest('.btn--agregar');
   if (!btn || !contenedorCursos.contains(btn)) return;
+
+  if (datosSesion && datosSesion.tipo === 'empresa') {
+    const card = btn.closest('li.card');
+    if (!card) return;
+
+    const link = card.querySelector('a[href*="detalle-curso.html"]');
+    if (!link) return;
+
+    const idCurso = extraerIdDesdeHref(link.href);
+    if (!idCurso) return;
+
+    window.location.href = './form-empresas.html?id=' + encodeURIComponent(idCurso);
+    return;
+  }
+
   const idx = btn.getAttribute('data-index');
   if (idx == null || idx === '') return;
   carritoModal.agregarCurso(idx);
