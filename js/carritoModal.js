@@ -169,8 +169,8 @@ export class CarritoModal {
     }
         
         formatearPrecio(n) {
-              return `$${n} USD`;
-            }
+          return `$${Number(n).toFixed(2)} USD`;
+        }
 
         renderizarModal() {
             this.renderizarCursos();
