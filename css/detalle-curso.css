@@ -401,3 +401,13 @@ body {
       width: 100%;
     }
   }
+
+  .inscripto{
+    background-color: #38d36a;
+  }
+
+  .inscripto:hover{
+    transform: scale(1.00);
+    font-weight: 600;
+    box-shadow: 0 0 1rem transparent;
+  }

@@ -46,18 +46,23 @@ function obtenerCursosComprados() {
 }
 
 function marcarEstadoInscripcionDetalle(idCursoActual) {
+  const btnPrincipal = document.querySelector('.btn-primario');
+  if (!btnPrincipal) return;
+
+  // Siempre reseteo primero el botón
+  btnPrincipal.classList.remove('inscripto');
+  btnPrincipal.textContent = 'Inscribirse';
+  btnPrincipal.disabled = false;
+
   const comprados = obtenerCursosComprados();
   if (!idCursoActual || !comprados.has(idCursoActual)) return;
 
-  const btnPrincipal = document.querySelector('.btn-primario');
-
-  if (btnPrincipal) {
-    const adquirido = document.createElement('span');
-    adquirido.textContent = 'INSCRIPTO';
-    adquirido.className = 'inscripto';
-    btnPrincipal.replaceWith(adquirido);
-  }  
+  // Si el curso actual está comprado, lo marco como inscripto
+  btnPrincipal.classList.add('inscripto');
+  btnPrincipal.textContent = 'INSCRIPTO';
+  btnPrincipal.disabled = true;
 }
+
 var cursoActualId = null;
 
 function obtenerIdDeURL() {
@@ -248,6 +253,8 @@ function cargarCurso(id) {
   mostrarDocente(curso);
   mostrarModulos(curso);
   mostrarRecomendados(id);
+  marcarEstadoInscripcionDetalle(id);
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -327,8 +334,6 @@ document.addEventListener('click', function (e) {
   agregarAlCarrito(indice);
 });
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
   if (typeof CURSOS === 'undefined') {
     console.error('Primero cargá cursosData.js');
@@ -336,7 +341,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   var id = obtenerIdDeURL();
-
   cargarCurso(id);
-  marcarEstadoInscripcionDetalle(id);   
 });

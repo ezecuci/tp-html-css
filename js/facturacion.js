@@ -92,11 +92,14 @@ function calcularTotal() {
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
 
-    if (typeof item === 'number') {
-      const curso = cursos[item];
-      if (curso && typeof curso.precioNumero === 'number') {
-        subtotal += curso.precioNumero;
-        cantidad++;
+    if (typeof item === 'number' || typeof item === 'string') {
+      const idx = parseInt(item, 10);
+      if (!isNaN(idx)) {
+        const curso = cursos[idx];
+        if (curso && typeof curso.precioNumero === 'number') {
+          subtotal += curso.precioNumero;
+          cantidad++;
+        }
       }
     }
 
@@ -124,8 +127,14 @@ function calcularTotal() {
   let total = subtotal - descuento;
   if (total < 0) total = 0;
 
-  return { cantidad: cantidad, subtotal: subtotal, descuento: descuento, total: total };
+  return {
+    cantidad:   cantidad,
+    subtotal:   subtotal,
+    descuento:  descuento,
+    total:      total
+  };
 }
+
 
 
 function actualizarBotonTotal() {
