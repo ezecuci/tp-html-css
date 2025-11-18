@@ -84,7 +84,6 @@ function cargarCursoSeleccionado() {
 
   var precio = cont.querySelector('.curso-precio');
   if (precio) {
-    // valor viene tipo "$25 USD"
     precio.textContent = curso.valor + ' por empleado';
   }
 
@@ -96,84 +95,66 @@ function cargarCursoSeleccionado() {
   }
 }
 
+var contadorCursantes = 1;
 
-function renumerar() {
+function agregarCursante() {
+  var form = document.querySelector('.empleados__inscripcion-formulario');
+  if (!form) return;
+
+  contadorCursantes++;
+  var numero = contadorCursantes;
+
+  var fs = document.createElement('fieldset');
+  fs.className = 'empleados__inscripcion-formulario-campos';
+
+  var html = '';
+  html += '<legend>Cursante ' + numero + '</legend>';
+
+  html += '<label for="nombre' + numero + '">nombre</label>';
+  html += '<input type="text" id="nombre' + numero + '" name="nombre' + numero + '" class="icono-usuario" autocomplete="off" required placeholder="Nombre">';
+
+  html += '<label for="apellido' + numero + '">apellido</label>';
+  html += '<input type="text" id="apellido' + numero + '" name="apellido' + numero + '" class="icono-usuario" autocomplete="off" required placeholder="Apellido">';
+
+  html += '<label for="email' + numero + '">email</label>';
+  html += '<input type="email" id="email' + numero + '" name="email' + numero + '" class="icono-mail" autocomplete="off" required placeholder="Email">';
+
+  html += '<label for="tel' + numero + '">telefono</label>';
+  html += '<input type="tel" id="tel' + numero + '" name="tel' + numero + '" class="icono-tel" autocomplete="off" required placeholder="Teléfono">';
+
+
+
+  fs.innerHTML = html;
+
+  var submit = form.querySelector('button[type="submit"]');
+  form.insertBefore(fs, submit);
+}
+
+function eliminarCursante() {
   var form = document.querySelector('.empleados__inscripcion-formulario');
   if (!form) return;
 
   var sets = form.querySelectorAll('fieldset');
-
-  for (var i = 0; i < sets.length; i++) {
-    var numero = i + 1;
-    var fs = sets[i];
-
-    var titulo = fs.querySelector('legend');
-    if (titulo) {
-      titulo.textContent = 'Cursante ' + numero;
-    }
-
-    var inputs = fs.querySelectorAll('input');
-    for (var j = 0; j < inputs.length; j++) {
-      var input = inputs[j];
-      if (!input.name) continue;
-
-      var base = input.name.replace(/[0-9]/g, '');
-      input.name = base + numero;
-      input.id = base + numero;
-    }
+  if (sets.length <= 1) {
+    return;
   }
+
+  var ultimo = sets[sets.length - 1];
+  form.removeChild(ultimo);
+  contadorCursantes--;
 }
 
-function vincularBotones(fs) {
-  if (!fs) return;
 
-  var btnMas = fs.querySelector('button[aria-label="Agregar cursante"]');
-  var btnMenos = fs.querySelector('button[aria-label="Eliminar cursante"]');
-  var form = document.querySelector('.empleados__inscripcion-formulario');
-  if (!form) return;
-
-  if (btnMas) {
-    btnMas.onclick = function () {
-      var primero = form.querySelector('fieldset');
-      if (!primero) return;
-
-      var nuevo = primero.cloneNode(true);
-
-      var ins = nuevo.querySelectorAll('input');
-      for (var i = 0; i < ins.length; i++) {
-        ins[i].value = '';
-      }
-
-      var submit = form.querySelector('button[type="submit"]');
-      form.insertBefore(nuevo, submit);
-
-      renumerar();
-      vincularBotones(nuevo);
-    };
-  }
-
-  if (btnMenos) {
-    btnMenos.onclick = function () {
-      var todos = form.querySelectorAll('fieldset');
-      if (todos.length <= 1) {
-        return;
-      }
-
-      fs.remove();
-      renumerar();
-    };
-  }
-}
-
-(function init() {
-  // Primero muestro el curso en la card
+document.addEventListener('DOMContentLoaded', function () {
   cargarCursoSeleccionado();
 
-  // Después engancho + y -
-  var fs0 = document.querySelector('.empleados__inscripcion-formulario fieldset');
-  if (fs0) {
-    vincularBotones(fs0);
-  }
+  var btnMas = document.getElementById('btn-mas');
+  var btnMenos = document.getElementById('btn-menos');
 
-  renumerar();
-})();
+  if (btnMas) {
+    btnMas.addEventListener('click', agregarCursante);
+  }
+  if (btnMenos) {
+    btnMenos.addEventListener('click', eliminarCursante);
+  }
+});
