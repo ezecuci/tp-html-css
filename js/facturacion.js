@@ -82,25 +82,51 @@ function construirListaCursosMin() {
 }
 
 function calcularTotal() {
-  const indices = JSON.parse(sessionStorage.getItem('carrito') || '[]');
-  const codigo  = sessionStorage.getItem('carrito_codigo') || null;
-  const cursos  = construirListaCursosMin();
+  const items  = JSON.parse(sessionStorage.getItem('carrito') || '[]');
+  const codigo = sessionStorage.getItem('carrito_codigo') || null;
+  const cursos = construirListaCursosMin();
 
   let subtotal = 0;
-  for (let i = 0; i < indices.length; i++) {
-    const idx = indices[i];
-    const curso = cursos[idx];
-    if (curso && typeof curso.precioNumero === 'number') subtotal += curso.precioNumero;
+  let cantidad = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+
+    if (typeof item === 'number') {
+      const curso = cursos[item];
+      if (curso && typeof curso.precioNumero === 'number') {
+        subtotal += curso.precioNumero;
+        cantidad++;
+      }
+    }
+
+    else if (item && typeof item === 'object') {
+      let precio = 0;
+
+      if (typeof item.precioNumero === 'number') {
+        precio = item.precioNumero;
+      } else if (typeof item.precioTotal === 'number') {
+        precio = item.precioTotal;
+      }
+
+      if (precio > 0) {
+        subtotal += precio;
+        cantidad++;
+      }
+    }
   }
 
   let descuento = 0;
-  if (indices.length > 0 && codigo === 'checode20') descuento = subtotal * 0.2;
+  if (cantidad > 0 && codigo === 'checode20') {
+    descuento = subtotal * 0.2;
+  }
 
   let total = subtotal - descuento;
   if (total < 0) total = 0;
 
-  return { cantidad: indices.length, subtotal, descuento, total };
+  return { cantidad: cantidad, subtotal: subtotal, descuento: descuento, total: total };
 }
+
 
 function actualizarBotonTotal() {
   const tot = calcularTotal();
